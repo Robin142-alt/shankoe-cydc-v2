@@ -1,21 +1,25 @@
 /* ==========================================================================
    WHAT WE DO COMPONENT STYLES
-   Compact 5-Card Row / Smooth Horizontal Swipe Carousel on Mobile
+   Five Pillars of Holistic Care
+   Staggered Scroll Reveal, Smooth Hover Lift, Scale & Shadow Enhancements
    ========================================================================== */
 
 .what-we-do-section {
-  padding: 3.25rem 0 3.5rem;
+  padding: 3.5rem 0 3.75rem;
   background-color: var(--sand-50);
   position: relative;
+  overflow: hidden;
 }
 
 .what-we-do-container {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
-/* Header */
+/* ==========================================================================
+   HEADER SCROLL REVEAL
+   ========================================================================== */
 .what-we-do-header {
   text-align: center;
   max-width: 600px;
@@ -23,7 +27,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.4rem;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.what-we-do-section.is-visible .what-we-do-header {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .what-header-badge {
@@ -46,14 +60,16 @@
 
 .what-we-do-title {
   font-family: var(--font-heading);
-  font-size: clamp(1.65rem, 3vw, 2.35rem);
+  font-size: clamp(1.65rem, 3.2vw, 2.35rem);
   font-weight: 750;
   color: var(--navy-950);
   line-height: 1.2;
   margin: 0;
 }
 
-/* Desktop: 1 Clean Row Grid (5 equal columns) */
+/* ==========================================================================
+   CARDS CONTAINER & STAGGERED SCROLL REVEAL
+   ========================================================================== */
 .what-cards-wrapper {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -61,7 +77,6 @@
   width: 100%;
 }
 
-/* Compact Card */
 .what-card {
   background: #ffffff;
   border: 1px solid rgba(12, 35, 64, 0.08);
@@ -70,21 +85,63 @@
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  transition: transform var(--transition-normal), 
-              box-shadow var(--transition-normal), 
-              border-color var(--transition-normal);
   box-shadow: 0 4px 12px rgba(12, 35, 64, 0.04);
+
+  /* Scroll Reveal Initial State */
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+  transition-delay: var(--stagger, 0ms), var(--stagger, 0ms), 0ms, 0ms;
+  will-change: opacity, transform, box-shadow;
 }
 
-.what-card:hover,
-.what-card:focus-visible {
-  transform: translateY(-5px);
-  border-color: var(--gold-400);
-  box-shadow: 0 12px 24px -4px rgba(12, 35, 64, 0.12);
-  outline: none;
+/* Triggered Staggered Sequence */
+.what-we-do-section.is-visible .what-card {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Photo Thumbnail */
+/* ==========================================================================
+   SMOOTH HOVER STATE: LIFT, SUBTLE SCALE, ENHANCED SHADOW & IMAGE ZOOM
+   ========================================================================== */
+@media (hover: hover) {
+  .what-we-do-section.is-visible .what-card:hover,
+  .what-card:focus-visible {
+    transform: translateY(-6px) scale(1.02);
+    border-color: var(--gold-400);
+    box-shadow: 0 16px 32px -6px rgba(12, 35, 64, 0.14), 0 0 0 1px rgba(245, 158, 11, 0.25);
+    outline: none;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.25s ease;
+    transition-delay: 0ms;
+  }
+
+  .what-card:hover .what-card-img {
+    transform: scale(1.07);
+  }
+
+  .what-card:hover .what-card-icon-badge {
+    background: var(--gold-500);
+    color: var(--navy-950);
+    transform: scale(1.06);
+  }
+
+  .what-card:hover .what-card-title {
+    color: var(--blue-700);
+  }
+
+  .what-card:hover .what-card-arrow-wrap {
+    background-color: var(--gold-500);
+    color: var(--navy-950);
+    transform: translateX(3px);
+  }
+}
+
+/* Photo Thumbnail & Gentle Zoom Effect */
 .what-card-media {
   position: relative;
   width: 100%;
@@ -97,17 +154,15 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.what-card:hover .what-card-img {
-  transform: scale(1.08);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
 
 .what-card-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, transparent 40%, rgba(6, 17, 31, 0.55) 100%);
+  pointer-events: none;
 }
 
 .what-card-icon-badge {
@@ -125,12 +180,7 @@
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: background var(--transition-fast), color var(--transition-fast);
-}
-
-.what-card:hover .what-card-icon-badge {
-  background: var(--gold-500);
-  color: var(--navy-950);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Card Body */
@@ -151,10 +201,6 @@
   line-height: 1.25;
   margin: 0;
   transition: color var(--transition-fast);
-}
-
-.what-card:hover .what-card-title {
-  color: var(--blue-700);
 }
 
 .what-card-line {
@@ -184,13 +230,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all var(--transition-fast);
-}
-
-.what-card:hover .what-card-arrow-wrap {
-  background-color: var(--gold-500);
-  color: var(--navy-950);
-  transform: translateX(3px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color var(--transition-fast),
+              color var(--transition-fast);
 }
 
 .what-card-arrow {
@@ -208,11 +250,11 @@
 }
 
 /* ==========================================================================
-   MOBILE & TABLET: HORIZONTAL SWIPE CAROUSEL (NO VERTICAL STACKING)
+   MOBILE & TABLET: HORIZONTAL SWIPE CAROUSEL (RESPONSIVE & CLEAN)
    ========================================================================== */
 @media (max-width: 992px) {
   .what-we-do-section {
-    padding: 2.5rem 0 2.75rem;
+    padding: 2.75rem 0 3rem;
   }
 
   .what-cards-wrapper {
@@ -254,5 +296,17 @@
 
   .what-card-media {
     height: 115px;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .what-we-do-header,
+  .what-card,
+  .what-card-img,
+  .what-card-arrow-wrap {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }

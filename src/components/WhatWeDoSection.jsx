@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { 
   GraduationCap, 
   ChefHat, 
@@ -48,10 +48,39 @@ const WORK_AREAS = [
 ];
 
 export default function WhatWeDoSection({ onNavigate }) {
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    // Trigger reveal if already in view or upon scrolling into view
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="what-we-do-section" id="what-we-do">
+    <section 
+      className={`what-we-do-section ${isVisible ? 'is-visible' : ''}`} 
+      id="what-we-do"
+      ref={sectionRef}
+    >
       <div className="container what-we-do-container">
-        {/* Compact Section Header */}
+        {/* Compact Section Header with Scroll Reveal */}
         <div className="what-we-do-header">
           <div className="what-header-badge">
             <span className="what-badge-dot" />
@@ -62,12 +91,13 @@ export default function WhatWeDoSection({ onNavigate }) {
           </h2>
         </div>
 
-        {/* 5 Compact Cards: Desktop Clean 1-Row Grid / Mobile Smooth Swipe Carousel */}
+        {/* 5 Compact Cards: Staggered Scroll Reveal & Micro-Interactions */}
         <div className="what-cards-wrapper" role="region" aria-label="What We Do carousel">
           {WORK_AREAS.map((area, idx) => (
             <article 
               key={area.id}
               className="what-card"
+              style={{ '--stagger': `${idx * 90}ms` }}
               onClick={() => onNavigate('programs')}
               tabIndex={0}
               role="button"
@@ -79,7 +109,7 @@ export default function WhatWeDoSection({ onNavigate }) {
                 }
               }}
             >
-              {/* Genuine Shankoe Photo with subtle zoom on card hover */}
+              {/* Genuine Shankoe Photo with Gentle Hover Zoom */}
               <div className="what-card-media">
                 <img 
                   src={area.photo} 
