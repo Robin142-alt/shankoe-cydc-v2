@@ -1,0 +1,62 @@
+/* ==========================================================================
+   FINAL CTA COMPONENT STYLES
+   ========================================================================== */
+
+.final-cta-section {
+  background-color: var(--bg-surface);
+  padding-bottom: clamp(4.5rem, 8vw, 7rem);
+}
+
+.final-cta-card {
+  position: relative;
+  background-color: var(--navy-900);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  padding: clamp(3rem, 7vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+  text-align: center;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.final-cta-bg-glow {
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, rgba(12, 35, 64, 0) 70%);
+  pointer-events: none;
+}
+
+.final-cta-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.final-cta-title {
+  color: #ffffff;
+  font-size: clamp(2.2rem, 4.5vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.final-cta-subtext {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  line-height: 1.65;
+}
+
+.final-cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 0.75rem;
+}

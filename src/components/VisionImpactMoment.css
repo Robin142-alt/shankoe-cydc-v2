@@ -1,0 +1,97 @@
+/* ==========================================================================
+   VISION IMPACT MOMENT COMPONENT STYLES
+   ========================================================================== */
+
+.vision-moment-section {
+  background: radial-gradient(circle at 50% 30%, #13335c 0%, #0c2340 70%, #06111f 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: clamp(5rem, 9vw, 7.5rem);
+  padding-bottom: clamp(5rem, 9vw, 7.5rem);
+}
+
+.vision-icon-wrap {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.75rem auto;
+}
+
+.vision-glow {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: var(--gold-glow);
+  filter: blur(14px);
+}
+
+.vision-icon {
+  color: var(--gold-500);
+  position: relative;
+  z-index: 1;
+}
+
+.vision-badge-pill {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--gold-400);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.vision-quote {
+  font-family: var(--font-heading);
+  font-size: clamp(1.85rem, 4vw, 2.85rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: #ffffff;
+  letter-spacing: -0.015em;
+  margin-bottom: 2.5rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.vision-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold-500), transparent);
+  margin: 0 auto 2.5rem auto;
+  border-radius: var(--radius-full);
+}
+
+.mission-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-xl);
+  padding: 1.85rem 2.25rem;
+  max-width: 720px;
+  margin: 0 auto;
+  backdrop-filter: blur(8px);
+}
+
+.mission-label {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #93c5fd;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.mission-text {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: #e2e8f0;
+  font-style: italic;
+  margin: 0;
+}

@@ -1,0 +1,25 @@
+/* ==========================================================================
+   APP CONTAINER & ROUTE TRANSITION STYLES
+   ========================================================================== */
+
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-primary);
+  position: relative;
+}
+
+.app-root.app-loading {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.app-root.app-loaded {
+  opacity: 1;
+  transition: opacity 0.4s ease-out;
+}
+
+.main-content-area {
+  flex: 1;
+}

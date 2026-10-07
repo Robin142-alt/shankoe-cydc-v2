@@ -1,0 +1,195 @@
+{
+  "organization": "Shankoe Methodist Child and Youth Development Centre (Shankoe CYDC)",
+  "project_code": "KE 71x",
+  "total_unique_photos": 9,
+  "total_logos": 2,
+  "assets": [
+    {
+      "filename": "shankoe-indoor-baking-skills.jpg",
+      "original_uploaded_file": "media_1791331077528.jpg",
+      "category": "Skills Training & Practical Learning",
+      "title": "Indoor Baking and Mixer Practical Session",
+      "description": "Children in white coats and aprons learning practical baking skills with an electric mixer and mixing bowl indoors.",
+      "width": 1024,
+      "height": 768,
+      "format": "JPEG",
+      "orientation": "Landscape",
+      "size_bytes": 190004,
+      "sha256": "3b91bbbf69bbc63189bbfe75151b1406f08b82631f6df20fe7038c00b4600281",
+      "paths": [
+        "/assets/photos/shankoe-indoor-baking-skills.jpg",
+        "/images/shankoe/photos/shankoe-indoor-baking-skills.jpg"
+      ]
+    },
+    {
+      "filename": "shankoe-playground-slide.jpg",
+      "original_uploaded_file": "media_1791331077621.jpg",
+      "category": "Recreation & Play",
+      "title": "Children Sliding on Playground Slide",
+      "description": "Children in Shankoe tracksuits having fun sliding together on an outdoor metal playground slide on the grass field.",
+      "width": 1024,
+      "height": 768,
+      "format": "JPEG",
+      "orientation": "Landscape",
+      "size_bytes": 335611,
+      "sha256": "818f6be1a9e9de8c126b08177269018bee640548e7cdf0c95aad4ded72fdbba3",
+      "paths": [
+        "/assets/photos/shankoe-playground-slide.jpg",
+        "/images/shankoe/photos/shankoe-playground-slide.jpg"
+      ]
+    },
+    {
+      "filename": "shankoe-nutrition-fruit.jpg",
+      "original_uploaded_file": "media_1791331077685.jpg",
+      "category": "Nutrition & Wellbeing",
+      "title": "Students with Fresh Citrus Fruit",
+      "description": "Six students seated at wooden desks outdoors holding fresh yellow citrus fruit (oranges/lemons).",
+      "width": 1024,
+      "height": 768,
+      "format": "JPEG",
+      "orientation": "Landscape",
+      "size_bytes": 283491,
+      "sha256": "6b8b34ee499e76241911eaa3e1597fa5103496755c220fb59293fe85fe640d00",
+      "paths": [
+        "/assets/photos/shankoe-nutrition-fruit.jpg",
+        "/images/shankoe/photos/shankoe-nutrition-fruit.jpg"
+      ]
+    },
+    {
+      "filename": "shankoe-outdoor-baking-measuring.jpg",
+      "original_uploaded_file": "media_1791331077731.jpg",
+      "category": "Skills Training & Practical Learning",
+      "title": "Outdoor Baking Recipe Measurement",
+      "description": "Children gathered around a wooden table outdoors measuring baking ingredients into bowls with aprons.",
+      "width": 768,
+      "height": 1024,
+      "format": "JPEG",
+      "orientation": "Portrait",
+      "size_bytes": 295981,
+      "sha256": "38b9ac032ff7c03329c42ef9f377b71a8be1e9a10395118f5c663e8867d18afc",
+      "paths": [
+        "/assets/photos/shankoe-outdoor-baking-measuring.jpg",
+        "/images/shankoe/photos/shankoe-outdoor-baking-measuring.jpg"
+      ]
+    },
+    {
+      "filename": "shankoe-fresh-muffins-presentation.jpg",
+      "original_uploaded_file": "media_1791331128299.jpg",
+      "category": "Skills Training & Practical Learning",
+      "title": "Children Displaying Freshly Baked Muffins",
+      "description": "Children in aprons proudly presenting plates filled with freshly baked golden muffins and cupcakes indoors.",
+      "width": 1024,
+      "height": 768,
+      "format": "JPEG",
+      "orientation": "Landscape",
+      "size_bytes": 162147,
+      "sha256": "74a6c2729a133cd7caf3c6df25ed44f8178824ce44a973dc221cfa9b0885fb7f",
+      "paths": [
+        "/assets/photos/shankoe-fresh-muffins-presentation.jpg",
+        "/images/shankoe/photos/shankoe-fresh-muffins-presentation.jpg"
+      ]
+    },
+    {
+      "filename": "shankoe-community-church-group.jpg",
+      "original_uploaded_file": "media_1791331128330.jpg",
+      "category": "Community & Spiritual Growth",
+      "title": "Community Youth and Leaders at Shankoe Church",
+      "description": "Youth and community leaders gathered outside Shankoe Methodist Church with a leader in a patterned suit holding a Bible/notebook.",
+      "width": 1024,
+      "height": 768,
+      "format": "JPEG",
+      "orientation": "Landscape",
+      "size_bytes": 223619,
+      "sha256": "a42795ad3cecf1fc3616b858c327b4f3af00e64833c28a9d01c764f5783c49a3",
+      "paths": [
+        "/assets/photos/shankoe-community-church-group.jpg",
+        "/images/shankoe/photos/shankoe-community-church-group.jpg"
+      ]
+    },
+    {
+      "filename": "shankoe-children-meal-fellowship.jpg",
+      "original_uploaded_file": "media_1791331128367.jpg",
+      "category": "Nutrition & Fellowship",
+      "title": "Children Enjoying a Hot Balanced Meal",
+      "description": "Children in tracksuits sitting on the grass enjoying a shared nutritious hot meal on plates.",
+      "width": 1024,
+      "height": 768,
+      "format": "JPEG",
+      "orientation": "Landscape",
+      "size_bytes": 301715,
+      "sha256": "eb9175d7192454d60bd803011bb1039a2c7f86d0f8c9ecc749b49bdc93803817",
+      "paths": [
+        "/assets/photos/shankoe-children-meal-fellowship.jpg",
+        "/images/shankoe/photos/shankoe-children-meal-fellowship.jpg"
+      ]
+    },
+    {
+      "filename": "shankoe-outdoor-baking-mixing.jpg",
+      "original_uploaded_file": "media_1791331128464.jpg",
+      "category": "Skills Training & Practical Learning",
+      "title": "Outdoor Baking Dough Preparation",
+      "description": "Young students around an outdoor wooden table participating in dough and batter mixing with flour bowls and sieve.",
+      "width": 768,
+      "height": 1024,
+      "format": "JPEG",
+      "orientation": "Portrait",
+      "size_bytes": 278365,
+      "sha256": "9e933029d9f205365a40fdb1139416bbb14029a4af171109ed85612c4f70607a",
+      "paths": [
+        "/assets/photos/shankoe-outdoor-baking-mixing.jpg",
+        "/images/shankoe/photos/shankoe-outdoor-baking-mixing.jpg"
+      ]
+    },
+    {
+      "filename": "shankoe-group-meal-lawn.jpg",
+      "original_uploaded_file": "media_1791331128513.jpg",
+      "category": "Nutrition & Fellowship",
+      "title": "Group Meal Circle on Shankoe Lawn",
+      "description": "Children sitting in a circle on the green lawn enjoying food; student's red t-shirt displays 'SHANKOE METHODI... KE 71...'.",
+      "width": 1024,
+      "height": 768,
+      "format": "JPEG",
+      "orientation": "Landscape",
+      "size_bytes": 300186,
+      "sha256": "baa6bec867b7148e14695db0989b537b8e75e1b72f81e333caaadec59735d400",
+      "paths": [
+        "/assets/photos/shankoe-group-meal-lawn.jpg",
+        "/images/shankoe/photos/shankoe-group-meal-lawn.jpg"
+      ]
+    },
+    {
+      "filename": "shankoe-cydc-logo.jpg",
+      "original_uploaded_file": "media_1791331390942.jpg",
+      "category": "Brand Identity",
+      "title": "Official Shankoe CYDC / Methodist Church Kenya Logo",
+      "description": "Official Methodist Church in Kenya blue seashell emblem with Cross and 'M KENYA' as worn on Shankoe CYDC uniforms.",
+      "width": 235,
+      "height": 234,
+      "format": "JPEG",
+      "orientation": "Square",
+      "size_bytes": 11311,
+      "sha256": "3203c53897e9d33b28fdae899b826b543ae284a5165f0af29f837c0324aac78f",
+      "paths": [
+        "/assets/logo/shankoe-cydc-logo.jpg",
+        "/images/shankoe/logo/shankoe-cydc-logo.jpg"
+      ]
+    },
+    {
+      "filename": "shankoe-cydc-logo-transparent.png",
+      "original_uploaded_file": "shankoe-logo-clean.png",
+      "category": "Brand Identity",
+      "title": "Official Shankoe CYDC Logo (Transparent PNG)",
+      "description": "High-clarity transparent background PNG version of the official emblem for seamless header/nav overlay.",
+      "width": 235,
+      "height": 234,
+      "format": "PNG",
+      "orientation": "Square",
+      "size_bytes": 81998,
+      "sha256": "98cc601a1673849e49d94acca42b7e43735ecbd1915a7c206025512db1af875f",
+      "paths": [
+        "/assets/logo/shankoe-cydc-logo-transparent.png",
+        "/images/shankoe/logo/shankoe-cydc-logo-transparent.png"
+      ]
+    }
+  ]
+}
