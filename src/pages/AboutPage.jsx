@@ -105,19 +105,19 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
         </div>
       </section>
 
-      {/* 2. Official Vision & Mission */}
+      {/* 2. Vision & Mission */}
       <section className="section section-subtle about-vision-mission">
         <div className="container">
           <div className="vm-grid">
             <div className="vm-card vision-card">
-              <span className="vm-badge">OFFICIAL VISION</span>
+              <span className="vm-badge">OUR VISION</span>
               <blockquote className="vm-quote">
                 “{VISION}”
               </blockquote>
             </div>
 
             <div className="vm-card mission-card">
-              <span className="vm-badge">OFFICIAL MISSION</span>
+              <span className="vm-badge">OUR MISSION</span>
               <blockquote className="vm-quote">
                 “{MISSION}”
               </blockquote>

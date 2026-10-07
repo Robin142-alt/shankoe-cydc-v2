@@ -111,14 +111,14 @@ export default function ImpactPage({ onNavigate, onPhotoClick }) {
               <div className="official-toc-title-row">
                 <FileText size={20} className="toc-doc-icon" />
                 <div>
-                  <h4 className="official-toc-title">Official Organizational Theory of Change</h4>
+                  <h4 className="official-toc-title">Organizational Theory of Change</h4>
                   <span className="official-toc-sub">Complete strategic formulation for Shankoe CYDC</span>
                 </div>
               </div>
               <button 
                 type="button" 
                 className="toc-toggle-btn"
-                aria-label={showFullToc ? 'Hide official text' : 'Show official text'}
+                aria-label={showFullToc ? 'Hide full text' : 'Show full text'}
               >
                 {showFullToc ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
               </button>
