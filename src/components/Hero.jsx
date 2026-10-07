@@ -25,8 +25,8 @@ export default function Hero({ onNavigate }) {
       {/* 1 Strong Genuine Shankoe Photo with Subtle Cinematic Ambient Movement */}
       <div className="hero-bg-media">
         <img 
-          src="/assets/photos/shankoe-playground-slide.jpg" 
-          alt="Children smiling and playing safely at Shankoe CYDC" 
+          src="/assets/photos/shankoe-children-meal-fellowship.jpg" 
+          alt="Smiling children in Shankoe CYDC uniform sharing meals together in unity" 
           className="hero-bg-img"
         />
         <div className="hero-gradient-overlay" />

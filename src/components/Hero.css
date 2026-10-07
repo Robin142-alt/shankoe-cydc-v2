@@ -1,5 +1,6 @@
 /* ==========================================================================
-   COMPACT PREMIUM HERO STYLES
+   HOMEPAGE HERO COMPONENT STYLES
+   Warm, inspiring, authentic genuine Shankoe photo with clear visibility
    ========================================================================== */
 
 .hero-section {
@@ -33,24 +34,31 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 36%;
-  filter: brightness(0.78) contrast(1.08);
+  object-position: center 32%;
+  filter: brightness(0.92) contrast(1.05) saturate(1.08);
   transform: scale(1.02);
   transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.hero-section:hover .hero-bg-img {
-  transform: scale(1.06);
+@media (min-width: 992px) {
+  .hero-bg-img {
+    object-position: 72% 38%;
+  }
 }
 
+.hero-section:hover .hero-bg-img {
+  transform: scale(1.05);
+}
+
+/* Dark blue overlay: keep the real photo clearly visible while guaranteeing crisp text readability */
 .hero-gradient-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(6, 17, 31, 0.76) 0%,
-    rgba(12, 35, 64, 0.82) 50%,
-    rgba(6, 17, 31, 0.94) 100%
+    rgba(8, 22, 44, 0.88) 0%,
+    rgba(8, 22, 44, 0.72) 46%,
+    rgba(8, 22, 44, 0.55) 100%
   );
 }
 
@@ -58,14 +66,15 @@
   .hero-gradient-overlay {
     background: linear-gradient(
       90deg,
-      rgba(6, 17, 31, 0.94) 0%,
-      rgba(12, 35, 64, 0.82) 52%,
-      rgba(12, 35, 64, 0.55) 100%
+      rgba(8, 22, 44, 0.94) 0%,
+      rgba(8, 22, 44, 0.84) 42%,
+      rgba(8, 22, 44, 0.52) 68%,
+      rgba(8, 22, 44, 0.28) 100%
     );
   }
 }
 
-/* Ambient Orbs */
+/* Subtle ambient decorative orbs */
 .hero-deco-orb {
   position: absolute;
   border-radius: 50%;
@@ -78,16 +87,16 @@
   height: 320px;
   right: -50px;
   top: 15%;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, transparent 70%);
   animation: floatSlow 8s ease-in-out infinite;
 }
 
 .hero-orb-2 {
   width: 220px;
   height: 220px;
-  left: 10%;
+  left: 8%;
   bottom: -30px;
-  background: radial-gradient(circle, rgba(30, 92, 179, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(30, 92, 179, 0.14) 0%, transparent 70%);
   animation: floatSlow 10s ease-in-out infinite reverse;
 }
 
@@ -95,7 +104,7 @@
 .hero-content-container {
   position: relative;
   z-index: 2;
-  max-width: 780px;
+  max-width: 760px;
   margin-left: 0;
   display: flex;
   flex-direction: column;
@@ -125,7 +134,7 @@
   color: #ffffff;
   line-height: 1.12;
   letter-spacing: -0.025em;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
 }
 
 .hero-gold-highlight {
@@ -144,6 +153,7 @@
   max-width: 580px;
   font-weight: 400;
   margin: 0;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
 
 /* 2 Buttons */

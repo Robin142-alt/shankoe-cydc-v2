@@ -28,7 +28,7 @@ const WORK_AREAS = [
     id: 'wellbeing',
     title: 'Health & Nutrition',
     shortLine: 'Daily balanced hot meals & physical wellness.',
-    photo: '/assets/photos/shankoe-children-meal-fellowship.jpg',
+    photo: '/assets/photos/shankoe-group-meal-lawn.jpg',
     icon: <Utensils size={18} />
   },
   {
