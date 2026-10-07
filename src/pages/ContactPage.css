@@ -101,6 +101,20 @@
   color: var(--text-secondary);
   line-height: 1.5;
   margin-bottom: 0.25rem;
+  word-break: break-all;
+}
+
+.contact-email-link {
+  color: var(--navy-900);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--gold-500);
+  transition: color var(--transition-fast);
+}
+
+.contact-email-link:hover {
+  color: var(--gold-600);
 }
 
 .info-card-meta {

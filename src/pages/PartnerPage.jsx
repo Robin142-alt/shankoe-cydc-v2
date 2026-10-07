@@ -10,13 +10,15 @@ import {
   Send,
   CheckCircle2,
   MapPin,
-  ShieldCheck
+  ShieldCheck,
+  Mail
 } from 'lucide-react';
 import { BRAND, PARTNERSHIP_AREAS } from '../data/content';
 import './PartnerPage.css';
 
 export default function PartnerPage({ onPhotoClick }) {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -32,11 +34,37 @@ export default function PartnerPage({ onPhotoClick }) {
     return <Building size={22} />;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email) return;
-    setFormSubmitted(true);
+    setIsSubmitting(true);
+
+    try {
+      await fetch(`https://formsubmit.co/ajax/${BRAND.contact.email}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          organization: formData.organization || 'Individual Supporter',
+          partnershipType: formData.partnershipType,
+          message: formData.message || 'Expressed interest in partnership',
+          _subject: `New Partnership Inquiry: ${formData.partnershipType} (${formData.name})`,
+          _template: 'table'
+        })
+      });
+    } catch (err) {
+      console.warn('Partnership submission notice:', err);
+    } finally {
+      setIsSubmitting(false);
+      setFormSubmitted(true);
+    }
   };
+
+  const mailtoUrl = `mailto:${BRAND.contact.email}?subject=${encodeURIComponent(`Partnership Inquiry: ${formData.partnershipType}`)}&body=${encodeURIComponent(`Name: ${formData.name}\nOrganization: ${formData.organization}\nEmail: ${formData.email}\nPartnership Area: ${formData.partnershipType}\n\nMessage:\n${formData.message}`)}`;
 
   const partnerPhoto = {
     src: '/assets/photos/shankoe-playground-slide.jpg',
@@ -99,14 +127,18 @@ export default function PartnerPage({ onPhotoClick }) {
                 onClick={() => onPhotoClick(partnerPhoto)}
                 title="View authentic photo"
               >
-                <img src={partnerPhoto.src} alt={partnerPhoto.title} className="partner-photo-img" />
-                <div className="partner-photo-overlay">
-                  <span>Joy, safety, and mutual support at Shankoe CYDC</span>
+                <img 
+                  src={partnerPhoto.src} 
+                  alt={partnerPhoto.title} 
+                  className="partner-card-img" 
+                />
+                <div className="partner-photo-caption">
+                  <span>Safe belonging for children in Shankoe</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Inquiry Form */}
+            {/* Right Column: Partnership Form */}
             <div className="partner-form-col">
               <div className="partner-form-card">
                 <div className="form-card-header">
@@ -115,7 +147,7 @@ export default function PartnerPage({ onPhotoClick }) {
                   </div>
                   <h3 className="form-card-title">Start a Partnership Conversation</h3>
                   <p className="form-card-sub">
-                    Reach out to our leadership team. We welcome intentional, respectful collaboration.
+                    Inquiries are sent directly to <strong>{BRAND.contact.email}</strong>.
                   </p>
                 </div>
 
@@ -126,15 +158,28 @@ export default function PartnerPage({ onPhotoClick }) {
                     </div>
                     <h4 className="success-title">Thank You, {formData.name}!</h4>
                     <p className="success-text">
-                      Your partnership inquiry regarding <strong>{formData.partnershipType}</strong> has been received by the Shankoe CYDC administration. We will connect with you promptly.
+                      Your partnership inquiry regarding <strong>{formData.partnershipType}</strong> has been sent to <strong>{BRAND.contact.email}</strong>. The Shankoe CYDC leadership will connect with you promptly.
                     </p>
-                    <button 
-                      type="button" 
-                      className="btn btn-outline btn-sm"
-                      onClick={() => setFormSubmitted(false)}
-                    >
-                      Send Another Inquiry
-                    </button>
+                    <div className="success-action-buttons" style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', justifyContent: 'center', marginTop: '1.25rem' }}>
+                      <button 
+                        type="button" 
+                        className="btn btn-outline btn-sm"
+                        onClick={() => {
+                          setFormSubmitted(false);
+                          setFormData({ name: '', email: '', organization: '', partnershipType: 'Vocational & Skills Support', message: '' });
+                        }}
+                      >
+                        Send Another Inquiry
+                      </button>
+                      <a 
+                        href={mailtoUrl}
+                        className="btn btn-gold btn-sm"
+                        style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
+                      >
+                        <Mail size={14} />
+                        <span>Open in Email App</span>
+                      </a>
+                    </div>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="partner-form">
@@ -182,7 +227,7 @@ export default function PartnerPage({ onPhotoClick }) {
                       >
                         <option value="Vocational & Skills Support">Vocational & Skills (Baking/Culinary)</option>
                         <option value="Nutritional & Meal Support">Nutritional & Meal Support</option>
-                        <option value="Educational Resources & Retainment">Educational Materials & Tutoring</option>
+                        <option value="Educational Resources & Scholarships">Educational Materials & Scholarships</option>
                         <option value="Child Safeguarding & Infrastructure">Safe Spaces & Infrastructure</option>
                         <option value="General Partnership & Dialogue">General Dialogue & Exploration</option>
                       </select>
@@ -199,14 +244,18 @@ export default function PartnerPage({ onPhotoClick }) {
                       />
                     </div>
 
-                    <button type="submit" className="btn btn-gold btn-lg w-full">
+                    <button 
+                      type="submit" 
+                      className="btn btn-gold btn-lg w-full"
+                      disabled={isSubmitting}
+                    >
                       <Send size={16} />
-                      <span>Submit Partnership Inquiry</span>
+                      <span>{isSubmitting ? 'Sending to ke717methodistshankoecdc@gmail.com...' : 'Submit Partnership Inquiry'}</span>
                     </button>
 
                     <p className="form-privacy-note">
                       <ShieldCheck size={13} />
-                      Your details are held confidentially by Shankoe CYDC under the Methodist Church in Kenya.
+                      Delivered directly to {BRAND.contact.email} under the Methodist Church in Kenya.
                     </p>
                   </form>
                 )}

@@ -5,14 +5,14 @@ export const BRAND = {
   name: "Shankoe CYDC",
   fullName: "Shankoe Methodist Child & Youth Development Centre",
   church: "Methodist Church in Kenya",
-  projectCode: "KE 71x",
+  projectCode: "KE 717",
   location: "Narok County, Kenya",
   tagline: "Empowering Children & Young People to Thrive",
   journey: ["Embrace", "Engage", "Empower", "Thrive"],
   logo: "/assets/logo/shankoe-cydc-logo.jpg",
   logoTransparent: "/assets/logo/shankoe-cydc-logo-transparent.png",
   contact: {
-    email: "info@shankoe-cydc.org", // Official placeholder domain
+    email: "ke717methodistshankoecdc@gmail.com",
     locationText: "Shankoe Methodist Church Compound, Narok County, Kenya",
     hours: "Monday – Friday: 8:00 AM – 5:00 PM EAT",
   }
