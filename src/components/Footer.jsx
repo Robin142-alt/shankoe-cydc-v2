@@ -69,9 +69,9 @@ export default function Footer({ onNavigate }) {
             </ul>
           </div>
 
-          {/* Our Pathways */}
+          {/* Our Programs */}
           <div className="footer-links-col">
-            <h4 className="footer-col-heading">Our Pathways</h4>
+            <h4 className="footer-col-heading">Our Programs</h4>
             <ul className="footer-links-list">
               <li><button type="button" onClick={() => handleNav('about', 'pathway-education')}>Education</button></li>
               <li><button type="button" onClick={() => handleNav('about', 'pathway-healthcare')}>Healthcare</button></li>

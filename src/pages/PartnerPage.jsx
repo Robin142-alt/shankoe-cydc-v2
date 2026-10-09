@@ -95,7 +95,7 @@ export default function PartnerPage({ onPhotoClick }) {
           <div className="partner-split-layout">
             {/* Left Column: Partnership Pillars */}
             <div className="partner-info-col">
-              <span className="badge-pill">PATHWAYS TO IMPACT</span>
+              <span className="badge-pill">PROGRAMS OF IMPACT</span>
               <h2 className="section-title">
                 How We Can <span className="highlight-gold">Partner</span>
               </h2>

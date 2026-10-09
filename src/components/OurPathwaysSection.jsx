@@ -28,20 +28,20 @@ export default function OurPathwaysSection({ onPhotoClick, onNavigate = null, is
   const currentItem = PATHWAYS.find(p => p.id === selectedPathway) || PATHWAYS[0];
 
   return (
-    <section className="our-pathways-section" id="our-pathways">
+    <section className="our-pathways-section" id="our-programs">
       <div className="container">
         {/* Section Header */}
         <div className="pathways-header text-center">
           <h2 className="section-title">
-            Our <span className="highlight-gold">Pathways</span>
+            Our <span className="highlight-gold">Programs</span>
           </h2>
           <p className="pathways-lead">
-            Replacing rigid silos with interconnected pathways of care: Education, Healthcare, Climate Change, Skills Development, and Community Strengthening.
+            Replacing rigid silos with interconnected programs of care: Education, Healthcare, Climate Change, Skills Development, and Community Strengthening.
           </p>
         </div>
 
-        {/* Pathway Selection Tabs */}
-        <div className="pathway-tabs-bar" role="tablist" aria-label="Pathways selector">
+        {/* Program Selection Tabs */}
+        <div className="pathway-tabs-bar" role="tablist" aria-label="Programs selector">
           {PATHWAYS.map((path) => (
             <button
               key={path.id}
@@ -66,9 +66,9 @@ export default function OurPathwaysSection({ onPhotoClick, onNavigate = null, is
                 className="pathway-img-wrap"
                 onClick={() => onPhotoClick && onPhotoClick({
                   src: currentItem.photo,
-                  title: `${currentItem.title} Pathway`,
+                  title: `${currentItem.title} Program`,
                   caption: currentItem.summary,
-                  category: 'Our Pathways'
+                  category: 'Our Programs'
                 })}
                 title="Click to view full photo"
               >
@@ -86,7 +86,7 @@ export default function OurPathwaysSection({ onPhotoClick, onNavigate = null, is
             {/* Content Side */}
             <div className="pathway-content-side">
               <div className="pathway-category-row">
-                <span className="pathway-number-badge">PATHWAY</span>
+                <span className="pathway-number-badge">PROGRAM</span>
                 <span className="pathway-title-sub">{currentItem.tagline}</span>
               </div>
 

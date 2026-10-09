@@ -1,417 +1,495 @@
-import React, { useEffect, useRef, useState } from 'react';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+import React, { useState, useRef, useEffect } from 'react';
 import { 
   MapPin, 
-  Shield, 
+  ShieldCheck, 
   School, 
   Users, 
   GraduationCap, 
-  Layers, 
   Maximize2, 
-  CheckCircle2, 
-  Crosshair,
-  TrendingUp,
-  Church
+  Crosshair, 
+  Navigation,
+  Globe,
+  CheckCircle2,
+  Sparkles,
+  Church,
+  ArrowRight
 } from 'lucide-react';
 import { BRAND, WHERE_WE_WORK_DATA } from '../data/content';
+import { 
+  KENYA_VIEWBOX, 
+  NAROK_VIEWBOX, 
+  EQUATOR_Y, 
+  LANDMARKS, 
+  COUNTIES 
+} from '../data/kenyaMapData';
 import './KenyaMap.css';
 
-// Reliable Geographic Coordinates
-// Shankoe Methodist Child and Youth Centre (Trans Mara / Narok West, Narok County)
-const SHANKOE_COORDS = [-1.095, 34.865];
-
-// Narok County Center
-const NAROK_CENTER = [-1.15, 35.55];
-
-// Kenya Country Center
-const KENYA_CENTER = [0.2, 37.8];
-
-// Authentic Geographic Boundary Coordinates for Narok County (County 033)
-const NAROK_POLYGON = [
-  [-0.55, 35.70], // Mau Forest Northern Apex
-  [-0.58, 35.85],
-  [-0.62, 36.10], // Mau Narok / Nakuru Border
-  [-0.70, 36.22],
-  [-0.85, 36.35], // Mt Suswa / Kajiado Border
-  [-1.05, 36.38],
-  [-1.25, 36.25], // Mosiro / Rift Valley Floor
-  [-1.45, 36.10],
-  [-1.65, 35.95], // Loita Hills East
-  [-1.83, 35.85], // Tanzania Border Eastern Edge
-  [-1.76, 35.55], // International Border (Serengeti / Mara)
-  [-1.68, 35.25],
-  [-1.58, 34.95],
-  [-1.48, 34.65], // Mara Triangle / Siria Escarpment (Tanzania Border)
-  [-1.35, 34.68], // Migori Border
-  [-1.25, 34.72],
-  [-1.15, 34.78],
-  [-1.09, 34.86], // Shankoe / Trans Mara West Border
-  [-1.00, 34.88], // Kilgoris Area
-  [-0.92, 34.92], // Kisii Border
-  [-0.85, 35.05], // Bomet Border (Chebunyo)
-  [-0.80, 35.25], // Mulot Area
-  [-0.75, 35.45], // Mau Summit
-  [-0.55, 35.70]  // Back to Apex
-];
-
-// Surrounding Geographic Key Points
-const KEY_LOCATIONS = [
-  {
-    name: 'Shankoe CYDC Headquarters',
-    coords: SHANKOE_COORDS,
-    type: 'shankoe',
-    badge: 'Operational Headquarters',
-    desc: 'Shankoe Methodist Church Compound, Trans Mara / Narok West. Serving 131 partner schools & 25,000+ community members.'
-  },
-  {
-    name: 'Narok Town',
-    coords: [-1.085, 35.87],
-    type: 'capital',
-    badge: 'County 033 Headquarters',
-    desc: 'Administrative capital of Narok County along the Great Rift Valley.'
-  },
-  {
-    name: 'Maasai Mara National Reserve',
-    coords: [-1.502, 35.144],
-    type: 'landmark',
-    badge: 'Ecological Landscape',
-    desc: 'World-renowned savanna ecosystem within Narok County, bordering Tanzania.'
-  },
-  {
-    name: 'Kilgoris Town',
-    coords: [-1.002, 34.877],
-    type: 'town',
-    badge: 'Sub-County Hub',
-    desc: 'Commercial and administrative hub of Trans Mara near Shankoe.'
-  },
-  {
-    name: 'Nairobi (Capital)',
-    coords: [-1.286, 36.817],
-    type: 'reference',
-    badge: 'National Capital',
-    desc: 'National coordination, partner liaison & university transition hub.'
-  }
-];
+const KENYA_BOX = [0, 0, 800, 960];
+const NAROK_BOX = [45, 525, 240, 205];
 
 export default function KenyaMap() {
-  const mapContainerRef = useRef(null);
-  const mapInstanceRef = useRef(null);
-  const narokLayerRef = useRef(null);
-  const [activeBaseLayer, setActiveBaseLayer] = useState('voyager');
-  const [activeViewMode, setActiveViewMode] = useState('narok');
-  const [mapLoaded, setMapLoaded] = useState(false);
+  const [viewMode, setViewMode] = useState('kenya'); // 'kenya' | 'narok'
+  const [viewBoxStr, setViewBoxStr] = useState(KENYA_VIEWBOX);
+  const [hoveredCounty, setHoveredCounty] = useState(null);
+  const [hoveredLandmark, setHoveredLandmark] = useState(null);
+  const [tooltip, setTooltip] = useState({ visible: false, x: 0, y: 0, title: '', desc: '' });
+
+  const currentBoxRef = useRef(KENYA_BOX);
+  const animFrameRef = useRef(null);
+  const svgContainerRef = useRef(null);
+
+  // Smooth camera zoom animation between National and Narok views
+  const animateToBox = (targetBox) => {
+    const startBox = [...currentBoxRef.current];
+    const startTime = performance.now();
+    const duration = 550; // smooth 550ms ease
+
+    const step = (now) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // easeInOutCubic curve
+      const ease = progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+      const nextBox = startBox.map((startVal, i) => {
+        return startVal + (targetBox[i] - startVal) * ease;
+      });
+
+      currentBoxRef.current = nextBox;
+      setViewBoxStr(`${nextBox[0].toFixed(1)} ${nextBox[1].toFixed(1)} ${nextBox[2].toFixed(1)} ${nextBox[3].toFixed(1)}`);
+
+      if (progress < 1) {
+        animFrameRef.current = requestAnimationFrame(step);
+      }
+    };
+
+    if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
+    animFrameRef.current = requestAnimationFrame(step);
+  };
+
+  const handleToggleView = (mode) => {
+    setViewMode(mode);
+    if (mode === 'narok') {
+      animateToBox(NAROK_BOX);
+    } else {
+      animateToBox(KENYA_BOX);
+    }
+  };
 
   useEffect(() => {
-    if (!mapContainerRef.current) return;
-
-    // Prevent duplicate map initialization
-    if (mapInstanceRef.current) {
-      mapInstanceRef.current.remove();
-    }
-
-    // Initialize Leaflet Map with smooth interaction
-    const map = L.map(mapContainerRef.current, {
-      center: NAROK_CENTER,
-      zoom: 8,
-      minZoom: 6,
-      maxZoom: 16,
-      zoomControl: false,
-      scrollWheelZoom: false, // Prevent accidental scrolling
-    });
-
-    mapInstanceRef.current = map;
-
-    // Add Zoom control to top-right
-    L.control.zoom({ position: 'topright' }).addTo(map);
-
-    // Modern CartoDB Voyager Tile Layer (Reliable, Beautiful, Fast)
-    const baseLayers = {
-      voyager: L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://carto.com/">CARTO</a> &copy; <a href="https://openstreetmap.org">OSM</a>',
-        subdomains: 'abcd',
-        maxZoom: 19
-      }),
-      dark: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://carto.com/">CARTO</a> &copy; <a href="https://openstreetmap.org">OSM</a>',
-        subdomains: 'abcd',
-        maxZoom: 19
-      }),
-      osm: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
-        maxZoom: 19
-      })
-    };
-
-    baseLayers[activeBaseLayer].addTo(map);
-
-    // ========================================================
-    // NAROK COUNTY GEOGRAPHIC POLYGON
-    // ========================================================
-    const narokPolygonLayer = L.polygon(NAROK_POLYGON, {
-      color: '#d97706',
-      weight: 3,
-      opacity: 0.95,
-      fillColor: '#f59e0b',
-      fillOpacity: 0.24,
-      dashArray: '6, 6',
-      smoothFactor: 1
-    }).addTo(map);
-
-    narokLayerRef.current = narokPolygonLayer;
-
-    narokPolygonLayer.on('mouseover', () => {
-      narokPolygonLayer.setStyle({
-        fillOpacity: 0.4,
-        weight: 4,
-        dashArray: null
-      });
-    });
-
-    narokPolygonLayer.on('mouseout', () => {
-      narokPolygonLayer.setStyle({
-        fillOpacity: 0.24,
-        weight: 3,
-        dashArray: '6, 6'
-      });
-    });
-
-    narokPolygonLayer.bindTooltip(
-      '<div class="narok-map-tooltip"><strong>Narok County (033)</strong><br/><span>Shankoe CYDC Operational Territory</span></div>',
-      { sticky: true, className: 'leaflet-custom-tooltip' }
-    );
-
-    // ========================================================
-    // CUSTOM PULSING BEACON MARKER: SHANKOE CYDC
-    // ========================================================
-    const shankoeIcon = L.divIcon({
-      className: 'shankoe-leaflet-marker',
-      html: `
-        <div class="marker-pulse-wrapper">
-          <div class="marker-pulse-ring"></div>
-          <div class="marker-pulse-ring delay"></div>
-          <div class="marker-core">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
-          </div>
-          <div class="marker-flag">SHANKOE CYDC</div>
-        </div>
-      `,
-      iconSize: [40, 40],
-      iconAnchor: [20, 20]
-    });
-
-    const shankoeMarker = L.marker(SHANKOE_COORDS, { icon: shankoeIcon, zIndexOffset: 1000 }).addTo(map);
-    
-    shankoeMarker.bindPopup(`
-      <div class="shankoe-popup-card">
-        <div class="popup-badge">OPERATIONAL HEADQUARTERS</div>
-        <h4 class="popup-title">${BRAND.fullName}</h4>
-        <p class="popup-sub">Shankoe Methodist Church Compound, Narok County</p>
-        <div class="popup-stats-list">
-          <div>✓ 131 Partner Schools Reached</div>
-          <div>✓ 25,000+ Citizens Mobilised</div>
-          <div>✓ 693 Higher Ed Scholars Supported</div>
-        </div>
-      </div>
-    `, { className: 'leaflet-custom-popup', maxWidth: 300 });
-
-    // Other Key Reference Points (Narok Town, Maasai Mara, Nairobi)
-    KEY_LOCATIONS.filter(loc => loc.type !== 'shankoe').forEach(loc => {
-      const locIcon = L.divIcon({
-        className: 'ref-leaflet-marker',
-        html: `
-          <div class="ref-marker-dot ${loc.type}">
-            <div class="ref-label-pill">${loc.name}</div>
-          </div>
-        `,
-        iconSize: [20, 20],
-        iconAnchor: [10, 10]
-      });
-
-      const marker = L.marker(loc.coords, { icon: locIcon }).addTo(map);
-      marker.bindPopup(`
-        <div class="ref-popup-card">
-          <span class="ref-popup-badge">${loc.badge}</span>
-          <strong>${loc.name}</strong>
-          <p>${loc.desc}</p>
-        </div>
-      `, { className: 'leaflet-custom-popup' });
-    });
-
-    // Invalidate size to ensure crisp rendering
-    setTimeout(() => {
-      map.invalidateSize();
-      setMapLoaded(true);
-    }, 200);
-
     return () => {
-      map.remove();
+      if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
     };
-  }, [activeBaseLayer]);
+  }, []);
 
-  // View Controls
-  const handleFocusShankoe = () => {
-    setActiveViewMode('shankoe');
-    if (mapInstanceRef.current) {
-      mapInstanceRef.current.flyTo(SHANKOE_COORDS, 11, { duration: 1.2 });
-    }
-  };
-
-  const handleFocusNarok = () => {
-    setActiveViewMode('narok');
-    if (mapInstanceRef.current && narokLayerRef.current) {
-      mapInstanceRef.current.flyToBounds(narokLayerRef.current.getBounds(), {
-        padding: [30, 30],
-        duration: 1.2
+  const handleCountyMouseEnter = (county, e) => {
+    setHoveredCounty(county.name);
+    const rect = svgContainerRef.current?.getBoundingClientRect();
+    if (rect) {
+      setTooltip({
+        visible: true,
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+        title: county.isNarok ? 'Narok County (County 033)' : `${county.name} County`,
+        desc: county.isNarok 
+          ? 'Shankoe CYDC Operational Headquarters • Trans Mara West' 
+          : 'Republic of Kenya Administrative County'
       });
     }
   };
 
-  const handleFocusKenya = () => {
-    setActiveViewMode('kenya');
-    if (mapInstanceRef.current) {
-      mapInstanceRef.current.flyTo(KENYA_CENTER, 6, { duration: 1.4 });
+  const handleCountyMouseMove = (e) => {
+    const rect = svgContainerRef.current?.getBoundingClientRect();
+    if (rect) {
+      setTooltip(prev => ({
+        ...prev,
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      }));
     }
   };
+
+  const handleCountyMouseLeave = () => {
+    setHoveredCounty(null);
+    setTooltip(prev => ({ ...prev, visible: false }));
+  };
+
+  const shankoeLandmark = LANDMARKS.find(l => l.id === 'shankoe');
+  const narokTownLandmark = LANDMARKS.find(l => l.id === 'narok_town');
+  const kilgorisLandmark = LANDMARKS.find(l => l.id === 'kilgoris');
+  const nairobiLandmark = LANDMARKS.find(l => l.id === 'nairobi');
+  const maraLandmark = LANDMARKS.find(l => l.id === 'mara');
+  const mtKenyaLandmark = LANDMARKS.find(l => l.id === 'mt_kenya');
 
   return (
-    <div className="kenya-gis-map-card">
-      <div className="map-workspace-grid">
-        {/* Left Column: Interactive Leaflet GIS Map */}
-        <div className="gis-map-col">
-          {/* Top Map Toolbar: View Mode & Layer Controls */}
-          <div className="map-toolbar">
-            <div className="toolbar-btn-group">
-              <button 
-                type="button" 
-                className={`map-view-btn ${activeViewMode === 'narok' ? 'active' : ''}`}
-                onClick={handleFocusNarok}
-              >
-                <Shield size={14} />
-                <span>Narok County (County 033)</span>
-              </button>
-              <button 
-                type="button" 
-                className={`map-view-btn ${activeViewMode === 'shankoe' ? 'active' : ''}`}
-                onClick={handleFocusShankoe}
-              >
-                <Crosshair size={14} />
-                <span>Focus: Shankoe CYDC</span>
-              </button>
-              <button 
-                type="button" 
-                className={`map-view-btn ${activeViewMode === 'kenya' ? 'active' : ''}`}
-                onClick={handleFocusKenya}
-              >
-                <Maximize2 size={14} />
-                <span>All Kenya Overview</span>
-              </button>
-            </div>
-
-            <div className="toolbar-layer-select">
-              <span className="layer-label">Base Style:</span>
-              <button 
-                type="button" 
-                className={`layer-toggle-btn ${activeBaseLayer === 'voyager' ? 'active' : ''}`}
-                onClick={() => setActiveBaseLayer('voyager')}
-                title="CartoDB Voyager Cartography"
-              >
-                Modern
-              </button>
-              <button 
-                type="button" 
-                className={`layer-toggle-btn ${activeBaseLayer === 'dark' ? 'active' : ''}`}
-                onClick={() => setActiveBaseLayer('dark')}
-                title="High Contrast Dark View"
-              >
-                Dark
-              </button>
-              <button 
-                type="button" 
-                className={`layer-toggle-btn ${activeBaseLayer === 'osm' ? 'active' : ''}`}
-                onClick={() => setActiveBaseLayer('osm')}
-                title="OpenStreetMap Details"
-              >
-                Terrain
-              </button>
-            </div>
+    <div className="where-we-work-card">
+      <div className="where-we-work-grid">
+        {/* Left Column: Interactive Vector GIS Kenya Map */}
+        <div className="map-showcase-column">
+          {/* Subtle View Switcher Tabs */}
+          <div className="map-view-switcher">
+            <button
+              type="button"
+              className={`switcher-pill-btn ${viewMode === 'kenya' ? 'active' : ''}`}
+              onClick={() => handleToggleView('kenya')}
+              aria-label="View Kenya national map"
+            >
+              <Globe size={15} />
+              <span>National Overview</span>
+            </button>
+            <button
+              type="button"
+              className={`switcher-pill-btn ${viewMode === 'narok' ? 'active' : ''}`}
+              onClick={() => handleToggleView('narok')}
+              aria-label="Focus on Narok County and Shankoe CYDC"
+            >
+              <Crosshair size={15} />
+              <span>Narok County Focus</span>
+            </button>
           </div>
 
-          {/* Leaflet DOM Map Container */}
-          <div className="gis-map-viewport-wrapper">
-            <div 
-              ref={mapContainerRef} 
-              className="leaflet-map-element"
-              aria-label="Geographic map of Kenya with Narok County and Shankoe CYDC"
-            />
+          {/* SVG Map Container */}
+          <div 
+            className={`svg-map-wrapper ${viewMode === 'narok' ? 'mode-narok' : 'mode-kenya'}`} 
+            ref={svgContainerRef}
+            onMouseMove={handleCountyMouseMove}
+          >
+            <svg 
+              className="kenya-vector-svg" 
+              viewBox={viewBoxStr} 
+              preserveAspectRatio="xMidYMid meet"
+              aria-label="Geographic map of Kenya showing Narok County and Shankoe CYDC headquarters"
+            >
+              <defs>
+                {/* Gold Gradient for Narok County */}
+                <linearGradient id="narokGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.85" />
+                  <stop offset="50%" stopColor="#d97706" stopOpacity="0.9" />
+                  <stop offset="100%" stopColor="#b45309" stopOpacity="0.95" />
+                </linearGradient>
 
-            {/* Map Legend Floating Strip */}
-            <div className="map-legend-floating">
-              <div className="legend-entry">
-                <span className="legend-color-box narok-gold"></span>
-                <span>Narok County (Highlighted)</span>
+                {/* Soft Golden Glow Filter */}
+                <filter id="narokGlow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="4" result="blur" />
+                  <feComponentTransfer in="blur" result="glow">
+                    <feFuncA type="linear" slope="0.8" />
+                  </feComponentTransfer>
+                  <feMerge>
+                    <feMergeNode in="glow" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+
+                {/* Beacon Pulse Radial Gradient */}
+                <radialGradient id="beaconGlow">
+                  <stop offset="0%" stopColor="#fbbf24" stopOpacity="0.9" />
+                  <stop offset="60%" stopColor="#f59e0b" stopOpacity="0.3" />
+                  <stop offset="100%" stopColor="#d97706" stopOpacity="0" />
+                </radialGradient>
+              </defs>
+
+              {/* Cartographic Grid & Equator Marker */}
+              <g className="cartographic-guides">
+                {/* Equator Line */}
+                <line 
+                  x1="60" 
+                  y1={EQUATOR_Y} 
+                  x2="740" 
+                  y2={EQUATOR_Y} 
+                  stroke="rgba(255, 255, 255, 0.15)" 
+                  strokeWidth={viewMode === 'narok' ? '0.6' : '1.2'} 
+                  strokeDasharray="4 4" 
+                />
+                {viewMode === 'kenya' && (
+                  <text 
+                    x="690" 
+                    y={EQUATOR_Y - 6} 
+                    className="equator-text"
+                  >
+                    EQUATOR (0°)
+                  </text>
+                )}
+
+                {/* Neighboring Country Annotations */}
+                {viewMode === 'kenya' && (
+                  <>
+                    <text x="35" y="520" className="country-neighbor-label">UGANDA</text>
+                    <text x="210" y="780" className="country-neighbor-label">TANZANIA (Serengeti)</text>
+                    <text x="380" y="50" className="country-neighbor-label">ETHIOPIA</text>
+                    <text x="690" y="440" className="country-neighbor-label">SOMALIA</text>
+                    <text x="90" y="80" className="country-neighbor-label">SOUTH SUDAN</text>
+                    <text x="560" y="860" className="ocean-label">INDIAN OCEAN</text>
+                    <text x="30" y="605" className="lake-label">L. Victoria</text>
+                  </>
+                )}
+              </g>
+
+              {/* Lake Victoria Indicative Water Basin */}
+              <path
+                d="M 15 540 Q 40 570 30 620 Q 20 640 5 650 L 5 540 Z"
+                fill="rgba(14, 116, 144, 0.25)"
+                stroke="rgba(14, 116, 144, 0.4)"
+                strokeWidth="1"
+                className="water-body"
+              />
+
+              {/* 47 Kenyan Counties Layer */}
+              <g className="counties-layer">
+                {COUNTIES.map((county) => {
+                  if (county.isNarok) return null; // Rendered prominently above
+                  const isAdjacent = ['KAJIADO', 'NAKURU', 'BOMET', 'KISII', 'MIGORI', 'NYAMIRA'].includes(county.name);
+                  return (
+                    <path
+                      key={county.code}
+                      d={county.d}
+                      className={`county-path ${isAdjacent ? 'adjacent-county' : ''} ${hoveredCounty === county.name ? 'hovered' : ''}`}
+                      onMouseEnter={(e) => handleCountyMouseEnter(county, e)}
+                      onMouseLeave={handleCountyMouseLeave}
+                      stroke="rgba(255, 255, 255, 0.12)"
+                      strokeWidth={viewMode === 'narok' ? '0.4' : '0.8'}
+                    />
+                  );
+                })}
+
+                {/* NAROK COUNTY (County 033) - Highlighted with Golden Identity */}
+                {COUNTIES.filter(c => c.isNarok).map(narok => (
+                  <path
+                    key={narok.code}
+                    d={narok.d}
+                    fill="url(#narokGoldGrad)"
+                    stroke="#fef08a"
+                    strokeWidth={viewMode === 'narok' ? '1.4' : '2.2'}
+                    className={`county-narok-path ${hoveredCounty === 'NAROK' ? 'hovered' : ''}`}
+                    filter="url(#narokGlow)"
+                    onClick={() => handleToggleView(viewMode === 'kenya' ? 'narok' : 'kenya')}
+                    onMouseEnter={(e) => handleCountyMouseEnter(narok, e)}
+                    onMouseLeave={handleCountyMouseLeave}
+                  />
+                ))}
+              </g>
+
+              {/* Internal Narok Geographic Features */}
+              <g className="narok-details-layer">
+                {/* Great Rift Valley Geological Axis */}
+                <path
+                  d="M 235 340 Q 248 490 260 590 Q 270 680 280 770"
+                  stroke="rgba(245, 158, 11, 0.35)"
+                  strokeWidth={viewMode === 'narok' ? '0.8' : '1.5'}
+                  strokeDasharray="4 3"
+                  fill="none"
+                />
+
+                {/* Maasai Mara Reserve Zone within Southern Narok */}
+                <g 
+                  className="mara-zone"
+                  onMouseEnter={() => setHoveredLandmark('Maasai Mara')}
+                  onMouseLeave={() => setHoveredLandmark(null)}
+                >
+                  <path
+                    d="M 100 635 Q 135 655 180 670 Q 150 680 115 675 Z"
+                    fill="rgba(245, 158, 11, 0.18)"
+                    stroke="rgba(254, 240, 138, 0.35)"
+                    strokeWidth="0.8"
+                    strokeDasharray="2 2"
+                  />
+                  {maraLandmark && (
+                    <text 
+                      x={maraLandmark.pt[0]} 
+                      y={maraLandmark.pt[1]} 
+                      className="mara-label"
+                    >
+                      Maasai Mara Ecosystem
+                    </text>
+                  )}
+                </g>
+              </g>
+
+              {/* Key Landmark & City Pins */}
+              <g className="landmarks-layer">
+                {/* Nairobi National Capital */}
+                {nairobiLandmark && (
+                  <g className="landmark-pin capital" transform={`translate(${nairobiLandmark.pt[0]}, ${nairobiLandmark.pt[1]})`}>
+                    <circle r={viewMode === 'narok' ? '2.5' : '4.5'} fill="#ffffff" stroke="#0c2340" strokeWidth="1.5" />
+                    <circle r={viewMode === 'narok' ? '5' : '7.5'} fill="none" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="0.8" strokeDasharray="2 2" />
+                    <text x={viewMode === 'narok' ? 7 : 9} y="3" className="landmark-text capital-text">
+                      Nairobi (Capital)
+                    </text>
+                  </g>
+                )}
+
+                {/* Mount Kenya */}
+                {mtKenyaLandmark && viewMode === 'kenya' && (
+                  <g className="landmark-pin mountain" transform={`translate(${mtKenyaLandmark.pt[0]}, ${mtKenyaLandmark.pt[1]})`}>
+                    <polygon points="0,-5 4,3 -4,3" fill="#93c5fd" />
+                    <text x="7" y="2" className="landmark-text mountain-text">Mt. Kenya</text>
+                  </g>
+                )}
+
+                {/* Narok Town (County Headquarters) */}
+                {narokTownLandmark && (
+                  <g className="landmark-pin town" transform={`translate(${narokTownLandmark.pt[0]}, ${narokTownLandmark.pt[1]})`}>
+                    <circle r={viewMode === 'narok' ? '2' : '3'} fill="#fef08a" stroke="#78350f" strokeWidth="1" />
+                    <text x={viewMode === 'narok' ? 5 : 6} y="3" className="landmark-text">
+                      Narok Town
+                    </text>
+                  </g>
+                )}
+
+                {/* Kilgoris Town (Sub-County Commercial Center) */}
+                {kilgorisLandmark && viewMode === 'narok' && (
+                  <g className="landmark-pin sub-town" transform={`translate(${kilgorisLandmark.pt[0]}, ${kilgorisLandmark.pt[1]})`}>
+                    <circle r="1.8" fill="#e2e8f0" stroke="#475569" strokeWidth="0.8" />
+                    <text x="4" y="-3" className="landmark-text sub-text">Kilgoris</text>
+                  </g>
+                )}
+
+                {/* ======================================================== */}
+                {/* VERIFIED HEADQUARTERS PIN: SHANKOE CYDC                   */}
+                {/* Coords: Trans Mara West [-1.095, 34.865]                 */}
+                {/* ======================================================== */}
+                {shankoeLandmark && (
+                  <g 
+                    className="shankoe-beacon-group" 
+                    transform={`translate(${shankoeLandmark.pt[0]}, ${shankoeLandmark.pt[1]})`}
+                    onClick={() => handleToggleView('narok')}
+                  >
+                    {/* Animated Pulsing Radar Rings */}
+                    <circle r={viewMode === 'narok' ? '18' : '28'} fill="url(#beaconGlow)" className="radar-pulse-outer" />
+                    <circle r={viewMode === 'narok' ? '10' : '16'} fill="rgba(254, 240, 138, 0.4)" className="radar-pulse-inner" />
+                    
+                    {/* Core Anchor Dot */}
+                    <circle 
+                      r={viewMode === 'narok' ? '4.5' : '6.5'} 
+                      fill="#ffffff" 
+                      stroke="#92400e" 
+                      strokeWidth={viewMode === 'narok' ? '1.5' : '2'} 
+                      className="radar-core-dot" 
+                    />
+
+                    {/* Prominent Floating Badge Card */}
+                    <g 
+                      transform={viewMode === 'narok' ? 'translate(9, -18)' : 'translate(12, -22)'} 
+                      className="shankoe-badge-tag"
+                    >
+                      <rect 
+                        width={viewMode === 'narok' ? '112' : '124'} 
+                        height={viewMode === 'narok' ? '28' : '32'} 
+                        rx="5" 
+                        fill="#0c2340" 
+                        stroke="#f59e0b" 
+                        strokeWidth="1.2" 
+                      />
+                      <text 
+                        x="7" 
+                        y={viewMode === 'narok' ? '12' : '14'} 
+                        className="shankoe-tag-title"
+                      >
+                        SHANKOE CYDC
+                      </text>
+                      <text 
+                        x="7" 
+                        y={viewMode === 'narok' ? '22' : '25'} 
+                        className="shankoe-tag-sub"
+                      >
+                        HQ • Trans Mara West
+                      </text>
+                    </g>
+                  </g>
+                )}
+              </g>
+            </svg>
+
+            {/* Custom Dynamic Tooltip on Hover */}
+            {tooltip.visible && (
+              <div 
+                className="map-cursor-tooltip" 
+                style={{ left: `${tooltip.x + 12}px`, top: `${tooltip.y - 12}px` }}
+              >
+                <div className="tooltip-title">{tooltip.title}</div>
+                <div className="tooltip-desc">{tooltip.desc}</div>
               </div>
-              <div className="legend-entry">
-                <span className="legend-marker-dot"></span>
-                <span>Shankoe CYDC (Headquarters)</span>
+            )}
+
+            {/* Minimalist Floating Status Strip */}
+            <div className="map-meta-strip">
+              <div className="meta-coords">
+                <Navigation size={12} className="meta-icon" />
+                <span>GPS: 1.095° S, 34.865° E • Sub-County: Trans Mara West</span>
               </div>
-              <div className="legend-entry">
-                <span className="legend-town-dot"></span>
-                <span>Key Landmark / Hub</span>
+              <div className="meta-legend">
+                <span className="legend-indicator narok-box"></span>
+                <span>Narok County (033)</span>
+                <span className="legend-indicator shankoe-dot"></span>
+                <span>Shankoe CYDC HQ</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Right Column: Geographic & Community Context Panel */}
-        <div className="gis-info-col">
-          <div className="gis-info-card">
-            <div className="gis-card-header">
-              <div className="county-code-badge">
-                <span>KENYA COUNTY 033</span>
-              </div>
-              <h4 className="gis-county-title">{WHERE_WE_WORK_DATA.county}</h4>
-              <span className="gis-county-sub">Trans Mara / Narok West Sub-County</span>
+        {/* Right Column: Geographic Context & Operational Footprint */}
+        <div className="info-narrative-column">
+          <div className="hq-profile-card">
+            <div className="hq-badge-row">
+              <span className="county-code-tag">KENYA COUNTY 033</span>
+              <span className="verified-status-tag">
+                <CheckCircle2 size={12} />
+                <span>Verified Location</span>
+              </span>
             </div>
 
-            <p className="gis-county-description">
+            <h3 className="hq-card-title">{WHERE_WE_WORK_DATA.county}</h3>
+            <p className="hq-card-locality">
+              <Church size={15} className="locality-icon" />
+              <span>Shankoe Methodist Church Compound, Trans Mara West</span>
+            </p>
+
+            <p className="hq-card-narrative">
               {WHERE_WE_WORK_DATA.description}
             </p>
 
-            <div className="gis-metrics-grid">
+            {/* 3 High-Impact Key Metrics */}
+            <div className="footprint-metrics-grid">
               {WHERE_WE_WORK_DATA.keyMetrics.map((metric, idx) => (
-                <div key={idx} className="gis-metric-card">
-                  <span className="metric-card-label">{metric.label}</span>
-                  <span className="metric-card-val">{metric.value}</span>
+                <div key={idx} className="metric-tile">
+                  <span className="metric-tile-val">{metric.value}</span>
+                  <span className="metric-tile-label">{metric.label}</span>
                 </div>
               ))}
             </div>
 
-            {/* Community Reality Box */}
-            <div className="community-anchor-box">
-              <div className="anchor-box-header">
-                <Church size={16} className="anchor-gold-icon" />
-                <span>The Shankoe CYDC Mission Ground</span>
-              </div>
-              <p className="anchor-box-text">
-                Situated at the Shankoe Methodist Church Compound, our centre provides an essential lifeline for children across remote rural settlements, offering accessible education support, nutritional safety nets, and community child safeguarding across 131 schools.
-              </p>
-              <div className="anchor-checklist">
-                <div className="check-item">
-                  <CheckCircle2 size={14} className="check-gold" />
-                  <span>GPS: 1.095° S, 34.865° E (Trans Mara West)</span>
-                </div>
-                <div className="check-item">
-                  <CheckCircle2 size={14} className="check-gold" />
-                  <span>Bordering Serengeti / Maasai Mara Ecosystem</span>
-                </div>
-                <div className="check-item">
-                  <CheckCircle2 size={14} className="check-gold" />
-                  <span>Child Protection Network Across 131 Schools</span>
-                </div>
-              </div>
+            {/* Geographic Focus Highlights */}
+            <div className="landscape-context-box">
+              <h4 className="context-box-heading">
+                <ShieldCheck size={16} className="context-box-icon" />
+                <span>Operational Territory & Reach</span>
+              </h4>
+              <ul className="context-points-list">
+                <li>
+                  <CheckCircle2 size={14} className="point-check" />
+                  <span><strong>Trans Mara West Hub:</strong> Deep integration with local pastoralist settlements and families.</span>
+                </li>
+                <li>
+                  <CheckCircle2 size={14} className="point-check" />
+                  <span><strong>131 Partner Schools:</strong> Active network of primary and secondary schools safeguarded.</span>
+                </li>
+                <li>
+                  <CheckCircle2 size={14} className="point-check" />
+                  <span><strong>Maasai Mara Frontier:</strong> Climate resilience and nutritional safety nets in semi-arid terrains.</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Clean Interaction Trigger */}
+            <div className="hq-card-action">
+              <button
+                type="button"
+                className="focus-action-btn"
+                onClick={() => handleToggleView(viewMode === 'kenya' ? 'narok' : 'kenya')}
+              >
+                <span>{viewMode === 'kenya' ? 'Zoom to Narok County Headquarters' : 'Reset to Full Kenya Map'}</span>
+                <ArrowRight size={15} />
+              </button>
             </div>
           </div>
         </div>

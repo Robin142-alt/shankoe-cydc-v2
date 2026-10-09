@@ -303,7 +303,7 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
               Anchored in <span className="highlight-gold">Narok County, Kenya</span>
             </h2>
             <p className="subtitle text-light-muted">
-              Explore our geographic base in southwestern Kenya along the Great Rift Valley and the Maasai Mara ecosystem.
+              Operating from the Shankoe Methodist Church Compound in Trans Mara West, serving pastoralist settlements and safeguarding children across 131 partner schools.
             </p>
           </div>
 

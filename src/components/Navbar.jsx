@@ -74,7 +74,7 @@ export default function Navbar({ currentPage, onNavigate }) {
     { id: 'where-we-work', label: 'Where We Work', desc: 'Narok County, Kenya map', icon: <MapPin size={16} /> },
     { id: 'our-partners', label: 'Our Partners', desc: '131 schools, MCK & communities', icon: <Handshake size={16} /> },
     { id: 'theory-of-change', label: 'Our Approach / Theory of Change', desc: 'Logical pathway for flourishing', icon: <Workflow size={16} /> },
-    { id: 'our-programs', label: 'Our Programs', desc: 'Our verified Pathways of care', icon: <GraduationCap size={16} /> },
+    { id: 'our-programs', label: 'Our Programs', desc: 'Holistic programs of care', icon: <GraduationCap size={16} /> },
   ];
 
   // Impact dropdown items as required
