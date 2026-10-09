@@ -4,8 +4,7 @@ import {
   ChefHat, 
   HeartPulse, 
   ShieldCheck, 
-  Trees, 
-  ArrowRight 
+  Trees
 } from 'lucide-react';
 import './WhatWeDoSection.css';
 
@@ -131,8 +130,8 @@ export default function WhatWeDoSection({ onNavigate }) {
                 <h3 className="what-card-title">{area.title}</h3>
                 <p className="what-card-line">{area.shortLine}</p>
                 <div className="what-card-footer">
-                  <span className="what-card-arrow-wrap">
-                    <ArrowRight size={15} className="what-card-arrow" />
+                  <span className="what-card-explore-text">
+                    Explore more
                   </span>
                 </div>
               </div>

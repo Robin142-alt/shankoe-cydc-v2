@@ -304,9 +304,14 @@
 .mini-card-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.84rem;
+  font-weight: 700;
   color: #1e5cb3;
-  margin-top: 0.25rem;
+  margin-top: 0.35rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.pathway-mini-card:hover .mini-card-link {
+  color: var(--gold-600, #d97706);
+  transform: translateX(2px);
 }

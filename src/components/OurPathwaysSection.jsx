@@ -5,7 +5,6 @@ import {
   Trees, 
   ChefHat, 
   ShieldCheck, 
-  ArrowRight, 
   CheckCircle2, 
   Sparkles 
 } from 'lucide-react';
@@ -132,8 +131,7 @@ export default function OurPathwaysSection({ onPhotoClick, onNavigate = null, is
               <h4 className="mini-card-title">{path.title}</h4>
               <p className="mini-card-desc">{path.summary}</p>
               <span className="mini-card-link">
-                <span>View Details</span>
-                <ArrowRight size={13} />
+                <span>Explore more</span>
               </span>
             </div>
           ))}
