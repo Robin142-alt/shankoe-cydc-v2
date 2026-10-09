@@ -2,7 +2,6 @@ import React from 'react';
 import { Church, ArrowRight, MapPin, Heart, ShieldCheck, Sparkles } from 'lucide-react';
 import Hero from '../components/Hero';
 import ImpactCounterStrip from '../components/ImpactCounterStrip';
-import OurPathwaysSection from '../components/OurPathwaysSection';
 import KenyaMap from '../components/KenyaMap';
 import PartnerSection from '../components/PartnerSection';
 import { BRAND, WHO_WE_ARE_TEXT } from '../data/content';
@@ -76,10 +75,7 @@ export default function HomePage({ onNavigate, onPhotoClick }) {
         </div>
       </section>
 
-      {/* 4. OUR PATHWAYS: Replacing Five Pillars */}
-      <OurPathwaysSection onPhotoClick={onPhotoClick} onNavigate={onNavigate} />
-
-      {/* 5. WHERE WE WORK SPOTLIGHT (Accurate Kenya Map Highlighting Narok County) */}
+      {/* 4. WHERE WE WORK SPOTLIGHT (Accurate Kenya Map Highlighting Narok County) */}
       <section className="section section-dark home-map-section">
         <div className="container">
           <div className="section-header center light-text">

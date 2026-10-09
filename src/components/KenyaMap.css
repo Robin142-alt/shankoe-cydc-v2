@@ -1,27 +1,26 @@
 /* ==========================================================================
-   KENYA MAP COMPONENT STYLES
-   Highlighting Narok County with rich aesthetics & interactive states
+   KENYA GIS MAP STYLES (Leaflet + Real Geographic Data)
    ========================================================================== */
 
-.kenya-map-card {
+.kenya-gis-map-card {
   background: linear-gradient(145deg, #0f2238 0%, #0a1728 100%);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-xl, 1.25rem);
-  padding: clamp(1.75rem, 4vw, 3rem);
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
   color: #f8fafc;
   box-shadow: 0 20px 45px rgba(3, 10, 20, 0.5);
   position: relative;
   overflow: hidden;
 }
 
-.kenya-map-card::before {
+.kenya-gis-map-card::before {
   content: '';
   position: absolute;
   top: -120px;
   right: -120px;
   width: 350px;
   height: 350px;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -29,7 +28,7 @@
 .kenya-map-header {
   position: relative;
   z-index: 1;
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
 }
 
 .map-badge {
@@ -40,11 +39,11 @@
   background: rgba(245, 158, 11, 0.12);
   border: 1px solid rgba(245, 158, 11, 0.3);
   border-radius: var(--radius-full, 9999px);
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   color: #fbbf24;
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.75rem;
   text-transform: uppercase;
 }
 
@@ -54,423 +53,488 @@
 
 .map-heading {
   font-family: var(--font-heading, inherit);
-  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
   font-weight: 800;
   letter-spacing: -0.02em;
   color: #ffffff;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   line-height: 1.2;
 }
 
 .map-subtext {
-  font-size: 1.02rem;
+  font-size: 0.98rem;
   color: #94a3b8;
   max-width: 680px;
   line-height: 1.6;
 }
 
-/* 2-Column Grid: Map + Panel */
-.kenya-map-grid {
+/* 2-Column Grid */
+.map-workspace-grid {
   position: relative;
   z-index: 1;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2.25rem;
-  align-items: center;
+  gap: 2rem;
+  align-items: stretch;
 }
 
-@media (min-width: 960px) {
-  .kenya-map-grid {
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 3rem;
+@media (min-width: 980px) {
+  .map-workspace-grid {
+    grid-template-columns: 1.25fr 0.85fr;
+    gap: 2.5rem;
   }
 }
 
-/* Map Frame & Container */
-.map-visual-container {
+/* GIS Map Column */
+.gis-map-col {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 0.85rem;
 }
 
-.map-frame {
-  position: relative;
-  background: radial-gradient(circle at center, #132a47 0%, #0c1a2e 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-lg, 1rem);
-  padding: 1rem;
-  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
-}
-
-.kenya-svg {
-  width: 100%;
-  height: auto;
-  max-height: 480px;
-  display: block;
-}
-
-/* Compass */
-.map-compass {
-  position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
-  width: 38px;
-  height: 38px;
-  background: rgba(12, 35, 64, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.compass-n {
-  font-size: 0.65rem;
-  font-weight: 800;
-  color: #f59e0b;
-  line-height: 1;
-}
-
-.compass-pointer {
-  width: 0;
-  height: 0;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-bottom: 8px solid #f59e0b;
-  margin-top: 2px;
-}
-
-/* Interactive Hint */
-.map-interactive-hint {
-  position: absolute;
-  top: 1.25rem;
-  left: 1.25rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.75rem;
-  color: #94a3b8;
-  background: rgba(12, 35, 64, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 0.3rem 0.65rem;
-  border-radius: var(--radius-full, 9999px);
-  z-index: 2;
-}
-
-.hint-pulse-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #f59e0b;
-  box-shadow: 0 0 8px #f59e0b;
-  animation: pulse-ring 2s infinite;
-}
-
-/* SVG styling */
-.county-region {
-  transition: all 0.25s ease;
-  cursor: pointer;
-}
-
-.county-region:hover {
-  opacity: 0.85;
-  filter: brightness(1.15);
-}
-
-.county-narok-highlight {
-  cursor: pointer;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.county-narok-highlight:hover,
-.county-narok-highlight.active-county {
-  filter: drop-shadow(0 0 16px rgba(245, 158, 11, 0.85));
-}
-
-/* Beacon Pin Animation */
-.beacon-outer-pulse {
-  animation: beacon-pulse 2.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
-  transform-origin: 175px 440px;
-}
-
-.beacon-wave {
-  animation: beacon-pulse 2.5s infinite 0.7s cubic-bezier(0.4, 0, 0.6, 1);
-  transform-origin: 175px 440px;
-}
-
-.beacon-core {
-  filter: drop-shadow(0 0 6px #ffffff);
-}
-
-.shankoe-badge-title {
-  fill: #f59e0b;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  font-family: inherit;
-}
-
-.shankoe-badge-sub {
-  fill: #cbd5e1;
-  font-size: 9.5px;
-  font-family: inherit;
-}
-
-.narok-map-callout {
-  fill: #ffffff;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-anchor: middle;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
-}
-
-.narok-sub-callout {
-  fill: #fef08a;
-  font-size: 8.5px;
-  font-weight: 600;
-  text-anchor: middle;
-}
-
-.water-label {
-  fill: #7dd3fc;
-  font-size: 9.5px;
-  font-style: italic;
-  font-weight: 600;
-}
-
-.neighbor-country-label {
-  fill: #475569;
-  font-size: 9.5px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-}
-
-.equator-label {
-  fill: #64748b;
-  font-size: 8.5px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-}
-
-.rift-label {
-  fill: #f59e0b;
-  font-size: 8.5px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  opacity: 0.85;
-}
-
-.landmark-label,
-.nairobi-label {
-  fill: #e2e8f0;
-  font-size: 9.5px;
-  font-weight: 600;
-}
-
-/* Badge Strip buttons */
-.map-badge-strip {
+/* Map Toolbar */
+.map-toolbar {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.65rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  background: rgba(12, 35, 64, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-md, 0.75rem);
 }
 
-.region-tab-btn {
+.toolbar-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.map-view-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  background: rgba(255, 255, 255, 0.05);
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-full, 9999px);
-  padding: 0.45rem 0.9rem;
   color: #cbd5e1;
-  font-size: 0.85rem;
-  font-weight: 500;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-full, 9999px);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
-.region-tab-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
+.map-view-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
   color: #ffffff;
 }
 
-.region-tab-btn.active {
-  background: rgba(245, 158, 11, 0.18);
+.map-view-btn.active {
+  background: rgba(245, 158, 11, 0.22);
   border-color: #f59e0b;
   color: #fef08a;
+}
+
+.toolbar-layer-select {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.layer-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-right: 0.2rem;
+}
+
+.layer-toggle-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  font-size: 0.75rem;
   font-weight: 600;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
 }
 
-.tab-icon {
-  color: #f59e0b;
+.layer-toggle-btn:hover {
+  color: #ffffff;
 }
 
-/* Info Panel Side */
-.map-info-panel {
+.layer-toggle-btn.active {
+  background: #f59e0b;
+  border-color: #f59e0b;
+  color: #0c2340;
+  font-weight: 700;
+}
+
+/* Viewport & Container */
+.gis-map-viewport-wrapper {
+  position: relative;
+  border-radius: var(--radius-lg, 1rem);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.leaflet-map-element {
+  width: 100%;
+  height: 480px;
+  background-color: #0f1f33;
+  z-index: 1;
+}
+
+/* Floating Legend */
+.map-legend-floating {
+  position: absolute;
+  bottom: 0.85rem;
+  left: 0.85rem;
+  background: rgba(12, 35, 64, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md, 0.6rem);
+  padding: 0.5rem 0.85rem;
+  z-index: 1000;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  color: #e2e8f0;
 }
 
-.info-card-header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 1.25rem;
-}
-
-.info-county-pill {
-  display: inline-flex;
+.legend-entry {
+  display: flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.25rem 0.75rem;
-  background: rgba(34, 197, 94, 0.15);
-  border: 1px solid rgba(34, 197, 94, 0.3);
-  border-radius: var(--radius-full, 9999px);
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #4ade80;
-  text-transform: uppercase;
-  margin-bottom: 0.75rem;
 }
 
-.pill-dot {
-  width: 6px;
-  height: 6px;
+.legend-color-box.narok-gold {
+  width: 14px;
+  height: 10px;
+  border-radius: 2px;
+  background: rgba(245, 158, 11, 0.4);
+  border: 1.5px dashed #f59e0b;
+}
+
+.legend-marker-dot {
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background: #22c55e;
+  background: #f59e0b;
+  box-shadow: 0 0 6px #f59e0b;
 }
 
-.info-card-title {
+.legend-town-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #3b82f6;
+}
+
+/* Custom Marker Styling for Shankoe CYDC */
+.shankoe-leaflet-marker {
+  background: transparent;
+  border: none;
+}
+
+.marker-pulse-wrapper {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marker-pulse-ring {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(245, 158, 11, 0.3);
+  animation: leaflet-beacon-pulse 2.2s infinite ease-out;
+}
+
+.marker-pulse-ring.delay {
+  animation-delay: 0.7s;
+}
+
+.marker-core {
+  position: relative;
+  z-index: 2;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.9), 0 2px 6px rgba(0, 0, 0, 0.4);
+  border: 2px solid #ffffff;
+  cursor: pointer;
+}
+
+.marker-flag {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0c2340;
+  border: 1px solid #f59e0b;
+  color: #fef08a;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+@keyframes leaflet-beacon-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+/* Reference marker */
+.ref-marker-dot {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid #1e5cb3;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+}
+
+.ref-marker-dot.landmark {
+  border-color: #10b981;
+}
+
+.ref-label-pill {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(12, 35, 64, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #f8fafc;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 3px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Custom Popup & Tooltip */
+.leaflet-custom-popup .leaflet-popup-content-wrapper {
+  background: #0c2340;
+  color: #ffffff;
+  border: 1px solid #f59e0b;
+  border-radius: 10px;
+  padding: 4px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.leaflet-custom-popup .leaflet-popup-tip {
+  background: #0c2340;
+}
+
+.shankoe-popup-card {
+  padding: 4px 6px;
+}
+
+.popup-badge {
+  font-size: 8px;
+  font-weight: 800;
+  color: #f59e0b;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.popup-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 2px 0;
+  line-height: 1.25;
+}
+
+.popup-sub {
+  font-size: 11px;
+  color: #94a3b8;
+  margin: 0 0 8px 0;
+}
+
+.popup-stats-list {
+  font-size: 10.5px;
+  color: #cbd5e1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.narok-map-tooltip {
+  font-family: inherit;
+  font-size: 11px;
+  color: #0c2340;
+}
+
+/* Right Column: GIS Info */
+.gis-info-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.gis-info-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg, 1rem);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  height: 100%;
+}
+
+.gis-card-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+}
+
+.county-code-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.15);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full, 9999px);
+  width: fit-content;
+  margin-bottom: 0.5rem;
+}
+
+.gis-county-title {
   font-family: var(--font-heading, inherit);
   font-size: 1.45rem;
-  font-weight: 700;
+  font-weight: 800;
   color: #ffffff;
-  margin-bottom: 0.25rem;
+  margin: 0 0 0.2rem 0;
 }
 
-.info-card-subtitle {
+.gis-county-sub {
   font-size: 0.88rem;
-  color: #f59e0b;
+  color: #94a3b8;
   font-weight: 500;
 }
 
-.info-card-description {
-  font-size: 0.95rem;
-  line-height: 1.65;
+.gis-county-description {
+  font-size: 0.92rem;
   color: #cbd5e1;
+  line-height: 1.6;
 }
 
-.info-stats-grid {
+.gis-metrics-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.85rem;
+  gap: 0.75rem;
 }
 
 @media (max-width: 480px) {
-  .info-stats-grid {
+  .gis-metrics-grid {
     grid-template-columns: 1fr;
   }
 }
 
-.info-stat-item {
+.gis-metric-card {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-md, 0.75rem);
-  padding: 0.75rem 0.95rem;
+  border-radius: var(--radius-md, 0.6rem);
+  padding: 0.75rem 0.85rem;
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
 }
 
-.info-stat-label {
-  font-size: 0.75rem;
+.metric-card-label {
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
   color: #94a3b8;
   font-weight: 600;
 }
 
-.info-stat-val {
-  font-size: 0.92rem;
+.metric-card-val {
+  font-size: 0.95rem;
   color: #ffffff;
   font-weight: 700;
 }
 
-/* Narok Context Box */
-.narok-context-box {
-  background: rgba(12, 35, 64, 0.6);
+/* Community Reality Box */
+.community-anchor-box {
+  background: rgba(12, 35, 64, 0.65);
   border: 1px solid rgba(245, 158, 11, 0.25);
   border-radius: var(--radius-md, 0.75rem);
-  padding: 1.25rem;
+  padding: 1.15rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.65rem;
+  margin-top: auto;
 }
 
-.context-box-header {
+.anchor-box-header {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: #fbbf24;
-  text-transform: uppercase;
   letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
-.context-icon {
+.anchor-gold-icon {
   color: #f59e0b;
 }
 
-.context-box-text {
-  font-size: 0.88rem;
+.anchor-box-text {
+  font-size: 0.85rem;
   color: #cbd5e1;
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
-.context-tags {
+.anchor-checklist {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.25rem;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 0.2rem;
 }
 
-.context-tag {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 0.25rem 0.65rem;
-  border-radius: var(--radius-full, 9999px);
-  font-size: 0.78rem;
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
   color: #e2e8f0;
 }
 
-/* Animations */
-@keyframes beacon-pulse {
-  0% {
-    transform: scale(0.6);
-    opacity: 0.9;
-  }
-  50% {
-    transform: scale(1.4);
-    opacity: 0.4;
-  }
-  100% {
-    transform: scale(2);
-    opacity: 0;
-  }
-}
-
-@keyframes pulse-ring {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.5;
-    transform: scale(1.2);
-  }
+.check-gold {
+  color: #f59e0b;
+  flex-shrink: 0;
 }

@@ -33,10 +33,6 @@ export default function OurPathwaysSection({ onPhotoClick, onNavigate = null, is
       <div className="container">
         {/* Section Header */}
         <div className="pathways-header text-center">
-          <div className="badge-pill gold">
-            <Sparkles size={14} />
-            <span>OUR PATHWAYS TO IMPACT</span>
-          </div>
           <h2 className="section-title">
             Our <span className="highlight-gold">Pathways</span>
           </h2>

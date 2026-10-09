@@ -92,7 +92,6 @@ export default function ImpactCounterStrip({ onNavigate }) {
       <div className="container">
         <div className="counter-strip-header">
           <div>
-            <span className="counter-strip-badge">OFFICIAL IMPACT DATA</span>
             <h3 className="counter-strip-title">
               Proven Results Across <span className="highlight-gold">Two Decades</span>
             </h3>

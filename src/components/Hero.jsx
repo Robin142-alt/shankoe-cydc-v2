@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, BarChart3, Church } from 'lucide-react';
-import { BRAND, HOME_STATEMENT } from '../data/content';
+import { BRAND } from '../data/content';
 import './Hero.css';
 
 export default function Hero({ onNavigate }) {
@@ -34,16 +34,10 @@ export default function Hero({ onNavigate }) {
           <span>{BRAND.fullName} • NAROK COUNTY</span>
         </div>
 
-        {/* Headline */}
-        <h1 className="hero-title">
-          Empowering Children <br />
-          <span className="hero-gold-highlight">& Young People to Thrive</span>
+        {/* Main Hero Headline: Promoted Authoritative Statement */}
+        <h1 className="hero-title hero-statement-headline">
+          Reimagining the future of children and young people through education, health, skills development and strong communities is central to achieving <span className="hero-gold-highlight">lasting and sustainable change</span>.
         </h1>
-
-        {/* Central Home Statement from Authoritative Document */}
-        <p className="hero-subtext">
-          {HOME_STATEMENT}
-        </p>
 
         {/* Navigation Action Buttons: Direct to About Us & Impact */}
         <div className="hero-cta-group">
