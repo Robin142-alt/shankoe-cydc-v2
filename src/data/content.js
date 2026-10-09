@@ -94,56 +94,137 @@ export const PILLARS_JOURNEY = [
   }
 ];
 
+export const HOME_STATEMENT = "Reimagining the future of children and young people through education, health, skills development and strong communities is central to achieving lasting and sustainable change.";
+
 export const PROGRAMS = [
   {
     id: "education",
-    title: "Education & Learning",
-    summary: "Supporting literacy, school retention, and cognitive development.",
-    whatWeDo: "We provide scholastic support, tutoring, remedial learning, and a supportive study environment for children to succeed in school.",
-    whyItMatters: "Education opens pathways out of poverty and helps young minds develop critical thinking, self-confidence, and long-term ambition.",
+    title: "Education",
+    tagline: "A Right & Tool for Transformation",
+    summary: "Every learner has the right to access inclusive quality education, participate fully, and learn.",
+    paragraphs: [
+      "Education is a right and a tool for transformation. Every learner has the right to access inclusive quality education, participate fully, and learn. Vulnerable children and young people – including those with disabilities in rural communities in Kenya face masked barriers that exclude them from participating in education. Shankoe Child and Youth Centre employs community-driven solutions to identify and tackle the root causes of exclusion that are both internal and external to the child.",
+      "Our whole school approach ensures strengthening accessibility, supporting meaningful participation, and fostering safe, welcoming learning environments where every learner can thrive. Involving parents, caregivers and communities in shaping education services creates a powerful partnership that directly improves the learners’ education outcomes, behaviour and overall well-being."
+    ],
+    whatWeDo: "We employ community-driven solutions to tackle root causes of exclusion, strengthening accessibility and fostering safe, welcoming learning environments where every learner can thrive.",
+    whyItMatters: "Involving parents, caregivers and communities in shaping education services creates a powerful partnership that directly improves the learners’ education outcomes, behaviour and overall well-being.",
     icon: "GraduationCap",
     photo: "/assets/photos/shankoe-nutrition-fruit.jpg",
-    alt: "Students engaged at Shankoe CYDC study desks with healthy citrus fruit"
+    alt: "Students engaged at Shankoe CYDC study desks with healthy citrus fruit",
+    highlights: [
+      "Inclusive quality education accessible to every learner, including children with disabilities",
+      "Community-driven solutions identifying & tackling internal and external causes of exclusion",
+      "Whole-school approach strengthening accessibility & safe learning environments",
+      "Empowered parent, caregiver, and community partnerships for learner well-being"
+    ]
+  },
+  {
+    id: "health",
+    title: "Health",
+    tagline: "Healthy, Safe & Supported",
+    summary: "Every child and young person deserve the opportunity to grow up healthy, safe, and supported.",
+    paragraphs: [
+      "Every child and young person deserve the opportunity to grow up healthy, safe, and supported. Vulnerable children and young people in rural communities’ face barriers to healthcare and wellbeing - poverty, disability, violence, stigma, and limited access to services.",
+      "We provide health screening, nutritional support, connect children, young people, and their families with appropriate health services and compassionate psychosocial support. Good health is a key contributor to a child participation in education."
+    ],
+    whatWeDo: "We provide health screening, nutritional support, connect children, young people, and their families with appropriate health services and compassionate psychosocial support.",
+    whyItMatters: "Good health is a key contributor to a child participation in education and fundamental to growing up safe and supported.",
+    icon: "HeartPulse",
+    photo: "/assets/photos/shankoe-children-meal-fellowship.jpg",
+    alt: "Children at Shankoe CYDC sharing a wholesome hot meal together on the lawn",
+    highlights: [
+      "Routine health screenings and nutritional support",
+      "Direct connection to appropriate healthcare services for children and families",
+      "Compassionate psychosocial support addressing poverty, disability, violence, and stigma",
+      "Promoting health as a critical foundation for educational participation"
+    ]
   },
   {
     id: "skills",
-    title: "Skills & Livelihoods",
-    summary: "Hands-on vocational training and practical life skills for youth.",
-    whatWeDo: "We train young people in practical vocations such as baking, food preparation, measuring, hygiene, and entrepreneurship.",
-    whyItMatters: "Tangible vocational skills give youth economic independence, self-reliance, and immediate pride in their craftsmanship.",
+    title: "Skills Development",
+    tagline: "Bridging the Divide Between Education & Employment",
+    summary: "Addressing the skills gap where young people are unaware of skills required for future employment opportunities.",
+    paragraphs: [
+      "Bridging the divide between education and employment – addressing the skills gap where young people are unaware of skills required for future employment opportunities.",
+      "Bridging the gap between education and employment has become a critical challenge in today’s rapidly changing job market. To enhance young people’s employability, we combine skills training with practical experience and connections to real jobs (internship and apprentice), provide mentorship, encourage entrepreneurship, develop soft skills, job readiness, and encourage lifelong learning. The transition from education to employment doesn’t have to be difficult."
+    ],
+    whatWeDo: "We combine skills training with practical experience and connections to real jobs (internship and apprentice), provide mentorship, encourage entrepreneurship, develop soft skills, job readiness, and encourage lifelong learning.",
+    whyItMatters: "The transition from education to employment doesn’t have to be difficult when youth are empowered with practical craftsmanship and self-reliance.",
     icon: "ChefHat",
     photo: "/assets/photos/shankoe-fresh-muffins-presentation.jpg",
-    alt: "Young people proudly presenting freshly baked muffins at Shankoe CYDC"
-  },
-  {
-    id: "wellbeing",
-    title: "Wellbeing & Nutrition",
-    summary: "Nutritious balanced meals, physical health, and psychosocial care.",
-    whatWeDo: "We provide hot balanced meals during centre days, health screenings, hygiene education, and emotional support in a peaceful setting.",
-    whyItMatters: "A well-nourished, physically safe child can focus, learn, play, and thrive without the distraction of hunger or illness.",
-    icon: "Utensils",
-    photo: "/assets/photos/shankoe-children-meal-fellowship.jpg",
-    alt: "Children at Shankoe CYDC sharing a wholesome hot meal together on the lawn"
-  },
-  {
-    id: "protection",
-    title: "Child Protection & Rights",
-    summary: "Ensuring safety, child advocacy, and zero tolerance for harm.",
-    whatWeDo: "We uphold strict safeguarding standards, educate communities on child rights, and provide safe physical environments.",
-    whyItMatters: "Every child has a fundamental right to grow up free from violence, exploitation, discrimination, and neglect.",
-    icon: "Shield",
-    photo: "/assets/photos/shankoe-playground-slide.jpg",
-    alt: "Children playing joyfully in safety on Shankoe playground slide"
+    alt: "Young people proudly presenting freshly baked muffins at Shankoe CYDC",
+    highlights: [
+      "Vocational training with practical experience (baking, food craft, hygiene standards)",
+      "Connections to real employment through internships and apprenticeships",
+      "Mentorship, entrepreneurship cultivation, and job readiness coaching",
+      "Soft skills development and a commitment to lifelong learning"
+    ]
   },
   {
     id: "community",
-    title: "Community & Climate Resilience",
-    summary: "Strengthening families, environmental awareness, and local stewardship.",
-    whatWeDo: "We collaborate closely with local church leadership, parents, and community elders on sustainable water, nutrition, and youth initiatives.",
-    whyItMatters: "Strong families and climate-aware communities ensure that children’s progress is sustained through every season.",
+    title: "Community Strengthening",
+    tagline: "Supporting Structures for Child Protection",
+    summary: "Strong Communities provide supporting structures for child protection and safer learning environments.",
+    paragraphs: [
+      "Strong Communities provide supporting structures for child protection. We work with communities to build child-friendly reporting systems, improve data collection on school-based violence, and engage parents and local leaders in sustaining safer learning environments."
+    ],
+    whatWeDo: "We work with communities to build child-friendly reporting systems, improve data collection on school-based violence, and engage parents and local leaders in sustaining safer learning environments.",
+    whyItMatters: "Strong communities provide supporting structures for child protection, ensuring children learn and thrive free from violence and harm.",
+    icon: "ShieldCheck",
+    photo: "/assets/photos/shankoe-playground-slide.jpg",
+    alt: "Children playing joyfully in safety on Shankoe playground slide",
+    highlights: [
+      "Child-friendly reporting systems for proactive child protection",
+      "Improved data collection on school-based violence",
+      "Active engagement of parents, guardians, and local community leaders",
+      "Sustaining safe, respectful, and welcoming learning environments"
+    ]
+  },
+  {
+    id: "climate",
+    title: "Climate Change Resilience",
+    tagline: "Child-Centred Adaptation & Socioeconomic Empowerment",
+    summary: "Climate change is a child rights crisis that disproportionately threatens the survival, development, and well-being of children and young people.",
+    statCallout: {
+      stat: "Nearly 1 Billion Children",
+      source: "UNICEF data",
+      text: "Almost half of the world's child population—live in countries classified as extremely high-risk. While children are the least responsible for global emissions, they bear the heaviest physical and psychological burdens."
+    },
+    paragraphs: [
+      "Climate change is a child rights crisis that disproportionately threatens the survival, development, and well-being of children and young people. According to UNICEF data, nearly 1 billion children—almost half of the world's child population—live in countries classified as extremely high-risk. While children are the least responsible for global emissions, they bear the heaviest physical and psychological burdens. Building climate resilience among vulnerable children and youth requires an urgent shift from post-disaster response toward child-centred adaptation, socioeconomic empowerment, and systemic policy inclusion."
+    ],
+    structuredInitiatives: [
+      {
+        number: "1",
+        title: "Engaging young people as Agents of Change through:",
+        points: [
+          {
+            label: "Green Skills",
+            text: "We engage children and young people in planting trees, creating kitchen gardens both in schools and communities."
+          },
+          {
+            label: "Policy Representation",
+            text: "Young people possess unique grassroot insights, we also engage them actively in local and national climate decision-making processes contributing to sustainable climate smart solutions."
+          }
+        ]
+      },
+      {
+        number: "2",
+        title: "Family and Socioeconomic Empowerment",
+        text: "A child's resilience is technically tied to household stability. We combine climate education with household economic strengthening initiatives. We also support Social Protection Safety Nets to shield vulnerable families from poverty-driven displacement, keeping children nourished and in school."
+      }
+    ],
+    whatWeDo: "We champion child-centred adaptation by equipping youth with green skills, advancing youth policy representation in climate decisions, and strengthening household economic stability.",
+    whyItMatters: "Building climate resilience shifts the paradigm from post-disaster response toward child-centred adaptation, keeping families shielded and children nourished in school.",
     icon: "Trees",
     photo: "/assets/photos/shankoe-community-church-group.jpg",
-    alt: "Community youth and leadership fellowship outside Shankoe Methodist Church"
+    alt: "Community youth and leadership fellowship outside Shankoe Methodist Church",
+    highlights: [
+      "Shift from post-disaster response to child-centred climate adaptation",
+      "Green skills: tree planting & kitchen gardens in schools and communities",
+      "Policy representation: youth grassroots insights in local and national decisions",
+      "Family & socioeconomic empowerment with Social Protection Safety Nets"
+    ]
   }
 ];
 
@@ -152,7 +233,7 @@ export const THEORY_OF_CHANGE = {
   steps: [
     {
       step: "1. WE INVEST IN",
-      items: ["Education & Learning", "Child Protection", "Practical Skills", "Health & Wellbeing", "Community Partnerships"],
+      items: ["Inclusive Quality Education", "Health & Psychosocial Care", "Skills Development & Employment", "Community Strengthening", "Climate Change Resilience"],
       theme: "Foundations of Support",
       color: "#0c2340"
     },

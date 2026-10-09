@@ -60,11 +60,11 @@ export default function Footer({ onNavigate }) {
           <div className="footer-links-col">
             <h4 className="footer-col-heading">Key Programs</h4>
             <ul className="footer-links-list">
-              <li><button type="button" onClick={() => handleNav('programs')}>Education & Learning</button></li>
-              <li><button type="button" onClick={() => handleNav('programs')}>Skills & Livelihoods</button></li>
-              <li><button type="button" onClick={() => handleNav('programs')}>Wellbeing & Nutrition</button></li>
-              <li><button type="button" onClick={() => handleNav('programs')}>Child Protection</button></li>
-              <li><button type="button" onClick={() => handleNav('programs')}>Community Resilience</button></li>
+              <li><button type="button" onClick={() => handleNav('programs')}>Education</button></li>
+              <li><button type="button" onClick={() => handleNav('programs')}>Health</button></li>
+              <li><button type="button" onClick={() => handleNav('programs')}>Skills Development</button></li>
+              <li><button type="button" onClick={() => handleNav('programs')}>Community Strengthening</button></li>
+              <li><button type="button" onClick={() => handleNav('programs')}>Climate Change Resilience</button></li>
             </ul>
           </div>
 

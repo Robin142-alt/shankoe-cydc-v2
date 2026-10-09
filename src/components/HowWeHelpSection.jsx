@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { 
   GraduationCap, 
   ChefHat, 
-  Utensils, 
+  HeartPulse, 
   ShieldCheck, 
   Trees, 
   ArrowRight 
@@ -37,10 +37,10 @@ export default function HowWeHelpSection({ onNavigate, onPhotoClick }) {
   const getIcon = (id) => {
     switch (id) {
       case 'education': return <GraduationCap size={24} />;
+      case 'health': return <HeartPulse size={24} />;
       case 'skills': return <ChefHat size={24} />;
-      case 'wellbeing': return <Utensils size={24} />;
-      case 'protection': return <ShieldCheck size={24} />;
-      case 'community': return <Trees size={24} />;
+      case 'community': return <ShieldCheck size={24} />;
+      case 'climate': return <Trees size={24} />;
       default: return <GraduationCap size={24} />;
     }
   };

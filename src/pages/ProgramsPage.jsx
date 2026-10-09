@@ -2,13 +2,14 @@ import React from 'react';
 import { 
   GraduationCap, 
   ChefHat, 
-  Utensils, 
+  HeartPulse, 
   ShieldCheck, 
   Trees, 
   ArrowRight,
   Heart,
   CheckCircle2,
-  Sparkles
+  Sparkles,
+  Info
 } from 'lucide-react';
 import { PROGRAMS } from '../data/content';
 import './ProgramsPage.css';
@@ -17,10 +18,10 @@ export default function ProgramsPage({ onNavigate, onPhotoClick }) {
   const getIcon = (id) => {
     switch (id) {
       case 'education': return <GraduationCap size={28} />;
+      case 'health': return <HeartPulse size={28} />;
       case 'skills': return <ChefHat size={28} />;
-      case 'wellbeing': return <Utensils size={28} />;
-      case 'protection': return <ShieldCheck size={28} />;
-      case 'community': return <Trees size={28} />;
+      case 'community': return <ShieldCheck size={28} />;
+      case 'climate': return <Trees size={28} />;
       default: return <GraduationCap size={28} />;
     }
   };
@@ -30,19 +31,19 @@ export default function ProgramsPage({ onNavigate, onPhotoClick }) {
       src: '/assets/photos/shankoe-indoor-baking-skills.jpg',
       title: 'Precision Mixing & Electric Mixer Practice',
       caption: 'Students practicing proper batter preparation and technique.',
-      category: 'Skills & Livelihoods'
+      category: 'Skills Development'
     },
     {
       src: '/assets/photos/shankoe-outdoor-baking-measuring.jpg',
       title: 'Ingredient Ratio & Measurement',
       caption: 'Learning the discipline of measuring cups and accurate recipes.',
-      category: 'Skills & Livelihoods'
+      category: 'Skills Development'
     },
     {
       src: '/assets/photos/shankoe-fresh-muffins-presentation.jpg',
       title: 'Freshly Baked Muffin Showcase',
       caption: 'Students proudly presenting their completed baked goods.',
-      category: 'Skills & Livelihoods'
+      category: 'Skills Development'
     }
   ];
 
@@ -51,13 +52,13 @@ export default function ProgramsPage({ onNavigate, onPhotoClick }) {
       {/* Header */}
       <section className="programs-header-section section-dark">
         <div className="container container-narrow text-center">
-          <span className="badge-pill gold">HOLISTIC SUPPORT PATHWAYS</span>
+          <span className="badge-pill gold">OFFICIAL PROGRAMS</span>
           <h1 className="programs-page-title">
             Every Child Needs The <br />
             <span className="highlight-gold">Right Support to Thrive.</span>
           </h1>
           <p className="programs-page-lead">
-            We provide structured, caring interventions that address the whole child—educational retention, practical vocational capability, health, and a safe, protective community.
+            Reimagining the future of children and young people through education, health, skills development and strong communities is central to achieving lasting and sustainable change.
           </p>
         </div>
       </section>
@@ -103,23 +104,71 @@ export default function ProgramsPage({ onNavigate, onPhotoClick }) {
                     <div className="program-pillar-badge">
                       <span className="pillar-num">0{index + 1}</span>
                       <span className="pillar-icon">{getIcon(prog.id)}</span>
+                      {prog.tagline && (
+                        <span className="program-tagline-badge">{prog.tagline}</span>
+                      )}
                     </div>
 
                     <h2 className="program-pillar-title">{prog.title}</h2>
-                    <p className="program-pillar-summary">{prog.summary}</p>
 
-                    <div className="program-qa-box">
-                      <div className="qa-item">
-                        <h4 className="qa-heading">What do we do?</h4>
-                        <p className="qa-answer">{prog.whatWeDo}</p>
-                      </div>
-
-                      <div className="qa-item">
-                        <h4 className="qa-heading">Why does it matter?</h4>
-                        <p className="qa-answer">{prog.whyItMatters}</p>
-                      </div>
+                    {/* Full Authentic Paragraphs from Official Document */}
+                    <div className="program-paragraphs-wrap">
+                      {prog.paragraphs && prog.paragraphs.map((para, pIdx) => (
+                        <p key={pIdx} className="program-paragraph">
+                          {para}
+                        </p>
+                      ))}
                     </div>
 
+                    {/* UNICEF Callout Banner for Climate Resilience */}
+                    {prog.statCallout && (
+                      <div className="program-stat-callout">
+                        <div className="stat-callout-header">
+                          <span className="stat-source-tag">{prog.statCallout.source}</span>
+                          <span className="stat-highlight-figure">{prog.statCallout.stat}</span>
+                        </div>
+                        <p className="stat-callout-body">{prog.statCallout.text}</p>
+                      </div>
+                    )}
+
+                    {/* Structured Initiatives (Agents of Change & Family Empowerment) */}
+                    {prog.structuredInitiatives && (
+                      <div className="program-initiatives-container">
+                        {prog.structuredInitiatives.map((init, initIdx) => (
+                          <div key={initIdx} className="initiative-card">
+                            <h4 className="initiative-heading">{init.title}</h4>
+                            {init.points && (
+                              <ul className="initiative-points-list">
+                                {init.points.map((point, ptIdx) => (
+                                  <li key={ptIdx} className="initiative-point-item">
+                                    <strong className="point-title">{point.label}:</strong> {point.text}
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                            {init.text && (
+                              <p className="initiative-body-text">{init.text}</p>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Core Highlights Checklist */}
+                    {prog.highlights && (
+                      <div className="program-highlights-wrap">
+                        <ul className="program-highlights-list">
+                          {prog.highlights.map((item, hIdx) => (
+                            <li key={hIdx} className="program-highlight-item">
+                              <CheckCircle2 size={16} className="highlight-icon" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* Actions */}
                     <div className="program-row-actions">
                       <button 
                         type="button" 
@@ -127,7 +176,7 @@ export default function ProgramsPage({ onNavigate, onPhotoClick }) {
                         onClick={() => onNavigate('partner')}
                       >
                         <Heart size={15} fill="currentColor" />
-                        <span>Support This Program</span>
+                        <span>Support {prog.title}</span>
                       </button>
                     </div>
                   </div>

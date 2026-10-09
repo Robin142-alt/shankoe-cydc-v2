@@ -43,9 +43,9 @@ export default function Hero({ onNavigate }) {
           <span className="hero-gold-highlight">& Young People to Thrive</span>
         </h1>
 
-        {/* One Short Sentence */}
+        {/* Central Home Statement from Official Document */}
         <p className="hero-subtext">
-          Providing education, practical skills, nutrition, and safe belonging in Narok County, Kenya.
+          Reimagining the future of children and young people through education, health, skills development and strong communities is central to achieving lasting and sustainable change.
         </p>
 
         {/* 2 Buttons */}

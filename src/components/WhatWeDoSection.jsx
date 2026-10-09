@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { 
   GraduationCap, 
   ChefHat, 
-  Utensils, 
+  HeartPulse, 
   ShieldCheck, 
   Trees, 
   ArrowRight 
@@ -12,36 +12,36 @@ import './WhatWeDoSection.css';
 const WORK_AREAS = [
   {
     id: 'education',
-    title: 'Education & Learning',
-    shortLine: 'Tutoring, scholastic supplies & school retention.',
+    title: 'Education',
+    shortLine: 'Inclusive quality education, whole-school approach & tackling root causes of exclusion.',
     photo: '/assets/photos/shankoe-nutrition-fruit.jpg',
     icon: <GraduationCap size={18} />
   },
   {
+    id: 'health',
+    title: 'Health',
+    shortLine: 'Health screenings, nutritional support, medical linkages & psychosocial care.',
+    photo: '/assets/photos/shankoe-children-meal-fellowship.jpg',
+    icon: <HeartPulse size={18} />
+  },
+  {
     id: 'skills',
-    title: 'Vocational Skills',
-    shortLine: 'Practical baking, pastry craft & self-reliance.',
+    title: 'Skills Development',
+    shortLine: 'Bridging education to employment with hands-on training, mentorship & real jobs.',
     photo: '/assets/photos/shankoe-fresh-muffins-presentation.jpg',
     icon: <ChefHat size={18} />
   },
   {
-    id: 'wellbeing',
-    title: 'Health & Nutrition',
-    shortLine: 'Daily balanced hot meals & physical wellness.',
-    photo: '/assets/photos/shankoe-group-meal-lawn.jpg',
-    icon: <Utensils size={18} />
-  },
-  {
-    id: 'protection',
-    title: 'Child Protection',
-    shortLine: 'Safe spaces, dignity & zero tolerance for harm.',
+    id: 'community',
+    title: 'Community Strengthening',
+    shortLine: 'Child protection structures, reporting systems & safe learning environments.',
     photo: '/assets/photos/shankoe-playground-slide.jpg',
     icon: <ShieldCheck size={18} />
   },
   {
-    id: 'community',
-    title: 'Community & Church',
-    shortLine: 'Faith leadership, family care & mentorship.',
+    id: 'climate',
+    title: 'Climate Resilience',
+    shortLine: 'Child-centred adaptation, green skills, policy inclusion & family economic support.',
     photo: '/assets/photos/shankoe-community-church-group.jpg',
     icon: <Trees size={18} />
   }
@@ -84,11 +84,14 @@ export default function WhatWeDoSection({ onNavigate }) {
         <div className="what-we-do-header">
           <div className="what-header-badge">
             <span className="what-badge-dot" />
-            <span>WHAT WE DO</span>
+            <span>OUR CORE PROGRAMS</span>
           </div>
           <h2 className="what-we-do-title">
             Five Pillars of <span className="highlight-gold">Holistic Care</span>
           </h2>
+          <p className="what-we-do-lead">
+            Reimagining the future through education, health, skills development, and strong communities to achieve lasting change.
+          </p>
         </div>
 
         {/* 5 Compact Cards: Staggered Scroll Reveal & Micro-Interactions */}
