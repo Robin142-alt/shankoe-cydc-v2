@@ -3,7 +3,6 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { 
   MapPin, 
-  Compass, 
   Shield, 
   School, 
   Users, 
@@ -279,19 +278,6 @@ export default function KenyaMap() {
 
   return (
     <div className="kenya-gis-map-card">
-      <div className="kenya-map-header">
-        <div className="map-badge">
-          <Compass size={15} className="map-badge-icon" />
-          <span>REAL GEOGRAPHIC DATA • NAROK COUNTY, KENYA</span>
-        </div>
-        <h3 className="map-heading">
-          Where We Work: <span className="highlight-gold">Narok County</span>
-        </h3>
-        <p className="map-subtext">
-          Interactive geographical view of Kenya detailing Narok County boundaries (County 033) and the exact location of Shankoe Methodist Child and Youth Centre.
-        </p>
-      </div>
-
       <div className="map-workspace-grid">
         {/* Left Column: Interactive Leaflet GIS Map */}
         <div className="gis-map-col">

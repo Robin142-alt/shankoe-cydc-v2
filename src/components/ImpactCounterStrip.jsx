@@ -1,30 +1,50 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { GraduationCap, Briefcase, TrendingUp, Sprout, Users, School, ArrowRight } from 'lucide-react';
-import { IMPACT_STATS } from '../data/content';
+import { GraduationCap, Briefcase, TrendingUp, School } from 'lucide-react';
 import './ImpactCounterStrip.css';
 
-function AnimatedCounter({ target, suffix = '', isVisible }) {
+function AnimatedCounter({ target, suffix = '', isVisible, delay = 0 }) {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    if (!isVisible) return;
-    
-    let start = 0;
-    const duration = 1800;
-    const step = target / (duration / 16);
-    
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= target) {
-        setCurrent(target);
-        clearInterval(timer);
-      } else {
-        setCurrent(Math.floor(start));
-      }
-    }, 16);
+    if (!isVisible) {
+      setCurrent(0);
+      return;
+    }
 
-    return () => clearInterval(timer);
-  }, [isVisible, target]);
+    let animationFrameId;
+    let startTimestamp = null;
+    const duration = 1800;
+
+    // Smooth cubic easing for high-impact deceleration
+    const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+    const timer = setTimeout(() => {
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const elapsed = timestamp - startTimestamp;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = easeOutCubic(progress);
+        const nextValue = Math.round(eased * target);
+
+        setCurrent(nextValue);
+
+        if (progress < 1) {
+          animationFrameId = requestAnimationFrame(step);
+        } else {
+          setCurrent(target);
+        }
+      };
+
+      animationFrameId = requestAnimationFrame(step);
+    }, delay);
+
+    return () => {
+      clearTimeout(timer);
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
+  }, [isVisible, target, delay]);
 
   return (
     <span className="counter-number">
@@ -33,7 +53,7 @@ function AnimatedCounter({ target, suffix = '', isVisible }) {
   );
 }
 
-export default function ImpactCounterStrip({ onNavigate }) {
+export default function ImpactCounterStrip() {
   const [isVisible, setIsVisible] = useState(false);
   const stripRef = useRef(null);
 
@@ -45,17 +65,22 @@ export default function ImpactCounterStrip({ onNavigate }) {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.unobserve(el);
+        } else {
+          // Reset when scrolled away so the count-up plays on scroll-in
+          setIsVisible(false);
         }
       },
-      { threshold: 0.15 }
+      { 
+        threshold: 0.2,
+        rootMargin: '0px 0px -40px 0px'
+      }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
-  // Display top 4 authoritative figures in the prominent counter strip
+  // Top 4 authoritative figures from official document
   const stripFigures = [
     {
       icon: <GraduationCap size={24} />,
@@ -91,21 +116,9 @@ export default function ImpactCounterStrip({ onNavigate }) {
     <section className="impact-counter-strip" ref={stripRef}>
       <div className="container">
         <div className="counter-strip-header">
-          <div>
-            <h3 className="counter-strip-title">
-              Proven Results Across <span className="highlight-gold">Two Decades</span>
-            </h3>
-          </div>
-          {onNavigate && (
-            <button 
-              type="button" 
-              className="btn btn-outline-white btn-sm view-impact-btn"
-              onClick={() => onNavigate('impact')}
-            >
-              <span>View All Impact Statistics</span>
-              <ArrowRight size={15} />
-            </button>
-          )}
+          <h3 className="counter-strip-title">
+            Proven Results Across <span className="highlight-gold">Two Decades</span>
+          </h3>
         </div>
 
         <div className="counter-grid">
@@ -113,7 +126,7 @@ export default function ImpactCounterStrip({ onNavigate }) {
             <div 
               key={index} 
               className={`counter-item ${isVisible ? 'visible' : ''}`}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              style={{ transitionDelay: `${index * 80}ms` }}
             >
               <div className="counter-icon-wrap">
                 {stat.icon}
@@ -122,7 +135,8 @@ export default function ImpactCounterStrip({ onNavigate }) {
                 <AnimatedCounter 
                   target={stat.value} 
                   suffix={stat.suffix} 
-                  isVisible={isVisible} 
+                  isVisible={isVisible}
+                  delay={index * 120}
                 />
               </div>
               <span className="counter-label">{stat.label}</span>

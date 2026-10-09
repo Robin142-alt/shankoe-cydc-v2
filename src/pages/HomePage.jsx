@@ -2,7 +2,6 @@ import React from 'react';
 import { Church, ArrowRight, MapPin, Heart, ShieldCheck, Sparkles } from 'lucide-react';
 import Hero from '../components/Hero';
 import ImpactCounterStrip from '../components/ImpactCounterStrip';
-import KenyaMap from '../components/KenyaMap';
 import PartnerSection from '../components/PartnerSection';
 import { BRAND, WHO_WE_ARE_TEXT } from '../data/content';
 import './HomePage.css';
@@ -75,24 +74,7 @@ export default function HomePage({ onNavigate, onPhotoClick }) {
         </div>
       </section>
 
-      {/* 4. WHERE WE WORK SPOTLIGHT (Accurate Kenya Map Highlighting Narok County) */}
-      <section className="section section-dark home-map-section">
-        <div className="container">
-          <div className="section-header center light-text">
-            <span className="badge-pill gold">WHERE WE WORK</span>
-            <h2 className="section-title">
-              Our Base in <span className="highlight-gold">Narok County, Kenya</span>
-            </h2>
-            <p className="subtitle text-light-muted">
-              Shankoe Methodist Child and Youth Centre operates directly in southwestern Kenya, reaching 131 partner schools and over 25,000 community members.
-            </p>
-          </div>
-
-          <KenyaMap />
-        </div>
-      </section>
-
-      {/* 6. PARTNER WITH US: Retained ONLY ONCE near the bottom of the website */}
+      {/* 4. PARTNER WITH US: Retained ONLY ONCE near the bottom of the website */}
       <PartnerSection />
     </div>
   );
