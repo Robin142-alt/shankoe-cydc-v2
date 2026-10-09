@@ -30,7 +30,7 @@ export default function Hero({ onNavigate }) {
       <div className={`container hero-content-container ${loaded ? 'hero-loaded' : ''}`}>
         {/* Main Hero Headline: Promoted Authoritative Statement */}
         <h1 className="hero-title hero-statement-headline">
-          Reimagining the future of children and young people through education, health, skills development and strong communities is central to achieving <span className="hero-gold-highlight">lasting and sustainable change</span>.
+          Reimagining the future of children and young people through education, health, skills development and strong communities is central to achieving <span className="hero-gold-highlight">lasting and sustainable change.</span>
         </h1>
 
         {/* Navigation Action Buttons: Direct to About Us & Impact */}
