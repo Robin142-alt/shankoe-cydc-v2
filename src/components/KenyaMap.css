@@ -1,0 +1,476 @@
+/* ==========================================================================
+   KENYA MAP COMPONENT STYLES
+   Highlighting Narok County with rich aesthetics & interactive states
+   ========================================================================== */
+
+.kenya-map-card {
+  background: linear-gradient(145deg, #0f2238 0%, #0a1728 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-xl, 1.25rem);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  color: #f8fafc;
+  box-shadow: 0 20px 45px rgba(3, 10, 20, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.kenya-map-card::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.kenya-map-header {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 2rem;
+}
+
+.map-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #fbbf24;
+  margin-bottom: 0.85rem;
+  text-transform: uppercase;
+}
+
+.map-badge-icon {
+  color: #f59e0b;
+}
+
+.map-heading {
+  font-family: var(--font-heading, inherit);
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.map-subtext {
+  font-size: 1.02rem;
+  color: #94a3b8;
+  max-width: 680px;
+  line-height: 1.6;
+}
+
+/* 2-Column Grid: Map + Panel */
+.kenya-map-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.25rem;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .kenya-map-grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3rem;
+  }
+}
+
+/* Map Frame & Container */
+.map-visual-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.map-frame {
+  position: relative;
+  background: radial-gradient(circle at center, #132a47 0%, #0c1a2e 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg, 1rem);
+  padding: 1rem;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.kenya-svg {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  display: block;
+}
+
+/* Compass */
+.map-compass {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 38px;
+  height: 38px;
+  background: rgba(12, 35, 64, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.compass-n {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #f59e0b;
+  line-height: 1;
+}
+
+.compass-pointer {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 8px solid #f59e0b;
+  margin-top: 2px;
+}
+
+/* Interactive Hint */
+.map-interactive-hint {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  background: rgba(12, 35, 64, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-full, 9999px);
+  z-index: 2;
+}
+
+.hint-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f59e0b;
+  box-shadow: 0 0 8px #f59e0b;
+  animation: pulse-ring 2s infinite;
+}
+
+/* SVG styling */
+.county-region {
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.county-region:hover {
+  opacity: 0.85;
+  filter: brightness(1.15);
+}
+
+.county-narok-highlight {
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.county-narok-highlight:hover,
+.county-narok-highlight.active-county {
+  filter: drop-shadow(0 0 16px rgba(245, 158, 11, 0.85));
+}
+
+/* Beacon Pin Animation */
+.beacon-outer-pulse {
+  animation: beacon-pulse 2.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
+  transform-origin: 175px 440px;
+}
+
+.beacon-wave {
+  animation: beacon-pulse 2.5s infinite 0.7s cubic-bezier(0.4, 0, 0.6, 1);
+  transform-origin: 175px 440px;
+}
+
+.beacon-core {
+  filter: drop-shadow(0 0 6px #ffffff);
+}
+
+.shankoe-badge-title {
+  fill: #f59e0b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  font-family: inherit;
+}
+
+.shankoe-badge-sub {
+  fill: #cbd5e1;
+  font-size: 9.5px;
+  font-family: inherit;
+}
+
+.narok-map-callout {
+  fill: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-anchor: middle;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+}
+
+.narok-sub-callout {
+  fill: #fef08a;
+  font-size: 8.5px;
+  font-weight: 600;
+  text-anchor: middle;
+}
+
+.water-label {
+  fill: #7dd3fc;
+  font-size: 9.5px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.neighbor-country-label {
+  fill: #475569;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.equator-label {
+  fill: #64748b;
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.rift-label {
+  fill: #f59e0b;
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  opacity: 0.85;
+}
+
+.landmark-label,
+.nairobi-label {
+  fill: #e2e8f0;
+  font-size: 9.5px;
+  font-weight: 600;
+}
+
+/* Badge Strip buttons */
+.map-badge-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.region-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-full, 9999px);
+  padding: 0.45rem 0.9rem;
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.region-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.region-tab-btn.active {
+  background: rgba(245, 158, 11, 0.18);
+  border-color: #f59e0b;
+  color: #fef08a;
+  font-weight: 600;
+}
+
+.tab-icon {
+  color: #f59e0b;
+}
+
+/* Info Panel Side */
+.map-info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.info-card-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1.25rem;
+}
+
+.info-county-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.25rem 0.75rem;
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #4ade80;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+.info-card-title {
+  font-family: var(--font-heading, inherit);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+.info-card-subtitle {
+  font-size: 0.88rem;
+  color: #f59e0b;
+  font-weight: 500;
+}
+
+.info-card-description {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #cbd5e1;
+}
+
+.info-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+}
+
+@media (max-width: 480px) {
+  .info-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.info-stat-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md, 0.75rem);
+  padding: 0.75rem 0.95rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.info-stat-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.info-stat-val {
+  font-size: 0.92rem;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* Narok Context Box */
+.narok-context-box {
+  background: rgba(12, 35, 64, 0.6);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: var(--radius-md, 0.75rem);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.context-box-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fbbf24;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.context-icon {
+  color: #f59e0b;
+}
+
+.context-box-text {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+.context-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.context-tag {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.78rem;
+  color: #e2e8f0;
+}
+
+/* Animations */
+@keyframes beacon-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-ring {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}

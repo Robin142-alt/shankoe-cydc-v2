@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Heart } from 'lucide-react';
+import { ArrowRight, BarChart3, Church } from 'lucide-react';
+import { BRAND, HOME_STATEMENT } from '../data/content';
 import './Hero.css';
 
 export default function Hero({ onNavigate }) {
@@ -10,23 +11,13 @@ export default function Hero({ onNavigate }) {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleScrollToWhatWeDo = (e) => {
-    e.preventDefault();
-    const el = document.getElementById('what-we-do');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      onNavigate('programs');
-    }
-  };
-
   return (
     <section className="hero-section">
-      {/* 1 Strong Genuine Shankoe Photo with Subtle Cinematic Ambient Movement */}
+      {/* Authentic Shankoe Photo with Cinematic Ambient Movement */}
       <div className="hero-bg-media">
         <img 
           src="/assets/photos/shankoe-children-meal-fellowship.jpg" 
-          alt="Smiling children in Shankoe CYDC uniform sharing meals together in unity" 
+          alt="Children at Shankoe Methodist Child and Youth Centre sharing meals in unity" 
           className="hero-bg-img"
         />
         <div className="hero-gradient-overlay" />
@@ -37,35 +28,41 @@ export default function Hero({ onNavigate }) {
       <div className="hero-deco-orb hero-orb-2" aria-hidden="true" />
 
       <div className={`container hero-content-container ${loaded ? 'hero-loaded' : ''}`}>
+        {/* Church & Community Authority Badge */}
+        <div className="hero-tag-badge">
+          <Church size={14} className="hero-badge-icon" />
+          <span>{BRAND.fullName} • NAROK COUNTY</span>
+        </div>
+
         {/* Headline */}
         <h1 className="hero-title">
           Empowering Children <br />
           <span className="hero-gold-highlight">& Young People to Thrive</span>
         </h1>
 
-        {/* Central Home Statement from Official Document */}
+        {/* Central Home Statement from Authoritative Document */}
         <p className="hero-subtext">
-          Reimagining the future of children and young people through education, health, skills development and strong communities is central to achieving lasting and sustainable change.
+          {HOME_STATEMENT}
         </p>
 
-        {/* 2 Buttons */}
+        {/* Navigation Action Buttons: Direct to About Us & Impact */}
         <div className="hero-cta-group">
           <button 
             type="button" 
             className="btn btn-gold hero-cta-btn"
-            onClick={handleScrollToWhatWeDo}
+            onClick={() => onNavigate('about')}
           >
-            <span>Explore Our Work</span>
+            <span>Explore Our Mission</span>
             <ArrowRight size={17} />
           </button>
 
           <button 
             type="button" 
             className="btn btn-outline-white hero-cta-btn"
-            onClick={() => onNavigate('partner')}
+            onClick={() => onNavigate('impact')}
           >
-            <Heart size={16} fill="currentColor" />
-            <span>Partner With Us</span>
+            <BarChart3 size={17} />
+            <span>View Our Impact</span>
           </button>
         </div>
       </div>

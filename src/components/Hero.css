@@ -126,6 +126,26 @@
   }
 }
 
+.hero-tag-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #fbbf24;
+  width: fit-content;
+  text-transform: uppercase;
+}
+
+.hero-badge-icon {
+  color: #f59e0b;
+}
+
 /* Headline */
 .hero-title {
   font-family: var(--font-heading);

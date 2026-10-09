@@ -1,12 +1,21 @@
 import React from 'react';
-import { Heart, MapPin, Mail, ArrowUpRight, ShieldCheck } from 'lucide-react';
+import { Heart, MapPin, Mail, Clock, ArrowUpRight, ShieldCheck, ChevronRight } from 'lucide-react';
 import { BRAND, MISSION } from '../data/content';
 import './Footer.css';
 
 export default function Footer({ onNavigate }) {
-  const handleNav = (pageId) => {
+  const handleNav = (pageId, sectionId = null) => {
     onNavigate(pageId);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (sectionId) {
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -14,7 +23,7 @@ export default function Footer({ onNavigate }) {
       <div className="container">
         {/* Main Footer Grid */}
         <div className="footer-grid">
-          {/* Brand Info */}
+          {/* Brand & Organization Info */}
           <div className="footer-brand-col">
             <div className="footer-logo-row">
               <div className="footer-logo-box">
@@ -29,8 +38,8 @@ export default function Footer({ onNavigate }) {
                 />
               </div>
               <div>
-                <div className="footer-brand-title">SHANKOE CYDC</div>
-                <div className="footer-brand-sub">Methodist Child & Youth Centre</div>
+                <div className="footer-brand-title">{BRAND.name}</div>
+                <div className="footer-brand-sub">{BRAND.fullName}</div>
               </div>
             </div>
 
@@ -38,58 +47,79 @@ export default function Footer({ onNavigate }) {
               “{MISSION}”
             </p>
 
-            <div className="footer-meta-badge">
-              <MapPin size={15} className="meta-icon" />
-              <span>Narok County, Kenya • Project {BRAND.projectCode}</span>
+            <div className="footer-church-tag">
+              <span>Operating under the {BRAND.church}</span>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Clean Navigation: Home, About Us, Impact */}
           <div className="footer-links-col">
-            <h4 className="footer-col-heading">Explore</h4>
+            <h4 className="footer-col-heading">Navigation</h4>
             <ul className="footer-links-list">
               <li><button type="button" onClick={() => handleNav('home')}>Home</button></li>
-              <li><button type="button" onClick={() => handleNav('about')}>About Our Story</button></li>
-              <li><button type="button" onClick={() => handleNav('programs')}>Programs & Skills</button></li>
-              <li><button type="button" onClick={() => handleNav('impact')}>Our Impact & Theory</button></li>
-              <li><button type="button" onClick={() => handleNav('stories')}>Life Stories</button></li>
+              <li><button type="button" onClick={() => handleNav('about')}>About Us</button></li>
+              <li><button type="button" onClick={() => handleNav('about', 'who-we-are')}>— Who We Are</button></li>
+              <li><button type="button" onClick={() => handleNav('about', 'mission-vision')}>— Mission & Vision</button></li>
+              <li><button type="button" onClick={() => handleNav('about', 'our-history')}>— Our History</button></li>
+              <li><button type="button" onClick={() => handleNav('about', 'where-we-work')}>— Where We Work</button></li>
+              <li><button type="button" onClick={() => handleNav('about', 'our-partners')}>— Our Partners</button></li>
+              <li><button type="button" onClick={() => handleNav('about', 'theory-of-change')}>— Theory of Change</button></li>
+              <li><button type="button" onClick={() => handleNav('about', 'our-programs')}>— Our Programs</button></li>
+              <li><button type="button" onClick={() => handleNav('impact')}>Impact & Stories</button></li>
             </ul>
           </div>
 
-          {/* Five Pillars */}
+          {/* Our Pathways */}
           <div className="footer-links-col">
-            <h4 className="footer-col-heading">Key Programs</h4>
+            <h4 className="footer-col-heading">Our Pathways</h4>
             <ul className="footer-links-list">
-              <li><button type="button" onClick={() => handleNav('programs')}>Education</button></li>
-              <li><button type="button" onClick={() => handleNav('programs')}>Health</button></li>
-              <li><button type="button" onClick={() => handleNav('programs')}>Skills Development</button></li>
-              <li><button type="button" onClick={() => handleNav('programs')}>Community Strengthening</button></li>
-              <li><button type="button" onClick={() => handleNav('programs')}>Climate Change Resilience</button></li>
+              <li><button type="button" onClick={() => handleNav('about', 'pathway-education')}>Education</button></li>
+              <li><button type="button" onClick={() => handleNav('about', 'pathway-healthcare')}>Healthcare</button></li>
+              <li><button type="button" onClick={() => handleNav('about', 'pathway-climate-change')}>Climate Change</button></li>
+              <li><button type="button" onClick={() => handleNav('about', 'pathway-skills-development')}>Skills Development</button></li>
+              <li><button type="button" onClick={() => handleNav('about', 'pathway-community-strengthening')}>Community Strengthening</button></li>
             </ul>
           </div>
 
-          {/* Partner & Connect */}
+          {/* Accessible Contact Information */}
           <div className="footer-action-col">
-            <h4 className="footer-col-heading">Join The Journey</h4>
+            <h4 className="footer-col-heading">Contact Information</h4>
             <p className="footer-action-desc">
-              Stronger futures are built together. Connect with us to support child potential in Narok County.
+              Get in touch with Shankoe Methodist Child and Youth Centre:
             </p>
-            <div className="footer-btns">
+            
+            <div className="footer-contact-details">
+              <div className="footer-contact-item">
+                <Mail size={16} className="footer-contact-icon" />
+                <a href={`mailto:${BRAND.contact.email}`} className="footer-contact-link">
+                  {BRAND.contact.email}
+                </a>
+              </div>
+              <div className="footer-contact-item">
+                <MapPin size={16} className="footer-contact-icon" />
+                <span>{BRAND.contact.locationText}</span>
+              </div>
+              <div className="footer-contact-item">
+                <Clock size={16} className="footer-contact-icon" />
+                <span>{BRAND.contact.hours}</span>
+              </div>
+            </div>
+
+            <div className="footer-bottom-partner-hint">
               <button 
                 type="button" 
-                className="btn btn-gold btn-sm w-full-mobile"
-                onClick={() => handleNav('partner')}
+                className="btn btn-outline-white btn-sm"
+                onClick={() => {
+                  const el = document.getElementById('partner-with-us');
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    handleNav('home', 'partner-with-us');
+                  }
+                }}
               >
-                <Heart size={15} fill="currentColor" />
                 <span>Partner With Us</span>
-              </button>
-              <button 
-                type="button" 
-                className="btn btn-outline-white btn-sm w-full-mobile"
-                onClick={() => handleNav('contact')}
-              >
-                <span>Let's Connect</span>
-                <ArrowUpRight size={15} />
+                <ChevronRight size={14} />
               </button>
             </div>
           </div>
@@ -98,11 +128,11 @@ export default function Footer({ onNavigate }) {
         {/* Footer Bottom Bar */}
         <div className="footer-bottom-bar">
           <div className="footer-copyright">
-            © {new Date().getFullYear()} Shankoe CYDC • All rights reserved. Operating under Methodist Church in Kenya.
+            © {new Date().getFullYear()} {BRAND.fullName} ({BRAND.name}) • All rights reserved. Founded by the {BRAND.church}.
           </div>
           <div className="footer-authenticity-note">
             <ShieldCheck size={14} className="shield-icon" />
-            <span>Documented with authentic Shankoe CYDC photography & genuine project records.</span>
+            <span>Documented with authentic Shankoe CYDC photography & official church records.</span>
           </div>
         </div>
       </div>

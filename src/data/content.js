@@ -1,18 +1,16 @@
 // Official Shankoe CYDC Content & Asset Database
-// Built around authentic assets and official organisational information
+// Authoritative source: Official Organizational Documentation & Impact Records
 
 export const BRAND = {
   name: "Shankoe CYDC",
-  fullName: "Shankoe Methodist Child & Youth Development Centre",
+  fullName: "Shankoe Methodist Child and Youth Centre",
   church: "Methodist Church in Kenya",
-  projectCode: "KE 717",
   location: "Narok County, Kenya",
-  tagline: "Empowering Children & Young People to Thrive",
-  journey: ["Embrace", "Engage", "Empower", "Thrive"],
+  tagline: "Empowering Children and Young People to Thrive",
   logo: "/assets/logo/shankoe-cydc-logo.jpg",
   logoTransparent: "/assets/logo/shankoe-cydc-logo-transparent.png",
   contact: {
-    email: "ke717methodistshankoecdc@gmail.com",
+    email: "methodistshankoecdc@gmail.com",
     locationText: "Shankoe Methodist Church Compound, Narok County, Kenya",
     hours: "Monday – Friday: 8:00 AM – 5:00 PM EAT",
   }
@@ -22,95 +20,193 @@ export const VISION = "A world where every child and young person is safe, value
 
 export const MISSION = "To embrace, engage, and empower vulnerable children and young people through education, health, and skills development, enabling them to thrive.";
 
+export const THEOLOGY_STATEMENT = "Children and Youth Ministry remain the lifeline of every Church, and for the Church to thrive, it must take care of its children and young people both spiritually and socially. Theology and development for children and young people begins with the belief that every young person has inherent dignity, gifts, and the right to flourish. A theology rooted in compassion, justice, and hope encourages communities to protect children, include those who are often overlooked, and nurture their spiritual, emotional, social, and intellectual wellbeing.";
+
+export const WHO_WE_ARE_TEXT = "We are a child-centred, community-based institution founded by the Methodist Church in Kenya - Shankoe with a mandate to support Children and Youth Ministry. Children and Youth Ministry remain the lifeline of every Church, and for the Church to thrive, it must take care of its children and young people both spiritually and socially. Theology and development for children and young people begins with the belief that every young person has inherent dignity, gifts, and the right to flourish. Shankoe Methodist Child and Youth Centre supports this growth by creating safe and welcoming spaces, listening to children’s voices, and involving them in decisions that affect their lives. By partnering with families, schools, and local services, they support in providing education, care, and opportunities for young people to develop their abilities and contribute to their communities. A theology rooted in compassion, justice, and hope encourages communities to protect children, include those who are often overlooked, and nurture their spiritual, emotional, social, and intellectual wellbeing. Over the years, the Centre continues to support education, health, skills development, community strengthening and climate change resilience programs.";
+
+export const HISTORY_TEXT = "Founded by the Methodist Church in Kenya - Shankoe with a mandate to support Children and Youth Ministry, Shankoe Methodist Child and Youth Centre has walked alongside vulnerable children, young people, and families in Narok County for over two decades. Rooted in the belief that Children and Youth Ministry is the vital lifeline of the church and community, the Centre was established to nurture young lives both spiritually and socially. Over more than twenty years of continuous service, the Centre has built safe havens, pioneered community child safeguarding across 131 schools, trained thousands of families in climate-smart agriculture, and guided hundreds of young people from early childhood education all the way to university graduation, employment, and entrepreneurship.";
+
+export const HOME_STATEMENT = "Reimagining the future of children and young people through education, health, skills development and strong communities is central to achieving lasting and sustainable change.";
+
 export const CORE_VALUES = [
+  {
+    id: "compassion",
+    title: "Compassion",
+    summary: "Nurturing care rooted in Christian love and human dignity.",
+    description: "Meeting vulnerable children and families with genuine empathy, warmth, and relentless support across every stage of their lives.",
+    icon: "Heart"
+  },
+  {
+    id: "justice",
+    title: "Justice & Child Rights",
+    summary: "Protecting children and championing equality for every child.",
+    description: "Standing for child rights, violence prevention, and equitable access to schooling, health, and dignity regardless of background or gender.",
+    icon: "Scale"
+  },
+  {
+    id: "hope",
+    title: "Hope & Empowerment",
+    summary: "Believing in boundless potential and building self-reliance.",
+    description: "Equipping children and young people with practical capabilities, entrepreneurship, and faith so they become active architects of their own futures.",
+    icon: "Sparkles"
+  },
   {
     id: "inclusion",
     title: "Inclusion",
-    summary: "No child or youth is left behind.",
-    description: "We welcome every child regardless of background, providing an equitable environment of warmth, dignity, and belonging where all have the chance to grow.",
+    summary: "No child or young person is overlooked or left behind.",
+    description: "Creating welcoming environments where children with disabilities, marginalized learners, and overlooked youth are celebrated and supported.",
     icon: "HeartHandshake"
   },
   {
     id: "integrity",
     title: "Integrity",
-    summary: "Transparency and accountability in all actions.",
-    description: "Every resource, partnership, and programme is managed with honesty, clear stewardship, and deep responsibility toward the children and community we serve.",
+    summary: "Faithful stewardship, transparency, and accountability.",
+    description: "Managing all partnerships, resources, and programs with rigorous honesty and deep responsibility before God and the community we serve.",
     icon: "ShieldCheck"
-  },
-  {
-    id: "empowerment",
-    title: "Empowerment",
-    summary: "Building confidence, resilience, and capability.",
-    description: "We do not foster dependency; we equip young people with practical skills, self-belief, and tools to shape their own dignified livelihoods and futures.",
-    icon: "Sparkles"
-  },
-  {
-    id: "resilience",
-    title: "Resilience",
-    summary: "Overcoming adversity through adaptability and innovation.",
-    description: "Guiding children and community families to navigate economic and environmental pressures with courage, resourcefulness, and mutual support.",
-    icon: "Anchor"
-  },
-  {
-    id: "social-justice",
-    title: "Social Justice",
-    summary: "Promoting equality, dignity, and fairness.",
-    description: "Standing for child rights, protection from harm, and equal access to education, health, and life opportunities for all girls and boys in Narok County.",
-    icon: "Scale"
   },
   {
     id: "partnership",
     title: "Partnership",
-    summary: "Leveraging collaboration for greater community impact.",
-    description: "Working hand-in-hand with church leaders, local schools, families, and global supporters to build enduring foundations for tomorrow.",
+    summary: "Strengthening families, schools, and community systems.",
+    description: "Collaborating with local churches, 131 schools, community elders, and global supporters to sustain long-term generational transformation.",
     icon: "Users"
   }
 ];
 
-export const PILLARS_JOURNEY = [
+// Authoritative Impact Statistics from Official Records
+export const IMPACT_STATS = [
   {
-    stage: "EMBRACE",
-    tag: "Safe • Valued • Supported",
-    headline: "Every child deserves to feel they belong.",
-    subtext: "We provide a nurturing haven where children are welcomed with unconditional warmth, safe spaces, and protective care from day one.",
-    color: "var(--color-blue-500)",
-    bgAccent: "rgba(37, 99, 235, 0.08)"
+    id: "education-support",
+    stat: "693",
+    number: 693,
+    label: "Education Financial Support",
+    fullDescription: "693 children and young people received continued financial support for their education from early childhood education to universities.",
+    highlight: "From Early Childhood to University",
+    icon: "GraduationCap"
   },
   {
-    stage: "ENGAGE",
-    tag: "Learn • Participate • Grow",
-    headline: "We create opportunities to learn and discover potential.",
-    subtext: "Through active education, balanced daily nutrition, joyful play, and mentoring, children discover their God-given gifts and talents.",
-    color: "var(--color-navy-700)",
-    bgAccent: "rgba(19, 51, 92, 0.08)"
+    id: "graduates-employed",
+    stat: "335",
+    number: 335,
+    label: "Graduated & In Employment",
+    fullDescription: "335 young people have graduated from colleges and universities and are in employment.",
+    highlight: "College & University Alumni in the Workforce",
+    icon: "Briefcase"
   },
   {
-    stage: "EMPOWER",
-    tag: "Skills • Confidence • Opportunity",
-    headline: "We help young people build capabilities for stronger futures.",
-    subtext: "From vocational baking and culinary training to life-skills mentorship, young people gain practical capabilities to lead self-reliant lives.",
-    color: "var(--color-amber-600)",
-    bgAccent: "rgba(217, 119, 6, 0.08)"
+    id: "entrepreneurs-mentored",
+    stat: "358",
+    number: 358,
+    label: "Trained Entrepreneurs",
+    fullDescription: "358 young people trained on entrepreneurship skills, mentored and are now running businesses supporting their families and communities.",
+    highlight: "Active Businesses Supporting Families",
+    icon: "TrendingUp"
+  },
+  {
+    id: "community-training",
+    stat: "3,851",
+    number: 3851,
+    label: "Community Members Trained",
+    fullDescription: "3,851 community members trained on climate smart agriculture, HIV/AIDS, nutrition, and positive parenting to support the social wellbeing of children and young people.",
+    highlight: "Climate-Smart Ag & Family Wellbeing",
+    icon: "Sprout"
+  },
+  {
+    id: "child-rights-advocacy",
+    stat: "25,000+",
+    number: 25000,
+    label: "Mobilised for Child Rights",
+    fullDescription: "Over 25,000 community members mobilised on child rights advocacy and protection creating a conducive environment for children and young people to thrive.",
+    highlight: "Community Child Safeguarding Network",
+    icon: "Users"
+  },
+  {
+    id: "schools-reached",
+    stat: "131",
+    number: 131,
+    label: "Schools Reached",
+    fullDescription: "131 schools reached on child protection messaging and advocacy.",
+    highlight: "School Safeguarding Partnerships",
+    icon: "School"
+  },
+  {
+    id: "decades-service",
+    stat: "20+",
+    number: 20,
+    label: "Years of Service",
+    fullDescription: "For over two decades, Shankoe CYDC has transformed the lives of vulnerable children and young people by helping them build brighter, safer futures.",
+    highlight: "Over Two Decades of Impact",
+    icon: "Calendar"
   }
 ];
 
-export const HOME_STATEMENT = "Reimagining the future of children and young people through education, health, skills development and strong communities is central to achieving lasting and sustainable change.";
+export const ACHIEVEMENTS = [
+  {
+    id: "achieve-edu",
+    title: "Higher Education & Career Pipelines",
+    metric: "693 Supported • 335 Employed Graduates",
+    summary: "Breaking generational poverty by sustaining learners all the way from early childhood education through university graduation and formal careers.",
+    bullets: [
+      "Continuous tuition and scholarship assistance ensuring uninterrupted school attendance.",
+      "Dedicated mentoring and career advisory from secondary level through post-secondary colleges.",
+      "335 young alumni currently employed in professional, vocational, and public service positions."
+    ],
+    icon: "GraduationCap"
+  },
+  {
+    id: "achieve-entrepreneurship",
+    title: "Youth Enterprise & Economic Self-Reliance",
+    metric: "358 Active Small Businesses",
+    summary: "Transforming practical vocational skills into independent livelihoods that lift families and boost local commerce in Narok County.",
+    bullets: [
+      "Rigorous technical instruction in commercial baking, food hygiene, and craftsmanship.",
+      "Practical business mentorship, book-keeping fundamentals, and seed resource linkage.",
+      "358 young entrepreneurs generating stable income supporting their households."
+    ],
+    icon: "TrendingUp"
+  },
+  {
+    id: "achieve-climate",
+    title: "Climate-Smart Agriculture & Food Security",
+    metric: "3,851 Community Members Trained",
+    summary: "Empowering semi-arid pastoral households with resilient farming practices, kitchen gardens, and essential nutrition knowledge.",
+    bullets: [
+      "Hands-on training in drought-resilient crops, water harvesting, and climate-smart horticulture.",
+      "Health education covering HIV/AIDS management, child nutrition, and positive parenting.",
+      "Protection of vulnerable children against drought-driven displacement and school dropout."
+    ],
+    icon: "Sprout"
+  },
+  {
+    id: "achieve-protection",
+    title: "Grassroots Child Protection & Advocacy Network",
+    metric: "131 Schools Reached • 25,000+ Mobilised",
+    summary: "Establishing safe community environments where children's voices are heard, protected, and prioritized.",
+    bullets: [
+      "Child-friendly reporting systems established in partnership with local authorities and churches.",
+      "Active protection messaging and anti-violence training across 131 Narok primary and secondary schools.",
+      "Over 25,000 local citizens mobilized to safeguard child welfare, rights, and bodily integrity."
+    ],
+    icon: "ShieldCheck"
+  }
+];
 
-export const PROGRAMS = [
+// Our Pathways: Replacing Five Pillars with verified official pathways
+export const PATHWAYS = [
   {
     id: "education",
     title: "Education",
     tagline: "A Right & Tool for Transformation",
     summary: "Every learner has the right to access inclusive quality education, participate fully, and learn.",
     paragraphs: [
-      "Education is a right and a tool for transformation. Every learner has the right to access inclusive quality education, participate fully, and learn. Vulnerable children and young people – including those with disabilities in rural communities in Kenya face masked barriers that exclude them from participating in education. Shankoe Child and Youth Centre employs community-driven solutions to identify and tackle the root causes of exclusion that are both internal and external to the child.",
-      "Our whole school approach ensures strengthening accessibility, supporting meaningful participation, and fostering safe, welcoming learning environments where every learner can thrive. Involving parents, caregivers and communities in shaping education services creates a powerful partnership that directly improves the learners’ education outcomes, behaviour and overall well-being."
+      "Education is a right and a tool for transformation. Every learner has the right to access inclusive quality education, participate fully, and learn. Vulnerable children and young people – including those with disabilities in rural communities in Kenya – face masked barriers that exclude them from participating in education. Shankoe Methodist Child and Youth Centre employs community-driven solutions to identify and tackle the root causes of exclusion that are both internal and external to the child.",
+      "Our whole school approach ensures strengthening accessibility, supporting meaningful participation, and fostering safe, welcoming learning environments where every learner can thrive. Involving parents, caregivers and communities in shaping education services creates a powerful partnership that directly improves the learners' education outcomes, behaviour and overall well-being."
     ],
     whatWeDo: "We employ community-driven solutions to tackle root causes of exclusion, strengthening accessibility and fostering safe, welcoming learning environments where every learner can thrive.",
-    whyItMatters: "Involving parents, caregivers and communities in shaping education services creates a powerful partnership that directly improves the learners’ education outcomes, behaviour and overall well-being.",
+    whyItMatters: "Involving parents, caregivers and communities in shaping education services creates a powerful partnership that directly improves learners' education outcomes and wellbeing.",
     icon: "GraduationCap",
     photo: "/assets/photos/shankoe-nutrition-fruit.jpg",
-    alt: "Students engaged at Shankoe CYDC study desks with healthy citrus fruit",
+    alt: "Students engaged at Shankoe study desks with fresh fruit",
     highlights: [
       "Inclusive quality education accessible to every learner, including children with disabilities",
       "Community-driven solutions identifying & tackling internal and external causes of exclusion",
@@ -119,19 +215,19 @@ export const PROGRAMS = [
     ]
   },
   {
-    id: "health",
-    title: "Health",
+    id: "healthcare",
+    title: "Healthcare",
     tagline: "Healthy, Safe & Supported",
-    summary: "Every child and young person deserve the opportunity to grow up healthy, safe, and supported.",
+    summary: "Every child and young person deserves the opportunity to grow up healthy, safe, and supported.",
     paragraphs: [
-      "Every child and young person deserve the opportunity to grow up healthy, safe, and supported. Vulnerable children and young people in rural communities’ face barriers to healthcare and wellbeing - poverty, disability, violence, stigma, and limited access to services.",
-      "We provide health screening, nutritional support, connect children, young people, and their families with appropriate health services and compassionate psychosocial support. Good health is a key contributor to a child participation in education."
+      "Every child and young person deserves the opportunity to grow up healthy, safe, and supported. Vulnerable children and young people in rural communities face barriers to healthcare and wellbeing – poverty, disability, violence, stigma, and limited access to services.",
+      "We provide health screening, nutritional support, connect children, young people, and their families with appropriate health services, and provide compassionate psychosocial support. Good health is a key contributor to a child's participation in education."
     ],
     whatWeDo: "We provide health screening, nutritional support, connect children, young people, and their families with appropriate health services and compassionate psychosocial support.",
-    whyItMatters: "Good health is a key contributor to a child participation in education and fundamental to growing up safe and supported.",
+    whyItMatters: "Good health is a key contributor to a child's active participation in education and fundamental to growing up safe and supported.",
     icon: "HeartPulse",
     photo: "/assets/photos/shankoe-children-meal-fellowship.jpg",
-    alt: "Children at Shankoe CYDC sharing a wholesome hot meal together on the lawn",
+    alt: "Children at Shankoe CYDC sharing a wholesome meal together",
     highlights: [
       "Routine health screenings and nutritional support",
       "Direct connection to appropriate healthcare services for children and families",
@@ -140,217 +236,174 @@ export const PROGRAMS = [
     ]
   },
   {
-    id: "skills",
-    title: "Skills Development",
-    tagline: "Bridging the Divide Between Education & Employment",
-    summary: "Addressing the skills gap where young people are unaware of skills required for future employment opportunities.",
-    paragraphs: [
-      "Bridging the divide between education and employment – addressing the skills gap where young people are unaware of skills required for future employment opportunities.",
-      "Bridging the gap between education and employment has become a critical challenge in today’s rapidly changing job market. To enhance young people’s employability, we combine skills training with practical experience and connections to real jobs (internship and apprentice), provide mentorship, encourage entrepreneurship, develop soft skills, job readiness, and encourage lifelong learning. The transition from education to employment doesn’t have to be difficult."
-    ],
-    whatWeDo: "We combine skills training with practical experience and connections to real jobs (internship and apprentice), provide mentorship, encourage entrepreneurship, develop soft skills, job readiness, and encourage lifelong learning.",
-    whyItMatters: "The transition from education to employment doesn’t have to be difficult when youth are empowered with practical craftsmanship and self-reliance.",
-    icon: "ChefHat",
-    photo: "/assets/photos/shankoe-fresh-muffins-presentation.jpg",
-    alt: "Young people proudly presenting freshly baked muffins at Shankoe CYDC",
-    highlights: [
-      "Vocational training with practical experience (baking, food craft, hygiene standards)",
-      "Connections to real employment through internships and apprenticeships",
-      "Mentorship, entrepreneurship cultivation, and job readiness coaching",
-      "Soft skills development and a commitment to lifelong learning"
-    ]
-  },
-  {
-    id: "community",
-    title: "Community Strengthening",
-    tagline: "Supporting Structures for Child Protection",
-    summary: "Strong Communities provide supporting structures for child protection and safer learning environments.",
-    paragraphs: [
-      "Strong Communities provide supporting structures for child protection. We work with communities to build child-friendly reporting systems, improve data collection on school-based violence, and engage parents and local leaders in sustaining safer learning environments."
-    ],
-    whatWeDo: "We work with communities to build child-friendly reporting systems, improve data collection on school-based violence, and engage parents and local leaders in sustaining safer learning environments.",
-    whyItMatters: "Strong communities provide supporting structures for child protection, ensuring children learn and thrive free from violence and harm.",
-    icon: "ShieldCheck",
-    photo: "/assets/photos/shankoe-playground-slide.jpg",
-    alt: "Children playing joyfully in safety on Shankoe playground slide",
-    highlights: [
-      "Child-friendly reporting systems for proactive child protection",
-      "Improved data collection on school-based violence",
-      "Active engagement of parents, guardians, and local community leaders",
-      "Sustaining safe, respectful, and welcoming learning environments"
-    ]
-  },
-  {
-    id: "climate",
-    title: "Climate Change Resilience",
-    tagline: "Child-Centred Adaptation & Socioeconomic Empowerment",
+    id: "climate-change",
+    title: "Climate Change",
+    tagline: "Child-Centred Adaptation & Resilience",
     summary: "Climate change is a child rights crisis that disproportionately threatens the survival, development, and well-being of children and young people.",
     statCallout: {
       stat: "Nearly 1 Billion Children",
       source: "UNICEF data",
-      text: "Almost half of the world's child population—live in countries classified as extremely high-risk. While children are the least responsible for global emissions, they bear the heaviest physical and psychological burdens."
+      text: "Almost half of the world's child population live in countries classified as extremely high-risk. While children are the least responsible for global emissions, they bear the heaviest physical and psychological burdens."
     },
     paragraphs: [
-      "Climate change is a child rights crisis that disproportionately threatens the survival, development, and well-being of children and young people. According to UNICEF data, nearly 1 billion children—almost half of the world's child population—live in countries classified as extremely high-risk. While children are the least responsible for global emissions, they bear the heaviest physical and psychological burdens. Building climate resilience among vulnerable children and youth requires an urgent shift from post-disaster response toward child-centred adaptation, socioeconomic empowerment, and systemic policy inclusion."
+      "Climate change is a child rights crisis that disproportionately threatens the survival, development, and well-being of children and young people. Building climate resilience among vulnerable children and young people requires an urgent shift from post-disaster response toward child-centred adaptation, socioeconomic empowerment, and systemic policy inclusion.",
+      "At Shankoe CYDC, we engage children and young people in planting trees and creating kitchen gardens both in schools and communities. We also support Social Protection Safety Nets to shield vulnerable families from climate-driven poverty, keeping children nourished and in school."
     ],
     structuredInitiatives: [
       {
         number: "1",
-        title: "Engaging young people as Agents of Change through:",
+        title: "Engaging Children & Young People as Agents of Change:",
         points: [
           {
             label: "Green Skills",
-            text: "We engage children and young people in planting trees, creating kitchen gardens both in schools and communities."
+            text: "Engaging children and young people in planting trees, creating kitchen gardens both in schools and communities."
           },
           {
             label: "Policy Representation",
-            text: "Young people possess unique grassroot insights, we also engage them actively in local and national climate decision-making processes contributing to sustainable climate smart solutions."
+            text: "Empowering young people with grassroots insights to actively contribute to local and national climate decision-making processes."
           }
         ]
       },
       {
         number: "2",
         title: "Family and Socioeconomic Empowerment",
-        text: "A child's resilience is technically tied to household stability. We combine climate education with household economic strengthening initiatives. We also support Social Protection Safety Nets to shield vulnerable families from poverty-driven displacement, keeping children nourished and in school."
+        text: "Combining climate education with household economic strengthening and Social Protection Safety Nets to shield vulnerable families, keeping children nourished and in school."
       }
     ],
-    whatWeDo: "We champion child-centred adaptation by equipping youth with green skills, advancing youth policy representation in climate decisions, and strengthening household economic stability.",
+    whatWeDo: "We champion child-centred adaptation by equipping children and young people with green skills, advancing their representation in climate decisions, and strengthening household economic stability.",
     whyItMatters: "Building climate resilience shifts the paradigm from post-disaster response toward child-centred adaptation, keeping families shielded and children nourished in school.",
     icon: "Trees",
     photo: "/assets/photos/shankoe-community-church-group.jpg",
-    alt: "Community youth and leadership fellowship outside Shankoe Methodist Church",
+    alt: "Community members and youth gathered outside Shankoe Methodist Church",
     highlights: [
       "Shift from post-disaster response to child-centred climate adaptation",
       "Green skills: tree planting & kitchen gardens in schools and communities",
-      "Policy representation: youth grassroots insights in local and national decisions",
+      "Grassroots representation in local and national climate decision-making",
       "Family & socioeconomic empowerment with Social Protection Safety Nets"
+    ]
+  },
+  {
+    id: "skills-development",
+    title: "Skills Development",
+    tagline: "Bridging Education to Sustainable Employment",
+    summary: "Addressing the skills gap by combining vocational training with entrepreneurship, mentorship, and real economic opportunities.",
+    paragraphs: [
+      "Bridging the divide between education and employment – addressing the skills gap where young people are unaware of skills required for future employment opportunities – is essential for lasting self-reliance.",
+      "To enhance employability, we combine practical skills training (such as vocational baking and culinary arts) with hands-on experience, connections to real jobs, mentorship, entrepreneurship training, soft skills, and job readiness. 358 young people have been trained and mentored, and are now running their own businesses supporting their families."
+    ],
+    whatWeDo: "We combine skills training with practical experience and connections to real jobs, provide mentorship, encourage entrepreneurship, develop soft skills, and foster lifelong learning.",
+    whyItMatters: "The transition from education to employment becomes achievable when young people are empowered with practical craftsmanship and vocational confidence.",
+    icon: "ChefHat",
+    photo: "/assets/photos/shankoe-fresh-muffins-presentation.jpg",
+    alt: "Young people proudly presenting freshly baked muffins at Shankoe CYDC",
+    highlights: [
+      "Vocational training with practical experience (commercial baking, food craft, hygiene standards)",
+      "Connections to real employment through internships and apprenticeships",
+      "Mentorship, entrepreneurship cultivation, and business launch guidance (358 active businesses)",
+      "Soft skills development and a commitment to lifelong learning"
+    ]
+  },
+  {
+    id: "community-strengthening",
+    title: "Community Strengthening",
+    tagline: "Supporting Structures for Child Protection",
+    summary: "Strong communities provide supporting structures for child protection and safer learning environments.",
+    paragraphs: [
+      "Strong communities provide supporting structures for child protection. We work with communities to build child-friendly reporting systems, improve data collection on school-based violence, and engage parents and local leaders in sustaining safer learning environments.",
+      "Over 25,000 community members have been mobilised on child rights advocacy and protection, and 131 schools reached on child protection messaging, creating a conducive environment for children and young people to thrive."
+    ],
+    whatWeDo: "We work with communities to build child-friendly reporting systems, improve data collection on school-based violence, and engage parents and local leaders in sustaining safer learning environments.",
+    whyItMatters: "Strong communities ensure children learn, play, and thrive free from violence, neglect, and systemic harm.",
+    icon: "ShieldCheck",
+    photo: "/assets/photos/shankoe-playground-slide.jpg",
+    alt: "Children playing joyfully in safety on Shankoe playground slide",
+    highlights: [
+      "Child-friendly reporting systems for proactive child protection",
+      "Over 25,000 community members mobilised on child rights advocacy",
+      "131 schools reached with child protection messaging",
+      "Active engagement of parents, guardians, and local community leaders"
     ]
   }
 ];
 
+// Preserved for backwards compatibility with any existing imports
+export const PROGRAMS = PATHWAYS;
+
 export const THEORY_OF_CHANGE = {
-  officialStatement: "If Shankoe CYDC invests in strengthening community child protection and climate resilience systems, expanding education access, empowering young people, and promoting mental wellbeing, then children and young people in Narok County will grow in safer, inclusive environments with better life outcomes, because communities will be more accountable, supportive, and capable of sustaining change.",
+  officialStatement: "If Shankoe CYDC invests in strengthening community child protection and climate resilience systems, expanding education access, empowering children and young people, and promoting mental wellbeing, then children and young people in Narok County will grow in safer, inclusive environments with better life outcomes, because communities will be more accountable, supportive, and capable of sustaining change.",
   steps: [
     {
       step: "1. WE INVEST IN",
-      items: ["Inclusive Quality Education", "Health & Psychosocial Care", "Skills Development & Employment", "Community Strengthening", "Climate Change Resilience"],
+      items: ["Inclusive Quality Education", "Healthcare & Psychosocial Care", "Climate Change Resilience", "Skills Development & Entrepreneurship", "Community Child Protection"],
       theme: "Foundations of Support",
       color: "#0c2340"
     },
     {
-      step: "2. CHILDREN EXPERIENCE",
-      items: ["Safety & Belonging", "Joyful Learning", "Personal Confidence", "Care & Nourishment", "New Opportunities"],
+      step: "2. CHILDREN & YOUNG PEOPLE EXPERIENCE",
+      items: ["Safety & Inherent Dignity", "Joyful Learning & Belonging", "Nourishment & Physical Vitality", "Practical Craftsmanship & Mentorship", "Voice & Decision-Making Inclusion"],
       theme: "Human Transformation",
       color: "#1e5cb3"
     },
     {
-      step: "3. THE RESULT",
-      items: ["Children equipped to reach potential", "Self-reliant young adults with skills", "More resilient, caring community in Narok"],
-      theme: "Sustainable Thriving",
+      step: "3. THE SUSTAINABLE RESULT",
+      items: ["693+ Learners progressing through higher education", "335 College graduates gainfully employed", "358 Young entrepreneurs running businesses", "131 Schools & 25,000+ citizens safeguarding children", "Resilient communities equipped against climate shocks"],
+      theme: "Generational Thriving",
       color: "#d97706"
     }
   ]
 };
 
-export const PHOTOS_GALLERY = [
+export const WHERE_WE_WORK_DATA = {
+  country: "Kenya",
+  county: "Narok County",
+  countyCode: "033",
+  subCounty: "Trans Mara / Narok West",
+  headquarters: "Shankoe Methodist Church Compound",
+  description: "Narok County is located in southwestern Kenya along the Great Rift Valley, bordering Tanzania to the south. Renowned for its rich cultural heritage and the Maasai Mara ecosystem, the county faces substantial challenges in rural infrastructure, drought vulnerability, and access to educational and healthcare facilities for children in remote pastoralist communities.",
+  shankoeRole: "Shankoe Methodist Child and Youth Centre acts as a community anchor in Narok County, delivering holistic support directly where vulnerable children and young people live, study, and grow.",
+  keyMetrics: [
+    { label: "Partner Schools Reached", value: "131 Schools" },
+    { label: "Community Members Mobilised", value: "25,000+" },
+    { label: "Families Trained in Resilient Ag", value: "3,851" },
+    { label: "Geographic Terrain", value: "Southwestern Rift Valley" }
+  ]
+};
+
+export const OUR_PARTNERS = [
   {
-    id: "slide",
-    filename: "shankoe-playground-slide.jpg",
-    src: "/assets/photos/shankoe-playground-slide.jpg",
-    title: "Pure Joy of Play",
-    caption: "Children in Shankoe uniforms having fun together on the playground slide.",
-    category: "Recreation & Play",
-    orientation: "Landscape",
-    width: 1024,
-    height: 768
+    id: "mck",
+    name: "Methodist Church in Kenya (MCK)",
+    role: "Founding Church & Spiritual Anchor",
+    description: "The Methodist Church in Kenya - Shankoe provides spiritual leadership, pastoral oversight, and institutional sanctuary for Children and Youth Ministry.",
+    icon: "Church"
   },
   {
-    id: "baking-indoor",
-    filename: "shankoe-indoor-baking-skills.jpg",
-    src: "/assets/photos/shankoe-indoor-baking-skills.jpg",
-    title: "Vocational Baking Session",
-    caption: "Students learning precision mixing and pastry preparation with electric mixers.",
-    category: "Skills & Livelihoods",
-    orientation: "Landscape",
-    width: 1024,
-    height: 768
+    id: "schools",
+    name: "131 Partner Schools in Narok County",
+    role: "Educational & Safeguarding Partners",
+    description: "Collaborating on child protection messaging, early childhood education support, and whole-school accessibility across the county.",
+    icon: "School"
   },
   {
-    id: "muffins",
-    filename: "shankoe-fresh-muffins-presentation.jpg",
-    src: "/assets/photos/shankoe-fresh-muffins-presentation.jpg",
-    title: "Pride of Achievement",
-    caption: "Smiles and satisfaction as students present their freshly baked golden cupcakes.",
-    category: "Skills & Livelihoods",
-    orientation: "Landscape",
-    width: 1024,
-    height: 768
+    id: "families",
+    name: "Community Families & Caregivers",
+    role: "Grassroots Foundation",
+    description: "Over 3,851 caregivers actively participating in positive parenting, climate-smart agriculture, and household economic strengthening.",
+    icon: "Users"
   },
   {
-    id: "baking-outdoor-1",
-    filename: "shankoe-outdoor-baking-measuring.jpg",
-    src: "/assets/photos/shankoe-outdoor-baking-measuring.jpg",
-    title: "Measuring & Recipe Fundamentals",
-    caption: "Careful measurement of baking ingredients on the outdoor workstation.",
-    category: "Skills & Livelihoods",
-    orientation: "Portrait",
-    width: 768,
-    height: 1024
+    id: "health",
+    name: "Local Health Facilities & Workers",
+    role: "Healthcare & Nutritional Support",
+    description: "Ensuring routine health screenings, nutrition interventions, immunizations, and psychosocial care for enrolled children.",
+    icon: "HeartPulse"
   },
   {
-    id: "nutrition-fruit",
-    filename: "shankoe-nutrition-fruit.jpg",
-    src: "/assets/photos/shankoe-nutrition-fruit.jpg",
-    title: "Wholesome Nutrition",
-    caption: "Students seated with fresh citrus fruit, reinforcing everyday health and vitality.",
-    category: "Wellbeing & Nutrition",
-    orientation: "Landscape",
-    width: 1024,
-    height: 768
-  },
-  {
-    id: "meal-fellowship",
-    filename: "shankoe-children-meal-fellowship.jpg",
-    src: "/assets/photos/shankoe-children-meal-fellowship.jpg",
-    title: "Shared Meal Fellowship",
-    caption: "Warm plates of balanced food enjoyed in friendship on the green lawn.",
-    category: "Wellbeing & Nutrition",
-    orientation: "Landscape",
-    width: 1024,
-    height: 768
-  },
-  {
-    id: "baking-outdoor-2",
-    filename: "shankoe-outdoor-baking-mixing.jpg",
-    src: "/assets/photos/shankoe-outdoor-baking-mixing.jpg",
-    title: "Teamwork in the Kitchen",
-    caption: "Collaborative batter preparation fostering teamwork, patience, and attention to detail.",
-    category: "Skills & Livelihoods",
-    orientation: "Portrait",
-    width: 768,
-    height: 1024
-  },
-  {
-    id: "meal-lawn",
-    filename: "shankoe-group-meal-lawn.jpg",
-    src: "/assets/photos/shankoe-group-meal-lawn.jpg",
-    title: "Belonging & Care",
-    caption: "A joyful circle of youth sharing lunch, united in the Shankoe Methodist identity.",
-    category: "Wellbeing & Nutrition",
-    orientation: "Landscape",
-    width: 1024,
-    height: 768
-  },
-  {
-    id: "community-group",
-    filename: "shankoe-community-church-group.jpg",
-    src: "/assets/photos/shankoe-community-church-group.jpg",
-    title: "Leadership & Community Partnership",
-    caption: "Youth and community leaders gathered outside Shankoe Methodist Church.",
-    category: "Community & Church",
-    orientation: "Landscape",
-    width: 1024,
-    height: 768
+    id: "global",
+    name: "Global Child Development Supporters",
+    role: "Transformational Partnership",
+    description: "Churches, donors, and organizations worldwide walking alongside Shankoe to unlock boundless potential in vulnerable children.",
+    icon: "Globe"
   }
 ];
 
@@ -361,7 +414,7 @@ export const STORIES = [
     category: "Skills Training",
     photo: "/assets/photos/shankoe-fresh-muffins-presentation.jpg",
     summary: "At Shankoe CYDC, vocational training isn't abstract theory. In our practical baking modules, young people measure, mix, bake, and discover that they have the power to create value with their own hands.",
-    detail: "Working alongside mentors, students learn hygiene standards, ingredient ratios, temperature regulation, and presentation. Beyond the aroma of freshly baked muffins lies something deeper: the undeniable spark of self-worth and vocational confidence.",
+    detail: "Working alongside mentors, students learn hygiene standards, ingredient ratios, temperature regulation, and presentation. Beyond the aroma of freshly baked muffins lies something deeper: the undeniable spark of self-worth and vocational confidence that has propelled 358 young people into running their own businesses.",
     readTime: "2 min read"
   },
   {
@@ -388,61 +441,34 @@ export const STORIES = [
     category: "Community Fellowship",
     photo: "/assets/photos/shankoe-community-church-group.jpg",
     summary: "Shankoe CYDC works closely with Shankoe Methodist Church and local elders to ensure every young person is guided by integrity, moral grounding, and supportive mentorship.",
-    detail: "By bridging pastoral care with practical youth development, the centre builds a generational continuum of trust. Local young adults return to coach younger children, ensuring a cycle of community uplift.",
+    detail: "By bridging pastoral care with practical development, the Centre builds a generational continuum of trust. Local young adults return to coach younger children, ensuring a cycle of community uplift across Narok County.",
     readTime: "2 min read"
-  }
-];
-
-export const NEWS_EVENTS = [
-  {
-    id: "skills-workshop",
-    title: "Youth Practical Baking & Culinary Exhibition",
-    date: "Upcoming Workshop",
-    category: "Skills & Livelihoods",
-    summary: "Students will showcase baked goods prepared entirely during the term's practical culinary modules.",
-    photo: "/assets/photos/shankoe-indoor-baking-skills.jpg"
-  },
-  {
-    id: "nutrition-outreach",
-    title: "Community Child Health & Nutrition Day",
-    date: "Centre Activity",
-    category: "Health & Wellbeing",
-    summary: "Health checks, vitamin supplementation, and nutritional guidance for participating Shankoe families.",
-    photo: "/assets/photos/shankoe-nutrition-fruit.jpg"
-  },
-  {
-    id: "youth-fellowship",
-    title: "Annual Youth Leadership & Mentorship Gathering",
-    date: "Community Fellowship",
-    category: "Community",
-    summary: "Bringing together Shankoe alumni, church elders, and youth leaders to discuss vocational pathways.",
-    photo: "/assets/photos/shankoe-community-church-group.jpg"
   }
 ];
 
 export const PARTNERSHIP_AREAS = [
   {
     title: "Sponsor Vocational & Practical Skills",
-    description: "Support our baking ingredients, kitchen equipment, and practical learning supplies that equip youth for self-reliant livelihoods.",
+    description: "Support our baking ingredients, kitchen equipment, and practical learning supplies that equip young people for self-reliant livelihoods.",
     icon: "UtensilsCrossed",
-    impact: "Provides baking materials, aprons, utensils, and certified trainer support."
+    impact: "Provides baking materials, aprons, utensils, and certified trainer support for young entrepreneurs."
   },
   {
     title: "Nutritional & Wellbeing Support",
     description: "Help fund daily balanced hot meals, clean water access, and essential fruit distribution during centre program days.",
     icon: "Apple",
-    impact: "Guarantees sustained daily nutrition for growing children in Narok County."
+    impact: "Guarantees sustained daily nutrition and vitality for growing children in Narok County."
   },
   {
-    title: "Educational Resources & Scholarships",
-    description: "Provide textbooks, school uniforms, exercise books, and remedial tutoring support for primary and secondary students.",
+    title: "Educational Resources & Higher Education",
+    description: "Provide textbooks, school uniforms, exercise books, and tuition support for primary, secondary, and university scholars.",
     icon: "BookOpen",
-    impact: "Keeps vulnerable girls and boys actively learning and progressing in school."
+    impact: "Keeps vulnerable girls and boys actively learning and progressing to university degrees."
   },
   {
-    title: "Safe Infrastructure & Play Amenities",
-    description: "Strengthen playground equipment, classroom workstations, sanitary facilities, and community safe spaces.",
-    icon: "Building",
-    impact: "Maintains a safe, joyful environment where children can play and study without hazards."
+    title: "Climate Resilience & Community Safeguarding",
+    description: "Support tree planting, community kitchen gardens, climate-smart agriculture tools, and child protection workshops across 131 schools.",
+    icon: "Trees",
+    impact: "Shields vulnerable families against climate shocks and builds a protective community environment."
   }
 ];

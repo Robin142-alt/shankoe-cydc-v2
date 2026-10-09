@@ -6,12 +6,7 @@ import ScrollToTop from './components/ScrollToTop';
 import LoadingScreen from './components/LoadingScreen';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
-import ProgramsPage from './pages/ProgramsPage';
 import ImpactPage from './pages/ImpactPage';
-import StoriesPage from './pages/StoriesPage';
-import NewsPage from './pages/NewsPage';
-import ContactPage from './pages/ContactPage';
-import PartnerPage from './pages/PartnerPage';
 import './App.css';
 
 export default function App() {
@@ -20,13 +15,39 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [pageKey, setPageKey] = useState(0);
 
-  // Sync with browser URL hash
+  // Sync with browser URL hash and handle intelligent redirects for legacy hashes
   useEffect(() => {
     const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '').toLowerCase();
-      const validPages = ['home', 'about', 'programs', 'impact', 'stories', 'news', 'contact', 'partner'];
-      if (validPages.includes(hash)) {
-        setCurrentPage(hash);
+      const rawHash = window.location.hash.replace('#', '').toLowerCase();
+      
+      // Clean section anchors or legacy redirects
+      if (rawHash === 'about' || rawHash === 'who-we-are' || rawHash === 'mission-vision' || 
+          rawHash === 'our-history' || rawHash === 'where-we-work' || rawHash === 'our-partners' || 
+          rawHash === 'theory-of-change' || rawHash === 'our-programs' || rawHash === 'programs') {
+        setCurrentPage('about');
+        if (rawHash !== 'about') {
+          setTimeout(() => {
+            const targetId = rawHash === 'programs' ? 'our-programs' : rawHash;
+            const el = document.getElementById(targetId);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }, 150);
+        }
+      } else if (rawHash === 'impact' || rawHash === 'impact-statistics' || rawHash === 'achievements' || rawHash === 'stories') {
+        setCurrentPage('impact');
+        if (rawHash !== 'impact') {
+          setTimeout(() => {
+            const el = document.getElementById(rawHash);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }, 150);
+        }
+      } else if (rawHash === 'partner' || rawHash === 'partner-with-us' || rawHash === 'contact') {
+        setCurrentPage('home');
+        setTimeout(() => {
+          const el = document.getElementById('partner-with-us');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+      } else {
+        setCurrentPage('home');
       }
     };
 
@@ -60,18 +81,8 @@ export default function App() {
         return <HomePage onNavigate={navigateTo} onPhotoClick={handleOpenPhoto} />;
       case 'about':
         return <AboutPage onNavigate={navigateTo} onPhotoClick={handleOpenPhoto} />;
-      case 'programs':
-        return <ProgramsPage onNavigate={navigateTo} onPhotoClick={handleOpenPhoto} />;
       case 'impact':
         return <ImpactPage onNavigate={navigateTo} onPhotoClick={handleOpenPhoto} />;
-      case 'stories':
-        return <StoriesPage onNavigate={navigateTo} onPhotoClick={handleOpenPhoto} />;
-      case 'news':
-        return <NewsPage onNavigate={navigateTo} onPhotoClick={handleOpenPhoto} />;
-      case 'contact':
-        return <ContactPage onPhotoClick={handleOpenPhoto} />;
-      case 'partner':
-        return <PartnerPage onPhotoClick={handleOpenPhoto} />;
       default:
         return <HomePage onNavigate={navigateTo} onPhotoClick={handleOpenPhoto} />;
     }
@@ -83,7 +94,7 @@ export default function App() {
       {isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
 
       <div className={`app-root ${isLoading ? 'app-loading' : 'app-loaded'}`}>
-        {/* Sticky Navigation Bar */}
+        {/* Sticky Navigation Bar: Only Home, About Us, and Impact */}
         <Navbar currentPage={currentPage} onNavigate={navigateTo} />
 
         {/* Main Page View with smooth page transition */}
@@ -91,7 +102,7 @@ export default function App() {
           {renderCurrentPage()}
         </main>
 
-        {/* Global Footer */}
+        {/* Global Footer with accessible contact info */}
         <Footer onNavigate={navigateTo} />
 
         {/* Interactive Photo Lightbox Modal */}

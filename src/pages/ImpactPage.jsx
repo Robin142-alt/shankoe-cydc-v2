@@ -1,212 +1,224 @@
 import React, { useState } from 'react';
 import { 
-  ArrowDown, 
+  BarChart3, 
+  Award, 
+  BookOpen, 
+  GraduationCap, 
+  Briefcase, 
+  TrendingUp, 
+  Sprout, 
+  Users, 
+  School, 
+  Calendar, 
   CheckCircle2, 
-  ShieldCheck, 
-  Heart, 
-  FileText, 
-  Layers,
-  Sparkles,
+  Clock, 
+  ArrowRight,
+  ShieldCheck,
   ChevronDown,
   ChevronUp
 } from 'lucide-react';
-import { THEORY_OF_CHANGE } from '../data/content';
+import { IMPACT_STATS, ACHIEVEMENTS, STORIES, BRAND } from '../data/content';
 import './ImpactPage.css';
 
 export default function ImpactPage({ onNavigate, onPhotoClick }) {
-  const [showFullToc, setShowFullToc] = useState(false);
+  const [selectedStory, setSelectedStory] = useState(null);
 
-  const impactEvidences = [
-    {
-      title: "Tangible Vocational Skills",
-      photo: "/assets/photos/shankoe-fresh-muffins-presentation.jpg",
-      observation: "Children and youth actively learning commercial food preparation, measuring, hygiene, and baking.",
-      tag: "Vocational Independence"
-    },
-    {
-      title: "Mental Wellbeing & Joy of Play",
-      photo: "/assets/photos/shankoe-playground-slide.jpg",
-      observation: "Safe outdoor playground amenities where children play freely, build peer trust, and experience emotional security.",
-      tag: "Psychosocial Health"
-    },
-    {
-      title: "Balanced Daily Nutrition",
-      photo: "/assets/photos/shankoe-children-meal-fellowship.jpg",
-      observation: "Freshly prepared wholesome meals served to all enrolled children, alleviating nutrition gaps in Narok County.",
-      tag: "Physical Vitality"
-    },
-    {
-      title: "Community & Church Governance",
-      photo: "/assets/photos/shankoe-community-church-group.jpg",
-      observation: "Active pastoral and community involvement providing accountability, child safeguarding, and ethical mentorship.",
-      tag: "Accountability & Stewardship"
+  const getStatIcon = (iconName) => {
+    switch (iconName) {
+      case 'GraduationCap': return <GraduationCap size={28} />;
+      case 'Briefcase': return <Briefcase size={28} />;
+      case 'TrendingUp': return <TrendingUp size={28} />;
+      case 'Sprout': return <Sprout size={28} />;
+      case 'Users': return <Users size={28} />;
+      case 'School': return <School size={28} />;
+      case 'Calendar': return <Calendar size={28} />;
+      default: return <BarChart3 size={28} />;
     }
-  ];
+  };
+
+  const getAchievementIcon = (iconName) => {
+    switch (iconName) {
+      case 'GraduationCap': return <GraduationCap size={24} />;
+      case 'TrendingUp': return <TrendingUp size={24} />;
+      case 'Sprout': return <Sprout size={24} />;
+      case 'ShieldCheck': return <ShieldCheck size={24} />;
+      default: return <Award size={24} />;
+    }
+  };
 
   return (
     <div className="impact-page">
-      {/* Header */}
+      {/* 1. Header */}
       <section className="impact-header-section section-dark">
         <div className="container container-narrow text-center">
-          <span className="badge-pill gold">ACCOUNTABLE & CREDIBLE</span>
+          <div className="badge-pill gold">
+            <BarChart3 size={14} />
+            <span>AUTHORITATIVE RESULTS • 20+ YEARS</span>
+          </div>
           <h1 className="impact-page-title">
-            Our Theory of <br />
-            <span className="highlight-gold">Lasting Change</span>
+            Our Measured <span className="highlight-gold">Impact</span>
           </h1>
           <p className="impact-page-lead">
-            Sustainable impact is not accidental. It happens when child protection, education, nutrition, and practical vocational skills work together within an accountable community.
+            We transform the lives of vulnerable children and young people by helping them build brighter, safer futures. For over two decades, our community-based programs in Narok County have produced enduring, documented transformation.
           </p>
         </div>
       </section>
 
-      {/* Theory of Change Step Flow */}
-      <section className="section toc-section">
+      {/* Sub-Navigation Quick Jump Bar */}
+      <nav className="impact-subnav-bar" aria-label="Impact Sections">
+        <div className="container impact-subnav-container">
+          <a href="#impact-statistics" className="impact-subnav-link">Impact Statistics</a>
+          <a href="#achievements" className="impact-subnav-link">Key Achievements</a>
+          <a href="#stories" className="impact-subnav-link">Real Stories</a>
+        </div>
+      </nav>
+
+      {/* ======================================================== */}
+      {/* SECTION 1: IMPACT STATISTICS                            */}
+      {/* ======================================================== */}
+      <section className="section impact-stats-section" id="impact-statistics">
         <div className="container">
           <div className="section-header center">
-            <span className="badge-pill">STEP-BY-STEP TRANSFORMATION</span>
+            <span className="badge-pill">OFFICIAL IMPACT FIGURES</span>
             <h2 className="section-title">
-              How Potential <span className="highlight-gold">Becomes Possibility</span>
+              Two Decades of <span className="highlight-gold">Verified Reach</span>
             </h2>
             <p className="subtitle">
-              A transparent, logical pathway designed for deep human flourishing.
+              Every statistic represents real children, families, and schools in Narok County whose lives are forever changed.
             </p>
           </div>
 
-          {/* Visual Step-by-Step Flow */}
-          <div className="toc-flow-container">
-            {THEORY_OF_CHANGE.steps.map((step, idx) => (
-              <React.Fragment key={step.step}>
-                <div className="toc-step-card">
-                  <div className="toc-card-header">
-                    <span className="toc-step-num">STAGE 0{idx + 1}</span>
-                    <h3 className="toc-step-title">{step.step}</h3>
-                    <span className="toc-step-theme">{step.theme}</span>
-                  </div>
-
-                  <ul className="toc-items-list">
-                    {step.items.map((item, itemIdx) => (
-                      <li key={itemIdx} className="toc-list-item">
-                        <CheckCircle2 size={16} className="toc-check-icon" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+          {/* Stats Grid */}
+          <div className="official-stats-grid">
+            {IMPACT_STATS.map((item) => (
+              <div key={item.id} className="official-stat-card">
+                <div className="stat-card-icon-box">
+                  {getStatIcon(item.icon)}
                 </div>
-
-                {idx < THEORY_OF_CHANGE.steps.length - 1 && (
-                  <div className="toc-flow-connector">
-                    <div className="connector-line" />
-                    <div className="connector-arrow-box">
-                      <ArrowDown size={18} />
-                    </div>
-                  </div>
-                )}
-              </React.Fragment>
+                <div className="stat-card-number">{item.stat}</div>
+                <div className="stat-card-highlight">{item.highlight}</div>
+                <p className="stat-card-description">{item.fullDescription}</p>
+              </div>
             ))}
           </div>
 
-          {/* Official Full Theory of Change Collapsible Card */}
-          <div className="official-toc-card">
-            <div className="official-toc-header" onClick={() => setShowFullToc(!showFullToc)}>
-              <div className="official-toc-title-row">
-                <FileText size={20} className="toc-doc-icon" />
-                <div>
-                  <h4 className="official-toc-title">Organizational Theory of Change</h4>
-                  <span className="official-toc-sub">Complete strategic formulation for Shankoe CYDC</span>
-                </div>
-              </div>
-              <button 
-                type="button" 
-                className="toc-toggle-btn"
-                aria-label={showFullToc ? 'Hide full text' : 'Show full text'}
-              >
-                {showFullToc ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-              </button>
-            </div>
-
-            {showFullToc && (
-              <div className="official-toc-body animate-fade-in">
-                <blockquote className="official-toc-quote">
-                  “{THEORY_OF_CHANGE.officialStatement}”
-                </blockquote>
-              </div>
-            )}
+          {/* Authenticity Certificate Note */}
+          <div className="stats-authenticity-card">
+            <ShieldCheck size={20} className="auth-shield-icon" />
+            <p className="auth-note-text">
+              These figures represent official institutional milestones recorded over two decades of ministry by {BRAND.fullName} in collaboration with the Methodist Church in Kenya and local partners.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Genuine Observed Outcomes (Evidence-Led, No Invented Numbers) */}
-      <section className="section section-subtle impact-evidence-section">
+      {/* ======================================================== */}
+      {/* SECTION 2: ACHIEVEMENTS                                 */}
+      {/* ======================================================== */}
+      <section className="section section-subtle achievements-section" id="achievements">
         <div className="container">
-          <div className="section-header">
-            <span className="badge-pill">DOCUMENTED REALITY</span>
+          <div className="section-header center">
+            <span className="badge-pill">SYSTEMIC MILESTONES</span>
             <h2 className="section-title">
-              Evidence of Impact in <span className="highlight-gold">Action</span>
+              Our Major <span className="highlight-gold">Achievements</span>
             </h2>
             <p className="subtitle">
-              We do not publish fabricated statistics. Instead, we let real outcomes speak with clarity and integrity.
+              How our strategic interventions translate into generational stability and self-reliance.
             </p>
           </div>
 
-          <div className="evidence-cards-grid">
-            {impactEvidences.map((ev, i) => (
-              <div 
-                key={i} 
-                className="evidence-card"
-                onClick={() => onPhotoClick({
-                  src: ev.photo,
-                  title: ev.title,
-                  caption: ev.observation,
-                  category: ev.tag
-                })}
-                title="View authentic evidence photo"
-              >
-                <div className="evidence-media-wrap">
-                  <img src={ev.photo} alt={ev.title} className="evidence-img" />
-                  <span className="evidence-badge">{ev.tag}</span>
+          <div className="achievements-cards-grid">
+            {ACHIEVEMENTS.map((achieve) => (
+              <div key={achieve.id} className="achievement-card">
+                <div className="achievement-card-top">
+                  <div className="achievement-icon-box">
+                    {getAchievementIcon(achieve.icon)}
+                  </div>
+                  <div className="achievement-metric-badge">
+                    {achieve.metric}
+                  </div>
                 </div>
-                <div className="evidence-body">
-                  <h3 className="evidence-title">{ev.title}</h3>
-                  <p className="evidence-obs">{ev.observation}</p>
-                  <div className="evidence-footer">
-                    <span className="evidence-verified">
-                      <ShieldCheck size={14} />
-                      Verified Shankoe Project Observation
+
+                <h3 className="achievement-card-title">{achieve.title}</h3>
+                <p className="achievement-card-summary">{achieve.summary}</p>
+
+                <ul className="achievement-bullets-list">
+                  {achieve.bullets.map((bullet, bIdx) => (
+                    <li key={bIdx} className="achievement-bullet-item">
+                      <CheckCircle2 size={16} className="bullet-check" />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ======================================================== */}
+      {/* SECTION 3: STORIES                                      */}
+      {/* ======================================================== */}
+      <section className="section stories-section" id="stories">
+        <div className="container">
+          <div className="section-header center">
+            <span className="badge-pill">VOICES FROM SHANKOE</span>
+            <h2 className="section-title">
+              Stories of Growth & <span className="highlight-gold">Belonging</span>
+            </h2>
+            <p className="subtitle">
+              Real moments capturing the dignity, learning, and laughter that flourish every day at Shankoe CYDC.
+            </p>
+          </div>
+
+          <div className="stories-editorial-grid">
+            {STORIES.map((story) => (
+              <article key={story.id} className="story-card">
+                <div 
+                  className="story-image-wrap"
+                  onClick={() => onPhotoClick && onPhotoClick({
+                    src: story.photo,
+                    title: story.title,
+                    caption: story.summary,
+                    category: story.category
+                  })}
+                  title="Click to view full photo"
+                >
+                  <img src={story.photo} alt={story.title} className="story-img" />
+                  <span className="story-category-tag">{story.category}</span>
+                </div>
+
+                <div className="story-content">
+                  <div className="story-meta-row">
+                    <span className="story-read-time">
+                      <Clock size={13} />
+                      {story.readTime}
                     </span>
                   </div>
+
+                  <h3 className="story-title">{story.title}</h3>
+                  <p className="story-summary">{story.summary}</p>
+                  <p className="story-detail-snippet">{story.detail}</p>
+
+                  <div className="story-action-row">
+                    <button 
+                      type="button" 
+                      className="story-read-btn"
+                      onClick={() => onPhotoClick && onPhotoClick({
+                        src: story.photo,
+                        title: story.title,
+                        description: `${story.summary} ${story.detail}`,
+                        category: story.category
+                      })}
+                    >
+                      <span>View Photo & Story</span>
+                      <ArrowRight size={15} />
+                    </button>
+                  </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
-
-          {/* Metric Transparency Note */}
-          <div className="metric-policy-card">
-            <ShieldCheck size={24} className="policy-icon" />
-            <div>
-              <h4 className="policy-title">Our Commitment to Data Integrity</h4>
-              <p className="policy-text">
-                Shankoe CYDC complies with strict ethical reporting standards. Verified enrollment figures and annual child health assessments are maintained in project registers and released only through confirmed partner audits.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Bottom CTA */}
-      <section className="section impact-cta text-center">
-        <div className="container container-narrow">
-          <h2 className="section-title">Be Part of This Change</h2>
-          <p className="subtitle" style={{ marginBottom: '2rem' }}>
-            Direct your resources where they foster real human capability and joyful childhood in Narok County.
-          </p>
-          <button 
-            type="button" 
-            className="btn btn-gold btn-lg"
-            onClick={() => onNavigate('partner')}
-          >
-            <Heart size={18} fill="currentColor" />
-            <span>Partner With Our Impact</span>
-          </button>
         </div>
       </section>
     </div>

@@ -21,6 +21,43 @@
   pointer-events: none;
 }
 
+.counter-strip-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-bottom: 2.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1.5rem;
+}
+
+.counter-strip-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--gold-500, #f59e0b);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.counter-strip-title {
+  font-family: var(--font-heading, inherit);
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+.view-impact-btn {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.view-impact-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
 .counter-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
