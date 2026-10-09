@@ -44,18 +44,34 @@
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  font-size: 0.75rem;
+  padding: 0.28rem 0.8rem;
+  border-radius: var(--radius-full, 9999px);
+  background: rgba(12, 35, 64, 0.045);
+  border: 1px solid rgba(12, 35, 64, 0.12);
+  font-family: var(--font-heading, inherit);
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.095em;
   text-transform: uppercase;
-  color: var(--navy-800);
+  color: #0c2340;
+  line-height: 1;
+  width: fit-content;
+  box-shadow: 0 1px 2px rgba(12, 35, 64, 0.03);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-bottom: 0.85rem;
+}
+
+.what-header-badge:hover {
+  background: rgba(12, 35, 64, 0.075);
+  border-color: rgba(12, 35, 64, 0.22);
 }
 
 .what-badge-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: var(--gold-500);
+  background-color: #d97706;
+  flex-shrink: 0;
 }
 
 .what-we-do-title {

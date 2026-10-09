@@ -129,21 +129,45 @@
 .hero-tag-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.85rem;
-  background: rgba(245, 158, 11, 0.15);
-  border: 1px solid rgba(245, 158, 11, 0.35);
+  gap: 0.45rem;
+  padding: 0.3rem 0.85rem;
+  background: linear-gradient(135deg, rgba(12, 35, 64, 0.8) 0%, rgba(7, 20, 36, 0.9) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(245, 158, 11, 0.38);
   border-radius: var(--radius-full, 9999px);
-  font-size: 0.75rem;
+  font-family: var(--font-heading, inherit);
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.095em;
   color: #fbbf24;
   width: fit-content;
+  max-width: 100%;
   text-transform: uppercase;
+  line-height: 1;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4), 0 0 12px rgba(245, 158, 11, 0.12), inset 0 1px 0 rgba(254, 240, 138, 0.22);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.hero-tag-badge:hover {
+  background: linear-gradient(135deg, rgba(12, 35, 64, 0.92) 0%, rgba(7, 20, 36, 0.96) 100%);
+  border-color: rgba(245, 158, 11, 0.55);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.5), 0 0 16px rgba(245, 158, 11, 0.22), inset 0 1px 0 rgba(254, 240, 138, 0.3);
+  transform: translateY(-1px);
 }
 
 .hero-badge-icon {
+  width: 12.5px;
+  height: 12.5px;
   color: #f59e0b;
+  flex-shrink: 0;
+  margin-top: -1px;
+  transition: transform 0.2s ease;
+}
+
+.hero-tag-badge:hover .hero-badge-icon {
+  transform: scale(1.08);
 }
 
 /* Headline */
