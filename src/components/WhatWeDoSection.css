@@ -31,7 +31,7 @@
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -51,27 +51,16 @@
   font-family: var(--font-heading, inherit);
   font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.095em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #0c2340;
-  line-height: 1;
-  width: fit-content;
-  box-shadow: 0 1px 2px rgba(12, 35, 64, 0.03);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  margin-bottom: 0.85rem;
-}
-
-.what-header-badge:hover {
-  background: rgba(12, 35, 64, 0.075);
-  border-color: rgba(12, 35, 64, 0.22);
+  color: var(--navy-800);
 }
 
 .what-badge-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: #d97706;
-  flex-shrink: 0;
+  background-color: var(--gold-500);
 }
 
 .what-we-do-title {
@@ -115,9 +104,9 @@
   opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.3s ease;
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease;
   transition-delay: var(--stagger, 0ms), var(--stagger, 0ms), 0ms, 0ms;
   will-change: opacity, transform, box-shadow;
 }
@@ -132,6 +121,7 @@
    SMOOTH HOVER STATE: LIFT, SUBTLE SCALE, ENHANCED SHADOW & IMAGE ZOOM
    ========================================================================== */
 @media (hover: hover) {
+
   .what-we-do-section.is-visible .what-card:hover,
   .what-card:focus-visible {
     transform: translateY(-6px) scale(1.02);
@@ -139,8 +129,8 @@
     box-shadow: 0 16px 32px -6px rgba(12, 35, 64, 0.14), 0 0 0 1px rgba(245, 158, 11, 0.25);
     outline: none;
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 0.25s ease;
+      box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.25s ease;
     transition-delay: 0ms;
   }
 
@@ -320,6 +310,7 @@
 
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
+
   .what-we-do-header,
   .what-card,
   .what-card-img,

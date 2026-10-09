@@ -36,9 +36,6 @@ export default function VisionImpactMoment() {
           <Compass size={36} className="vision-icon" />
         </div>
 
-        {/* Vision Header */}
-        <div className="vision-badge-pill" data-reveal data-reveal-delay="100">OUR GUIDING VISION</div>
-
         {/* Big Impact Statement */}
         <blockquote className="vision-quote" data-reveal data-reveal-delay="200">
           "{VISION}"

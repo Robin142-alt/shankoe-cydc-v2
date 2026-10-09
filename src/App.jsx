@@ -7,6 +7,7 @@ import LoadingScreen from './components/LoadingScreen';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ImpactPage from './pages/ImpactPage';
+import PartnerPage from './pages/PartnerPage';
 import './App.css';
 
 export default function App() {
@@ -41,11 +42,7 @@ export default function App() {
           }, 150);
         }
       } else if (rawHash === 'partner' || rawHash === 'partner-with-us' || rawHash === 'contact') {
-        setCurrentPage('home');
-        setTimeout(() => {
-          const el = document.getElementById('partner-with-us');
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 150);
+        setCurrentPage('partner');
       } else {
         setCurrentPage('home');
       }
@@ -83,6 +80,8 @@ export default function App() {
         return <AboutPage onNavigate={navigateTo} onPhotoClick={handleOpenPhoto} />;
       case 'impact':
         return <ImpactPage onNavigate={navigateTo} onPhotoClick={handleOpenPhoto} />;
+      case 'partner':
+        return <PartnerPage onNavigate={navigateTo} onPhotoClick={handleOpenPhoto} />;
       default:
         return <HomePage onNavigate={navigateTo} onPhotoClick={handleOpenPhoto} />;
     }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, BarChart3, Church } from 'lucide-react';
+import { ArrowRight, BarChart3 } from 'lucide-react';
 import { BRAND } from '../data/content';
 import './Hero.css';
 
@@ -28,12 +28,6 @@ export default function Hero({ onNavigate }) {
       <div className="hero-deco-orb hero-orb-2" aria-hidden="true" />
 
       <div className={`container hero-content-container ${loaded ? 'hero-loaded' : ''}`}>
-        {/* Church & Community Authority Badge */}
-        <div className="hero-tag-badge">
-          <Church size={14} className="hero-badge-icon" />
-          <span>{BRAND.fullName} • NAROK COUNTY</span>
-        </div>
-
         {/* Main Hero Headline: Promoted Authoritative Statement */}
         <h1 className="hero-title hero-statement-headline">
           Reimagining the future of children and young people through education, health, skills development and strong communities is central to achieving <span className="hero-gold-highlight">lasting and sustainable change</span>.

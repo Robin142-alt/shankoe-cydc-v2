@@ -40,8 +40,6 @@ export default function WhoWeAreSection({ onNavigate, onPhotoClick }) {
         <div className="who-grid">
           {/* Left Text Column */}
           <div className="who-text-col">
-            <span className="badge-pill" data-reveal data-reveal-delay="0">WHO WE ARE</span>
-            
             <h2 className="who-title" data-reveal data-reveal-delay="80">
               A place where potential <br />
               <span className="highlight-gold">becomes possibility.</span>

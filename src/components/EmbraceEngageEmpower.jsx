@@ -54,7 +54,6 @@ export default function EmbraceEngageEmpower({ onNavigate, onPhotoClick }) {
       <div className="container">
         {/* Section Header */}
         <div className="section-header center">
-          <span className="badge-pill" data-reveal data-reveal-delay="0">OUR CORE PATHWAY</span>
           <h2 className="embrace-section-title" data-reveal data-reveal-delay="80">
             The Journey of <span className="highlight-gold">Becoming</span>
           </h2>

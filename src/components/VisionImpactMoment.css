@@ -39,22 +39,14 @@
 }
 
 .vision-badge-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.28rem 0.8rem;
-  border-radius: var(--radius-full, 9999px);
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.14) 0%, rgba(12, 35, 64, 0.6) 100%);
-  border: 1px solid rgba(245, 158, 11, 0.38);
-  font-family: var(--font-heading, inherit);
-  font-size: 0.72rem;
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.095em;
-  color: #fbbf24;
-  margin-bottom: 1.25rem;
+  letter-spacing: 0.1em;
+  color: var(--gold-400);
+  margin-bottom: 1.5rem;
   text-transform: uppercase;
-  line-height: 1;
-  box-shadow: 0 2px 14px rgba(245, 158, 11, 0.14), inset 0 1px 0 rgba(254, 240, 138, 0.2);
 }
 
 .vision-quote {

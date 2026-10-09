@@ -124,8 +124,8 @@ export const IMPACT_STATS = [
     id: "schools-reached",
     stat: "131",
     number: 131,
-    label: "Schools Reached",
-    fullDescription: "131 schools reached on child protection messaging and advocacy.",
+    label: "Safe Schools",
+    fullDescription: "131 safe schools reached on child protection messaging and advocacy.",
     highlight: "School Safeguarding Partnerships",
     icon: "School"
   },
@@ -461,7 +461,7 @@ export const PARTNERSHIP_AREAS = [
   },
   {
     title: "Educational Resources & Higher Education",
-    description: "Provide textbooks, school uniforms, exercise books, and tuition support for primary, secondary, and university scholars.",
+    description: "Provide textbooks, school uniforms, exercise books, and tuition support for children and young people across primary, secondary, and university levels.",
     icon: "BookOpen",
     impact: "Keeps vulnerable girls and boys actively learning and progressing to university degrees."
   },

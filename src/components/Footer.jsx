@@ -66,6 +66,7 @@ export default function Footer({ onNavigate }) {
               <li><button type="button" onClick={() => handleNav('about', 'theory-of-change')}>— Theory of Change</button></li>
               <li><button type="button" onClick={() => handleNav('about', 'our-programs')}>— Our Programs</button></li>
               <li><button type="button" onClick={() => handleNav('impact')}>Impact & Stories</button></li>
+              <li><button type="button" onClick={() => handleNav('partner')}>Partner With Us</button></li>
             </ul>
           </div>
 
@@ -109,14 +110,7 @@ export default function Footer({ onNavigate }) {
               <button 
                 type="button" 
                 className="btn btn-outline-white btn-sm"
-                onClick={() => {
-                  const el = document.getElementById('partner-with-us');
-                  if (el) {
-                    el.scrollIntoView({ behavior: 'smooth' });
-                  } else {
-                    handleNav('home', 'partner-with-us');
-                  }
-                }}
+                onClick={() => handleNav('partner')}
               >
                 <span>Partner With Us</span>
                 <ChevronRight size={14} />

@@ -471,7 +471,7 @@ export default function KenyaMap() {
                 </li>
                 <li>
                   <CheckCircle2 size={14} className="point-check" />
-                  <span><strong>131 Partner Schools:</strong> Active network of primary and secondary schools safeguarded.</span>
+                  <span><strong>131 Safe Schools:</strong> Active network of primary and secondary schools safeguarded.</span>
                 </li>
                 <li>
                   <CheckCircle2 size={14} className="point-check" />

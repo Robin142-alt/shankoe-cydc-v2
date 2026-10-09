@@ -16,7 +16,7 @@ import {
 import { BRAND, PARTNERSHIP_AREAS } from '../data/content';
 import './PartnerPage.css';
 
-export default function PartnerPage({ onPhotoClick }) {
+export default function PartnerPage({ onNavigate, onPhotoClick }) {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -78,7 +78,6 @@ export default function PartnerPage({ onPhotoClick }) {
       {/* Header */}
       <section className="partner-header-section section-dark">
         <div className="container container-narrow text-center">
-          <span className="badge-pill gold">COLLABORATE FOR POTENTIAL</span>
           <h1 className="partner-page-title">
             Stronger Futures Are <br />
             <span className="highlight-gold">Built Together.</span>
@@ -95,7 +94,6 @@ export default function PartnerPage({ onPhotoClick }) {
           <div className="partner-split-layout">
             {/* Left Column: Partnership Pillars */}
             <div className="partner-info-col">
-              <span className="badge-pill">PROGRAMS OF IMPACT</span>
               <h2 className="section-title">
                 How We Can <span className="highlight-gold">Partner</span>
               </h2>

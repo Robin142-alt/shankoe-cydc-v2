@@ -76,10 +76,6 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
       {/* 1. Page Header */}
       <section className="about-header-section section-dark">
         <div className="container container-narrow text-center">
-          <div className="badge-pill gold">
-            <Church size={14} />
-            <span>METHODIST CHURCH IN KENYA • SHANKOE</span>
-          </div>
           <h1 className="about-page-title">
             About {BRAND.fullName}
           </h1>
@@ -109,7 +105,6 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
         <div className="container">
           <div className="about-split-grid">
             <div className="about-text-side">
-              <span className="badge-pill">WHO WE ARE</span>
               <h2 className="section-title">
                 A Child-Centred, <span className="highlight-gold">Community-Based Institution</span>
               </h2>
@@ -170,7 +165,6 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
       <section className="section section-subtle about-vm-section" id="mission-vision">
         <div className="container">
           <div className="section-header center">
-            <span className="badge-pill">OUR MANDATE</span>
             <h2 className="section-title">
               Mission & <span className="highlight-gold">Vision</span>
             </h2>
@@ -256,7 +250,6 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
             </div>
 
             <div className="about-text-side">
-              <span className="badge-pill">OUR HISTORY</span>
               <h2 className="section-title">
                 Over Two Decades of <span className="highlight-gold">Transforming Lives</span>
               </h2>
@@ -280,11 +273,11 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
                 </div>
                 <div className="milestone-box">
                   <span className="milestone-year">693</span>
-                  <span className="milestone-label">Scholars Supported to Universities</span>
+                  <span className="milestone-label">Children & Young People Supported to Universities</span>
                 </div>
                 <div className="milestone-box">
                   <span className="milestone-year">131</span>
-                  <span className="milestone-label">Schools Safeguarded Across Narok</span>
+                  <span className="milestone-label">Safe Schools Across Narok</span>
                 </div>
               </div>
             </div>
@@ -298,7 +291,6 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
       <section className="section section-dark where-we-work-section" id="where-we-work">
         <div className="container">
           <div className="section-header center light-text">
-            <span className="badge-pill gold">WHERE WE WORK</span>
             <h2 className="section-title">
               Anchored in <span className="highlight-gold">Narok County, Kenya</span>
             </h2>
@@ -318,7 +310,6 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
       <section className="section about-partners-section" id="our-partners">
         <div className="container">
           <div className="section-header center">
-            <span className="badge-pill">COLLABORATIVE ACTION</span>
             <h2 className="section-title">
               Our <span className="highlight-gold">Partners</span>
             </h2>
@@ -348,7 +339,6 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
       <section className="section section-subtle about-toc-section" id="theory-of-change">
         <div className="container">
           <div className="section-header center">
-            <span className="badge-pill">OUR APPROACH</span>
             <h2 className="section-title">
               Our Theory of <span className="highlight-gold">Change</span>
             </h2>

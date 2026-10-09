@@ -86,7 +86,7 @@ export default function ImpactCounterStrip() {
       icon: <GraduationCap size={24} />,
       value: 693,
       suffix: '',
-      label: 'Scholars Supported',
+      label: 'Children & Young People',
       desc: 'Early childhood through university degrees'
     },
     {
@@ -107,7 +107,7 @@ export default function ImpactCounterStrip() {
       icon: <School size={24} />,
       value: 131,
       suffix: '',
-      label: 'Schools Safeguarded',
+      label: 'Safe Schools',
       desc: 'Child protection advocacy reached'
     }
   ];

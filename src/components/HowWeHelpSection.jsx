@@ -50,7 +50,6 @@ export default function HowWeHelpSection({ onNavigate, onPhotoClick }) {
       <div className="container">
         {/* Header */}
         <div className="section-header">
-          <span className="badge-pill" data-reveal data-reveal-delay="0">HOW WE HELP</span>
           <h2 className="help-section-title" data-reveal data-reveal-delay="80">
             Five Areas of Lasting <span className="highlight-gold">Support</span>
           </h2>

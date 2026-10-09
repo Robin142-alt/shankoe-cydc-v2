@@ -70,10 +70,6 @@ export default function PartnerSection() {
       <div className="container">
         {/* Section Header */}
         <div className="partner-header text-center">
-          <div className="badge-pill gold">
-            <Heart size={14} fill="currentColor" />
-            <span>COLLABORATE FOR GENERATIONAL IMPACT</span>
-          </div>
           <h2 className="section-title">
             Partner With <span className="highlight-gold">Shankoe CYDC</span>
           </h2>

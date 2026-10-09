@@ -57,7 +57,6 @@ export default function LifeAtShankoe({ onPhotoClick }) {
       <div className="container">
         {/* Header */}
         <div className="section-header center">
-          <span className="badge-pill" data-reveal data-reveal-delay="0">MOMENTS OF BECOMING</span>
           <h2 className="life-section-title" data-reveal data-reveal-delay="80">
             Life at <span className="highlight-gold">Shankoe</span>
           </h2>

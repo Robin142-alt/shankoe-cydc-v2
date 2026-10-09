@@ -1,8 +1,7 @@
 import React from 'react';
-import { Church, ArrowRight, MapPin, Heart, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowRight, MapPin, Heart, ShieldCheck, Sparkles } from 'lucide-react';
 import Hero from '../components/Hero';
 import ImpactCounterStrip from '../components/ImpactCounterStrip';
-import PartnerSection from '../components/PartnerSection';
 import { BRAND, WHO_WE_ARE_TEXT } from '../data/content';
 import './HomePage.css';
 
@@ -27,10 +26,6 @@ export default function HomePage({ onNavigate, onPhotoClick }) {
         <div className="container">
           <div className="home-who-grid">
             <div className="home-who-text">
-              <div className="badge-pill gold">
-                <Church size={14} />
-                <span>FOUNDED BY METHODIST CHURCH IN KENYA</span>
-              </div>
               <h2 className="section-title">
                 Rooted in Faith. <br />
                 <span className="highlight-gold">Driven by Human Potential.</span>
@@ -74,8 +69,31 @@ export default function HomePage({ onNavigate, onPhotoClick }) {
         </div>
       </section>
 
-      {/* 4. PARTNER WITH US: Retained ONLY ONCE near the bottom of the website */}
-      <PartnerSection />
+      {/* 4. PARTNER WITH US: Subtle, elegant invitation banner leading to dedicated page */}
+      <section className="home-partner-cta-strip">
+        <div className="container">
+          <div className="home-partner-cta-card">
+            <div className="home-partner-cta-content">
+              <h2 className="home-partner-cta-title">
+                Partner With <span className="highlight-gold">Shankoe CYDC</span>
+              </h2>
+              <p className="home-partner-cta-lead">
+                Stronger futures are built together. We invite churches, foundations, community leaders, and individuals to collaborate with us to nurture children and young people across Narok County.
+              </p>
+            </div>
+            <div className="home-partner-cta-action">
+              <button 
+                type="button" 
+                className="btn btn-gold"
+                onClick={() => onNavigate('partner')}
+              >
+                <span>Partner With Us</span>
+                <ArrowRight size={16} />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

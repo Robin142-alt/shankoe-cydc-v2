@@ -51,10 +51,6 @@ export default function ImpactPage({ onNavigate, onPhotoClick }) {
       {/* 1. Header */}
       <section className="impact-header-section section-dark">
         <div className="container container-narrow text-center">
-          <div className="badge-pill gold">
-            <BarChart3 size={14} />
-            <span>AUTHORITATIVE RESULTS • 20+ YEARS</span>
-          </div>
           <h1 className="impact-page-title">
             Our Measured <span className="highlight-gold">Impact</span>
           </h1>
@@ -79,7 +75,6 @@ export default function ImpactPage({ onNavigate, onPhotoClick }) {
       <section className="section impact-stats-section" id="impact-statistics">
         <div className="container">
           <div className="section-header center">
-            <span className="badge-pill">OFFICIAL IMPACT FIGURES</span>
             <h2 className="section-title">
               Two Decades of <span className="highlight-gold">Verified Reach</span>
             </h2>
@@ -118,7 +113,6 @@ export default function ImpactPage({ onNavigate, onPhotoClick }) {
       <section className="section section-subtle achievements-section" id="achievements">
         <div className="container">
           <div className="section-header center">
-            <span className="badge-pill">SYSTEMIC MILESTONES</span>
             <h2 className="section-title">
               Our Major <span className="highlight-gold">Achievements</span>
             </h2>
@@ -162,7 +156,6 @@ export default function ImpactPage({ onNavigate, onPhotoClick }) {
       <section className="section stories-section" id="stories">
         <div className="container">
           <div className="section-header center">
-            <span className="badge-pill">VOICES FROM SHANKOE</span>
             <h2 className="section-title">
               Stories of Growth & <span className="highlight-gold">Belonging</span>
             </h2>
