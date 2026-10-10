@@ -6,10 +6,10 @@ import './HomePage.css';
 
 export default function HomePage({ onNavigate, onPhotoClick }) {
   const whoPhoto = {
-    src: '/assets/photos/shankoe-community-church-group.jpg',
-    title: 'Methodist Church Fellowship & Leadership in Shankoe',
-    caption: 'Pastoral leaders and community members outside Shankoe Methodist Church.',
-    category: 'Community & Church'
+    src: '/assets/photos/shankoe-children-heart-signs.jpg',
+    title: 'Children of Shankoe Methodist Child and Youth Centre',
+    caption: 'Children joyfully making heart gestures — expressing the love and belonging at the heart of everything we do.',
+    category: 'Community & Belonging'
   };
 
   return (

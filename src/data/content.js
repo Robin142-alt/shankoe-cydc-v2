@@ -238,8 +238,8 @@ export const PATHWAYS = [
     whatWeDo: "We employ community-driven solutions to tackle root causes of exclusion, strengthening accessibility and fostering safe, welcoming learning environments where every learner can thrive.",
     whyItMatters: "Involving parents, caregivers and communities in shaping education services creates a powerful partnership that directly improves learners' education outcomes and wellbeing.",
     icon: "GraduationCap",
-    photo: "/assets/photos/shankoe-nutrition-fruit.jpg",
-    alt: "Students engaged at Shankoe study desks with fresh fruit",
+    photo: "/assets/photos/shankoe-classroom-learning-smiles.jpg",
+    alt: "Children smiling and learning in their classroom at Shankoe Methodist Child and Youth Centre",
     highlights: [
       "Inclusive quality education accessible to every learner, including children with disabilities",
       "Community-driven solutions identifying & tackling internal and external causes of exclusion",
@@ -259,8 +259,8 @@ export const PATHWAYS = [
     whatWeDo: "We provide health screening, nutritional support, connect children, young people, and their families with appropriate health services and compassionate psychosocial support.",
     whyItMatters: "Good health is a key contributor to a child's active participation in education and fundamental to growing up safe and supported.",
     icon: "HeartPulse",
-    photo: "/assets/photos/shankoe-children-meal-fellowship.jpg",
-    alt: "Children at Shankoe CYDC sharing a wholesome meal together",
+    photo: "/assets/photos/shankoe-health-education-classroom.jpg",
+    alt: "Teacher at chalkboard teaching HIV/AIDS health education to children at Shankoe CYDC",
     highlights: [
       "Routine health screenings and nutritional support",
       "Direct connection to appropriate healthcare services for children and families",
@@ -306,8 +306,8 @@ export const PATHWAYS = [
     whatWeDo: "We champion child-centred adaptation by equipping children and young people with green skills, advancing their representation in climate decisions, and strengthening household economic stability.",
     whyItMatters: "Building climate resilience shifts the paradigm from post-disaster response toward child-centred adaptation, keeping families shielded and children nourished in school.",
     icon: "Trees",
-    photo: "/assets/photos/shankoe-community-church-group.jpg",
-    alt: "Community members and young people gathered outside Shankoe Methodist Church",
+    photo: "/assets/photos/shankoe-tree-planting-celebration.jpg",
+    alt: "Children and adults celebrating tree planting with seedlings and thumbs up at Shankoe CYDC",
     highlights: [
       "Shift from post-disaster response to child-centred climate adaptation",
       "Green skills: tree planting & kitchen gardens in schools and communities",
@@ -327,8 +327,8 @@ export const PATHWAYS = [
     whatWeDo: "We combine skills training with practical experience and connections to real jobs, provide mentorship, encourage entrepreneurship, develop soft skills, and foster lifelong learning.",
     whyItMatters: "The transition from education to employment becomes achievable when young people are empowered with practical craftsmanship and vocational confidence.",
     icon: "ChefHat",
-    photo: "/assets/photos/shankoe-fresh-muffins-presentation.jpg",
-    alt: "Young people proudly presenting freshly baked muffins at Shankoe CYDC",
+    photo: "/assets/photos/shankoe-classroom-attentive-learners.jpg",
+    alt: "Children in Shankoe blue tracksuits attentively engaged in classroom learning",
     highlights: [
       "Vocational training with practical experience (commercial baking, food craft, hygiene standards)",
       "Connections to real employment through internships and apprenticeships",
@@ -348,8 +348,8 @@ export const PATHWAYS = [
     whatWeDo: "We work with communities to build child-friendly reporting systems, improve data collection on school-based violence, and engage parents and local leaders in sustaining safer learning environments.",
     whyItMatters: "Strong communities ensure children learn, play, and thrive free from violence, neglect, and systemic harm.",
     icon: "ShieldCheck",
-    photo: "/assets/photos/shankoe-playground-slide.jpg",
-    alt: "Children playing joyfully in safety on Shankoe playground slide",
+    photo: "/assets/photos/shankoe-children-circle-activity.jpg",
+    alt: "Children in circle group activity on the grass, building community and communication skills",
     highlights: [
       "Child-friendly reporting systems for proactive child protection",
       "Over 25,000 community members mobilised on child rights advocacy",
@@ -437,30 +437,30 @@ export const OUR_PARTNERS = [
 
 export const STORIES = [
   {
-    id: "practical-baking",
-    title: "From Ingredients to Independence: Practical Skills in Action",
-    category: "Skills Training",
-    photo: "/assets/photos/shankoe-fresh-muffins-presentation.jpg",
-    summary: "At Shankoe CYDC, vocational training isn't abstract theory. In our practical baking modules, young people measure, mix, bake, and discover that they have the power to create value with their own hands.",
-    detail: "Working alongside mentors, students learn hygiene standards, ingredient ratios, temperature regulation, and presentation. Beyond the aroma of freshly baked muffins lies something deeper: the undeniable spark of self-worth and vocational confidence that has propelled 358 young people into running their own businesses.",
+    id: "youth-voice-hope",
+    title: "Confidence, Peace, and the Courage to Dream",
+    category: "Youth Voice & Hope",
+    photo: "/assets/photos/shankoe-children-peace-signs-wave.jpg",
+    summary: "At Shankoe CYDC, every young person is heard and celebrated. Children flash peace signs with radiant smiles, embodying the freedom and dignity nurtured here every day.",
+    detail: "Through dedicated mentorship and child-centred empowerment, Shankoe provides a haven where vulnerability turns into resilience. Children develop emotional wellbeing, mutual respect, and the assurance that their voices matter in shaping their future.",
     readTime: "2 min read"
   },
   {
-    id: "joy-of-safe-play",
-    title: "The Simple Dignity of Laughter on the Slide",
-    category: "Wellbeing & Belonging",
-    photo: "/assets/photos/shankoe-playground-slide.jpg",
-    summary: "Childhood should be filled with moments of unburdened joy. The playground at Shankoe provides a safe, welcoming ground where children run freely, slide together, and build lifelong friendships.",
-    detail: "For children facing economic hardships at home, having an enclosed, protected space where they can simply be children is transformative for their mental wellbeing, emotional resilience, and sense of safety.",
+    id: "joy-and-camaraderie",
+    title: "Growing Together with Joy and Mutual Encouragement",
+    category: "Wellbeing & Camaraderie",
+    photo: "/assets/photos/shankoe-children-thumbs-up-group.jpg",
+    summary: "Smiles and enthusiastic thumbs-up from Shankoe learners celebrate everyday victories—from mastering lessons in the classroom to building lifelong friendships.",
+    detail: "For children in rural Narok, having a caring environment where they are cheered on by mentors and peers builds profound self-worth. In this protected community, every child finds belonging and encouragement to strive for their highest potential.",
     readTime: "2 min read"
   },
   {
-    id: "daily-nourishment",
-    title: "Nourishing Body and Spirit: Shared Meals on the Grass",
-    category: "Nutrition & Care",
-    photo: "/assets/photos/shankoe-children-meal-fellowship.jpg",
-    summary: "When lunch is served at Shankoe CYDC, it is more than food—it is community. Children gather in circles on the lawn, sharing wholesome meals and mutual encouragement.",
-    detail: "Proper nutrition fuels sharp minds in the classroom and strong bodies on the field. Sitting together with teachers and peers, every child knows they are cared for and valued as family.",
+    id: "hands-on-tree-planting",
+    title: "Rooted in the Soil: Nurturing Green Skills & Climate Care",
+    category: "Climate Resilience",
+    photo: "/assets/photos/shankoe-hands-on-tree-planting.jpg",
+    summary: "Young hands gently tend seedlings in the fertile soil at Shankoe CYDC, cultivating a lifelong respect for nature and proactive climate resilience.",
+    detail: "As part of our child-centred adaptation initiatives, learners actively plant and protect trees across the compound and community. This hands-on ecological care gives youth practical environmental skills and direct agency against drought and climate risks.",
     readTime: "2 min read"
   },
   {
@@ -468,7 +468,7 @@ export const STORIES = [
     title: "Anchored in Faith and Community Leadership",
     category: "Community Fellowship",
     photo: "/assets/photos/shankoe-community-church-group.jpg",
-    summary: "Shankoe CYDC works closely with Shankoe Methodist Church and local elders to ensure every young person is guided by integrity, moral grounding, and supportive mentorship.",
+    summary: "Shankoe CYDC works closely with Shankoe Methodist Church and local leaders to ensure every young person is guided by integrity, moral grounding, and supportive mentorship.",
     detail: "By bridging pastoral care with practical development, the Centre builds a generational continuum of trust. Local young adults return to coach younger children, ensuring a cycle of community uplift across Narok County.",
     readTime: "2 min read"
   }

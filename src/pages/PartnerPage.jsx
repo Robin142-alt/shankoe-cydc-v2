@@ -54,10 +54,10 @@ export default function PartnerPage({ onNavigate, onPhotoClick }) {
   const mailtoUrl = `mailto:${BRAND.contact.email}?subject=${encodeURIComponent(`Partnership Inquiry: ${formData.partnershipType}`)}&body=${encodeURIComponent(`Name: ${formData.name}\nOrganization: ${formData.organization}\nEmail: ${formData.email}\nPartnership Area: ${formData.partnershipType}\n\nMessage:\n${formData.message}`)}`;
 
   const partnerPhoto = {
-    src: '/assets/photos/shankoe-playground-slide.jpg',
-    title: 'Stronger Futures Built Together',
-    caption: 'Children at Shankoe CYDC thriving in a protected, joyous community.',
-    category: 'Partnership & Impact'
+    src: '/assets/photos/shankoe-staff-dancing-children.jpg',
+    title: 'Staff and Children Celebrating Together at Shankoe',
+    caption: 'A Shankoe youth worker dancing joyfully alongside children — partnership in action.',
+    category: 'Partnership & Community'
   };
 
   return (
@@ -97,10 +97,10 @@ export default function PartnerPage({ onNavigate, onPhotoClick }) {
                 <img 
                   src={partnerPhoto.src} 
                   alt={partnerPhoto.title} 
-                  className="partner-card-img" 
+                  className="partner-photo-img" 
                 />
-                <div className="partner-photo-caption">
-                  <span>Safe belonging for children in Shankoe</span>
+                <div className="partner-photo-overlay">
+                  <span>Staff &amp; children celebrating together at Shankoe</span>
                 </div>
               </div>
             </div>

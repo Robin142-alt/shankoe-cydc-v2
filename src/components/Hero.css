@@ -42,7 +42,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 0%;
+  object-position: center 32%;
   filter: brightness(0.98) contrast(1.04) saturate(1.10);
   transform: none;
   transition: transform 7s cubic-bezier(0.25, 1, 0.5, 1);
@@ -50,19 +50,19 @@
 
 @media (max-width: 640px) {
   .hero-bg-img {
-    object-position: 54% 0%;
+    object-position: 50% 30%;
   }
 }
 
 @media (min-width: 641px) and (max-width: 991px) {
   .hero-bg-img {
-    object-position: center 2%;
+    object-position: center 30%;
   }
 }
 
 @media (min-width: 992px) {
   .hero-bg-img {
-    object-position: center 0%;
+    object-position: center 32%;
   }
 }
 

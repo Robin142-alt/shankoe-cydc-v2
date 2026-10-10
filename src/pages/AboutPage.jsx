@@ -64,17 +64,17 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
   };
 
   const churchPhoto = {
-    src: '/assets/photos/shankoe-community-church-group.jpg',
-    title: 'Community Leadership & Shankoe Methodist Church',
-    caption: 'Pastoral leaders and community fellowship gathered outside Shankoe Methodist Church.',
-    category: 'Community & Church'
+    src: '/assets/photos/shankoe-joyful-outdoor-gathering.jpg',
+    title: 'Children of Shankoe — Joyful, Safe, and Supported',
+    caption: 'Children in Shankoe red uniforms gathered outdoors, laughing and smiling together.',
+    category: 'Community & Belonging'
   };
 
   const mealPhoto = {
-    src: '/assets/photos/shankoe-children-meal-fellowship.jpg',
-    title: 'Nurturing Every Child & Young Person',
-    caption: 'Safe gathering and nutrition fellowship for children in Shankoe.',
-    category: 'Care & Belonging'
+    src: '/assets/photos/shankoe-children-school-compound-activity.jpg',
+    title: 'Active Children at Shankoe Methodist Child and Youth Centre',
+    caption: 'Over two decades of dedicated service — children thriving in education and play.',
+    category: 'Education & Play'
   };
 
   return (
@@ -142,7 +142,7 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
                   className="about-card-img" 
                 />
                 <div className="about-card-caption">
-                  <span>Authentic Shankoe Methodist Fellowship & Community Leadership</span>
+                  <span>Joyful outdoor fellowship of children at Shankoe CYDC</span>
                 </div>
               </div>
             </div>
