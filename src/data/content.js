@@ -20,13 +20,13 @@ export const VISION = "A world where every child and young person is safe, value
 
 export const MISSION = "To embrace, engage, and empower vulnerable children and young people through education, health, and skills development, enabling them to thrive.";
 
-export const THEOLOGY_STATEMENT = "Children and Youth Ministry remain the lifeline of every Church, and for the Church to thrive, it must take care of its children and young people both spiritually and socially. Theology and development for children and young people begins with the belief that every young person has inherent dignity, gifts, and the right to flourish. A theology rooted in compassion, justice, and hope encourages communities to protect children, include those who are often overlooked, and nurture their spiritual, emotional, social, and intellectual wellbeing.";
+export const THEOLOGY_STATEMENT = "Our work is rooted in faith, compassion, justice and hope. We nurture spiritual, social, emotional and intellectual wellbeing, protect children, champion inclusion and create supportive communities where every child and young person can discover their potential and thrive. Children and Youth Ministry remain the vital lifeline of every church and community, and for communities to thrive, their children and young people must be cared for both spiritually and socially.";
 
-export const WHO_WE_ARE_TEXT = "We are a child-centred, community-based institution founded by the Methodist Church in Kenya - Shankoe with a mandate to support Children and Youth Ministry. Children and Youth Ministry remain the lifeline of every Church, and for the Church to thrive, it must take care of its children and young people both spiritually and socially. Theology and development for children and young people begins with the belief that every young person has inherent dignity, gifts, and the right to flourish. Shankoe Methodist Child and Youth Centre supports this growth by creating safe and welcoming spaces, listening to children’s voices, and involving them in decisions that affect their lives. By partnering with families, schools, and local services, they support in providing education, care, and opportunities for young people to develop their abilities and contribute to their communities. A theology rooted in compassion, justice, and hope encourages communities to protect children, include those who are often overlooked, and nurture their spiritual, emotional, social, and intellectual wellbeing. Over the years, the Centre continues to support education, health, skills development, community strengthening and climate change resilience programs.";
+export const WHO_WE_ARE_TEXT = "Every child deserves the chance to belong, grow and fulfil their potential. Founded by the Methodist Church in Kenya – Shankoe, the Centre is a child-centred, community-based institution dedicated to strengthening ministry for children and young people. Our work is rooted in faith, compassion, justice and hope. We nurture spiritual, social, emotional and intellectual wellbeing, protect children, champion inclusion and create supportive communities where every child and young person can discover their potential and thrive. Theology and development for children and young people begins with the belief that every young person has inherent dignity, gifts, and the right to flourish. Shankoe Methodist Child and Youth Centre supports this growth by creating safe and welcoming spaces, listening to children’s voices, and involving them in decisions that affect their lives. By partnering with families, schools, and local services, the Centre provides education, care, and opportunities for children and young people to develop their abilities and contribute meaningfully to their communities.";
 
-export const HISTORY_TEXT = "Founded by the Methodist Church in Kenya - Shankoe with a mandate to support Children and Youth Ministry, Shankoe Methodist Child and Youth Centre has walked alongside vulnerable children, young people, and families in Narok County for over two decades. Rooted in the belief that Children and Youth Ministry is the vital lifeline of the church and community, the Centre was established to nurture young lives both spiritually and socially. Over more than twenty years of continuous service, the Centre has built safe havens, pioneered community child safeguarding across 131 schools, trained thousands of families in climate-smart agriculture, and guided hundreds of young people from early childhood education all the way to university graduation, employment, and entrepreneurship.";
+export const HISTORY_TEXT = "Founded by the Methodist Church in Kenya - Shankoe with a mandate to support Children and Youth Ministry, Shankoe Methodist Child and Youth Centre has walked alongside vulnerable children, young people, and families in Narok County for over two decades. Rooted in the belief that Children and Youth Ministry is the vital lifeline of the church and community, the Centre was established to nurture young lives both spiritually and socially. Over more than twenty years of continuous service, the Centre has built safe havens, pioneered community child safeguarding across 131 schools, trained thousands of families in climate-smart agriculture, and guided hundreds of children and young people from early childhood education all the way to university graduation, employment, and entrepreneurship.";
 
-export const HOME_STATEMENT = "Reimagining the future of children and young people through education, health, skills development and strong communities is central to achieving lasting and sustainable change.";
+export const HOME_STATEMENT = "Reimagining a future where children and young people thrive through education, healthcare, skills development, and stronger communities.";
 
 export const CORE_VALUES = [
   {
@@ -53,8 +53,8 @@ export const CORE_VALUES = [
   {
     id: "inclusion",
     title: "Inclusion",
-    summary: "No child or young person is overlooked or left behind.",
-    description: "Creating welcoming environments where children with disabilities, marginalized learners, and overlooked youth are celebrated and supported.",
+    summary: "Welcoming, accessible, and barrier-free environments.",
+    description: "Every child and young person deserves to feel safe, valued and included. The Centre creates welcoming, accessible environments where vulnerable children and young people, including those with disabilities, can participate, build relationships and achieve their potential. It respects individual identities and choices and works with families and communities to remove barriers.",
     icon: "HeartHandshake"
   },
   {
@@ -67,9 +67,42 @@ export const CORE_VALUES = [
   {
     id: "partnership",
     title: "Partnership",
-    summary: "Strengthening families, schools, and community systems.",
-    description: "Collaborating with local churches, 131 schools, community elders, and global supporters to sustain long-term generational transformation.",
+    summary: "Collaborative, trusting, and community-rooted action.",
+    description: "Strong partnerships with families, communities and other organisations help children and young people thrive. Through collaboration, shared knowledge, resources and trusting relationships, the Centre strengthens support systems and creates safer, more inclusive opportunities.",
     icon: "Users"
+  }
+];
+
+export const KENYA_2005_CONTEXT = [
+  {
+    id: "education",
+    topic: "Education",
+    icon: "GraduationCap",
+    details: "Free primary education introduced in 2003 significantly increased enrolment, but overcrowding, teacher shortages, inadequate facilities and limited secondary education opportunities remained challenges."
+  },
+  {
+    id: "health",
+    topic: "Health and Nutrition",
+    icon: "Heart",
+    details: "Child mortality, malnutrition, preventable diseases and inadequate healthcare access particularly affected vulnerable communities. Kenya's 2003 Demographic and Health Survey reported approximately 115 under-five deaths per 1,000 live births."
+  },
+  {
+    id: "hiv",
+    topic: "HIV and Family Support",
+    icon: "Users",
+    details: "HIV/AIDS left many children orphaned or otherwise affected, increasing pressure on families and community support systems."
+  },
+  {
+    id: "protection",
+    topic: "Child Protection",
+    icon: "ShieldCheck",
+    details: "Despite the Children Act 2001, child labour, abuse, neglect, early marriage and limited access to formal protection services remained serious concerns."
+  },
+  {
+    id: "inequality",
+    topic: "Inequality",
+    icon: "Scale",
+    details: "Children in rural and arid regions, informal settlements and low-income households faced significant barriers to education, healthcare and protection."
   }
 ];
 
@@ -155,7 +188,7 @@ export const ACHIEVEMENTS = [
   },
   {
     id: "achieve-entrepreneurship",
-    title: "Youth Enterprise & Economic Self-Reliance",
+    title: "Enterprise & Economic Self-Reliance for Young People",
     metric: "358 Active Small Businesses",
     summary: "Transforming practical vocational skills into independent livelihoods that lift families and boost local commerce in Narok County.",
     bullets: [
@@ -274,7 +307,7 @@ export const PATHWAYS = [
     whyItMatters: "Building climate resilience shifts the paradigm from post-disaster response toward child-centred adaptation, keeping families shielded and children nourished in school.",
     icon: "Trees",
     photo: "/assets/photos/shankoe-community-church-group.jpg",
-    alt: "Community members and youth gathered outside Shankoe Methodist Church",
+    alt: "Community members and young people gathered outside Shankoe Methodist Church",
     highlights: [
       "Shift from post-disaster response to child-centred climate adaptation",
       "Green skills: tree planting & kitchen gardens in schools and communities",

@@ -207,6 +207,131 @@
   line-height: 1.35;
 }
 
+/* Historical Background Context: Kenya Circa 2005 */
+.history-context-block {
+  margin-top: 3rem;
+  padding: clamp(1.75rem, 3.5vw, 2.75rem);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-xl, 1.25rem);
+  box-shadow: 0 10px 30px rgba(12, 35, 64, 0.05);
+  position: relative;
+}
+
+.history-context-header {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.history-context-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(30, 92, 179, 0.08);
+  color: #1e5cb3;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(30, 92, 179, 0.15);
+}
+
+.history-context-heading {
+  font-family: var(--font-heading, inherit);
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  font-weight: 800;
+  color: var(--navy-900, #0c2340);
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+
+.history-context-sub {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: #475569;
+}
+
+.history-context-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .history-context-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.history-context-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-lg, 1rem);
+  padding: 1.35rem 1.25rem;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.history-context-card:hover {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 6px 18px rgba(12, 35, 64, 0.06);
+  transform: translateY(-2px);
+}
+
+.history-context-card-wide {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-left: 3px solid #d97706;
+}
+
+.history-context-card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.history-card-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md, 0.5rem);
+  background-color: rgba(30, 92, 179, 0.1);
+  color: #1e5cb3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.history-card-title {
+  font-family: var(--font-heading, inherit);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy-900, #0c2340);
+  margin: 0;
+}
+
+.history-card-text {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+}
+
+.about-partners-principle {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #475569;
+  margin-top: 0.5rem;
+}
+
 /* Vision & Mission */
 .vm-grid {
   display: grid;

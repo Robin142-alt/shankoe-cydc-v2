@@ -28,7 +28,8 @@ import {
   HISTORY_TEXT, 
   CORE_VALUES, 
   THEORY_OF_CHANGE,
-  OUR_PARTNERS 
+  OUR_PARTNERS,
+  KENYA_2005_CONTEXT 
 } from '../data/content';
 import KenyaMap from '../components/KenyaMap';
 import OurPathwaysSection from '../components/OurPathwaysSection';
@@ -44,6 +45,17 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
       case 'integrity': return <ShieldCheck size={22} />;
       case 'partnership': return <Users size={22} />;
       default: return <Sparkles size={22} />;
+    }
+  };
+
+  const getHistoryIcon = (id) => {
+    switch (id) {
+      case 'education': return <GraduationCap size={20} />;
+      case 'health': return <Heart size={20} />;
+      case 'hiv': return <Users size={20} />;
+      case 'protection': return <ShieldCheck size={20} />;
+      case 'inequality': return <Scale size={20} />;
+      default: return <History size={20} />;
     }
   };
 
@@ -106,20 +118,20 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
           <div className="about-split-grid">
             <div className="about-text-side">
               <h2 className="section-title">
-                A Child-Centred, <span className="highlight-gold">Community-Based Institution</span>
+                Rooted in Faith. <span className="highlight-gold">Empowering Every Child.</span>
               </h2>
               <div className="body-paragraph rich-text">
                 <p>
-                  We are a child-centred, community-based institution founded by the <strong>Methodist Church in Kenya - Shankoe</strong> with a mandate to support Children and Youth Ministry.
+                  Every child deserves the chance to belong, grow and fulfil their potential. Founded by the <strong>Methodist Church in Kenya – Shankoe</strong>, the Centre is a child-centred, community-based institution dedicated to strengthening ministry for children and young people.
                 </p>
                 <p>
-                  Children and Youth Ministry remain the lifeline of every Church, and for the Church to thrive, it must take care of its children and young people both spiritually and socially.
+                  Our work is rooted in faith, compassion, justice and hope. We nurture spiritual, social, emotional and intellectual wellbeing, protect children, champion inclusion and create supportive communities where every child and young person can discover their potential and thrive.
                 </p>
                 <p>
                   Theology and development for children and young people begins with the belief that every young person has inherent dignity, gifts, and the right to flourish. {BRAND.fullName} supports this growth by creating safe and welcoming spaces, listening to children’s voices, and involving them in decisions that affect their lives.
                 </p>
                 <p>
-                  By partnering with families, schools, and local services, the Centre supports in providing education, care, and opportunities for young people to develop their abilities and contribute to their communities. A theology rooted in compassion, justice, and hope encourages communities to protect children, include those who are often overlooked, and nurture their spiritual, emotional, social, and intellectual wellbeing.
+                  By partnering with families, schools, and local services, the Centre provides education, care, and opportunities for children and young people to develop their abilities and contribute meaningfully to their communities.
                 </p>
               </div>
 
@@ -282,6 +294,36 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
               </div>
             </div>
           </div>
+
+          {/* Historical Background: Circumstances in Kenya Circa 2005 */}
+          <div className="history-context-block">
+            <div className="history-context-header text-center">
+              <div className="history-context-badge">
+                <History size={15} />
+                <span>HISTORICAL BACKGROUND • KENYA CIRCA 2005</span>
+              </div>
+              <h3 className="history-context-heading">
+                The Realities That Shaped Our Calling
+              </h3>
+              <p className="history-context-sub">
+                When Shankoe CYDC was founded, vulnerable children and young people across Kenya faced severe systemic challenges. Understanding the national landscape at the time explains the critical circumstances that prompted the Methodist Church in Kenya – Shankoe to act:
+              </p>
+            </div>
+
+            <div className="history-context-grid">
+              {KENYA_2005_CONTEXT.map((item) => (
+                <div key={item.id} className={`history-context-card ${item.id === 'inequality' ? 'history-context-card-wide' : ''}`}>
+                  <div className="history-context-card-top">
+                    <div className="history-card-icon-wrap">
+                      {getHistoryIcon(item.id)}
+                    </div>
+                    <h4 className="history-card-title">{item.topic}</h4>
+                  </div>
+                  <p className="history-card-text">{item.details}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -313,6 +355,9 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
             <h2 className="section-title">
               Our <span className="highlight-gold">Partners</span>
             </h2>
+            <p className="subtitle about-partners-principle">
+              Strong partnerships with families, communities and other organisations help children and young people thrive. Through collaboration, shared knowledge, resources and trusting relationships, the Centre strengthens support systems and creates safer, more inclusive opportunities.
+            </p>
           </div>
 
           <div className="partners-logo-grid">

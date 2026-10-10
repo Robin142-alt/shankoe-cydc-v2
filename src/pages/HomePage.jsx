@@ -28,13 +28,13 @@ export default function HomePage({ onNavigate, onPhotoClick }) {
             <div className="home-who-text">
               <h2 className="section-title">
                 Rooted in Faith. <br />
-                <span className="highlight-gold">Driven by Human Potential.</span>
+                <span className="highlight-gold">Empowering Every Child.</span>
               </h2>
               <p className="body-paragraph">
-                {WHO_WE_ARE_TEXT.slice(0, 385)}...
+                Every child deserves the chance to belong, grow and fulfil their potential. Founded by the Methodist Church in Kenya – Shankoe, the Centre is a child-centred, community-based institution dedicated to strengthening ministry for children and young people.
               </p>
               <p className="body-paragraph">
-                A theology rooted in compassion, justice, and hope encourages communities to protect children, include those who are often overlooked, and nurture their spiritual, emotional, social, and intellectual wellbeing.
+                Our work is rooted in faith, compassion, justice and hope. We nurture spiritual, social, emotional and intellectual wellbeing, protect children, champion inclusion and create supportive communities where every child and young person can discover their potential and thrive.
               </p>
 
               <div className="home-who-actions">

@@ -28,9 +28,9 @@ export default function Hero({ onNavigate }) {
       <div className="hero-deco-orb hero-orb-2" aria-hidden="true" />
 
       <div className={`container hero-content-container ${loaded ? 'hero-loaded' : ''}`}>
-        {/* Main Hero Headline: Promoted Authoritative Statement */}
+        {/* Main Hero Headline: Clean, authoritative, pure solid white */}
         <h1 className="hero-title hero-statement-headline">
-          Reimagining the future of children and young people through education, health, skills development and strong communities is central to achieving <span className="hero-gold-highlight">lasting and sustainable change.</span>
+          Reimagining a future where children and young people thrive through education, healthcare, skills development, and stronger communities.
         </h1>
 
         {/* Navigation Action Buttons: Direct to About Us & Impact */}
