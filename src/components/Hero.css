@@ -155,7 +155,7 @@
   transform: translateY(0);
 }
 
-/* Refined Hero Headline: Solid white, centered, balanced proportions */
+/* Refined Hero Headline: Solid white, centered, wide natural flow */
 .hero-title,
 .hero-statement-headline {
   font-family: var(--font-heading);
@@ -166,7 +166,7 @@
   letter-spacing: -0.012em;
   text-align: center;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6), 0 4px 20px rgba(6, 18, 38, 0.85);
-  max-width: 960px;
+  max-width: min(1200px, 90vw);
   width: 100%;
   text-wrap: balance;
   margin: 0;
@@ -177,7 +177,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  gap: 2.5rem;
   margin-top: 0.75rem;
 }
 
@@ -200,7 +200,7 @@
 
   .hero-cta-group {
     margin-top: 0.25rem;
-    gap: 0.65rem;
+    gap: 1.25rem;
   }
 
   .hero-cta-btn {
