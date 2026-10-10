@@ -1,7 +1,6 @@
 import React from 'react';
 import { ArrowRight, MapPin, Heart, ShieldCheck, Sparkles } from 'lucide-react';
 import Hero from '../components/Hero';
-import ImpactCounterStrip from '../components/ImpactCounterStrip';
 import { BRAND, WHO_WE_ARE_TEXT } from '../data/content';
 import './HomePage.css';
 
@@ -18,10 +17,7 @@ export default function HomePage({ onNavigate, onPhotoClick }) {
       {/* 1. HERO */}
       <Hero onNavigate={onNavigate} />
 
-      {/* 2. OFFICIAL IMPACT AT A GLANCE (Authoritative Figures from Word Doc) */}
-      <ImpactCounterStrip onNavigate={onNavigate} />
-
-      {/* 3. WHO WE ARE BRIEF INTRODUCTION */}
+      {/* 2. WHO WE ARE BRIEF INTRODUCTION */}
       <section className="section home-who-section">
         <div className="container">
           <div className="home-who-grid">
