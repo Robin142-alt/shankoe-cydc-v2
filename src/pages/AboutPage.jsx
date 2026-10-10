@@ -88,10 +88,10 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
       {/* 1. Page Header */}
       <section className="about-header-section section-dark">
         <div className="container container-narrow text-center">
-          <h1 className="about-page-title">
+          <h1 className="about-page-title" data-reveal>
             About {BRAND.fullName}
           </h1>
-          <p className="about-page-lead">
+          <p className="about-page-lead" data-reveal data-reveal-delay="120">
             Rooted in the belief that Children and Youth Ministry is the vital lifeline of the church and community, Shankoe CYDC nurtures vulnerable children and young people both spiritually and socially.
           </p>
         </div>
@@ -117,20 +117,20 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
         <div className="container">
           <div className="about-split-grid">
             <div className="about-text-side">
-              <h2 className="section-title">
+              <h2 className="section-title" data-reveal="slide-left">
                 Rooted in Faith. <span className="highlight-gold">Empowering Every Child.</span>
               </h2>
               <div className="body-paragraph rich-text">
-                <p>
+                <p data-reveal data-reveal-delay="100">
                   Every child deserves the chance to belong, grow and fulfil their potential. Founded by the <strong>Methodist Church in Kenya – Shankoe</strong>, the Centre is a child-centred, community-based institution dedicated to strengthening ministry for children and young people.
                 </p>
-                <p>
+                <p data-reveal data-reveal-delay="180">
                   Our work is rooted in faith, compassion, justice and hope. We nurture spiritual, social, emotional and intellectual wellbeing, protect children, champion inclusion and create supportive communities where every child and young person can discover their potential and thrive.
                 </p>
-                <p>
-                  Theology and development for children and young people begins with the belief that every young person has inherent dignity, gifts, and the right to flourish. {BRAND.fullName} supports this growth by creating safe and welcoming spaces, listening to children’s voices, and involving them in decisions that affect their lives.
+                <p data-reveal data-reveal-delay="240">
+                  Theology and development for children and young people begins with the belief that every young person has inherent dignity, gifts, and the right to flourish. {BRAND.fullName} supports this growth by creating safe and welcoming spaces, listening to children's voices, and involving them in decisions that affect their lives.
                 </p>
-                <p>
+                <p data-reveal data-reveal-delay="300">
                   By partnering with families, schools, and local services, the Centre provides education, care, and opportunities for children and young people to develop their abilities and contribute meaningfully to their communities.
                 </p>
               </div>
@@ -138,7 +138,7 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
 
             </div>
 
-            <div className="about-media-side">
+            <div className="about-media-side" data-reveal="slide-right">
               <div 
                 className="about-image-card"
                 onClick={() => onPhotoClick && onPhotoClick(churchPhoto)}
@@ -202,7 +202,7 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
 
           {/* Core Foundations & Values */}
           <div className="values-container-block">
-            <div className="values-header text-center">
+            <div className="values-header text-center" data-reveal>
               <h3 className="values-section-title">Our Foundational Values</h3>
               <p className="values-section-subtitle">
                 The non-negotiable principles guiding every program, relationship, and decision at Shankoe CYDC.
@@ -210,8 +210,8 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
             </div>
 
             <div className="values-grid">
-              {CORE_VALUES.map((val) => (
-                <div key={val.id} className="value-card">
+              {CORE_VALUES.map((val, idx) => (
+                <div key={val.id} className="value-card" data-reveal data-reveal-delay={`${idx * 80}`}>
                   <div className="value-icon-box">
                     {getValIcon(val.id)}
                   </div>
@@ -231,7 +231,7 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
       <section className="section about-history-section" id="our-history">
         <div className="container">
           <div className="about-split-grid reverse">
-            <div className="about-media-side">
+            <div className="about-media-side" data-reveal="slide-left">
               <div 
                 className="about-image-card"
                 onClick={() => onPhotoClick && onPhotoClick(mealPhoto)}
@@ -249,32 +249,32 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
             </div>
 
             <div className="about-text-side">
-              <h2 className="section-title">
+              <h2 className="section-title" data-reveal="slide-right">
                 Over Two Decades of <span className="highlight-gold">Transforming Lives</span>
               </h2>
               <div className="body-paragraph rich-text">
-                <p>
+                <p data-reveal data-reveal-delay="80">
                   For over two decades, {BRAND.fullName} has transformed the lives of vulnerable children and young people by helping them build brighter, safer futures.
                 </p>
-                <p>
+                <p data-reveal data-reveal-delay="160">
                   Founded by the Methodist Church in Kenya - Shankoe with a mandate to support Children and Youth Ministry, the Centre recognizes that children and young people are the lifeline of the church and society. For communities to thrive, their children must be cared for both spiritually and socially.
                 </p>
-                <p>
+                <p data-reveal data-reveal-delay="240">
                   A theology rooted in compassion, justice, and hope has continuously driven the Centre to include those who are often overlooked—nurturing their spiritual, emotional, social, and intellectual wellbeing. Over the years, the Centre has continually expanded to support education, health, skills development, community strengthening, and climate change resilience programs.
                 </p>
               </div>
 
               {/* Historical Milestones Strip */}
               <div className="history-milestones-row">
-                <div className="milestone-box">
+                <div className="milestone-box" data-reveal data-reveal-delay="100">
                   <span className="milestone-year">20+</span>
                   <span className="milestone-label">Years of Dedicated Service</span>
                 </div>
-                <div className="milestone-box">
+                <div className="milestone-box" data-reveal data-reveal-delay="200">
                   <span className="milestone-year">693</span>
                   <span className="milestone-label">Children & Young People Supported to Universities</span>
                 </div>
-                <div className="milestone-box">
+                <div className="milestone-box" data-reveal data-reveal-delay="300">
                   <span className="milestone-year">131</span>
                   <span className="milestone-label">Safe Schools Reached</span>
                 </div>
@@ -283,7 +283,7 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
           </div>
 
           {/* Historical Background: Circumstances in Kenya Circa 2005 */}
-          <div className="history-context-block">
+          <div className="history-context-block" data-reveal>
             <div className="history-context-header text-center">
               <div className="history-context-badge">
                 <History size={15} />
@@ -298,8 +298,8 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
             </div>
 
             <div className="history-context-grid">
-              {KENYA_2005_CONTEXT.map((item) => (
-                <div key={item.id} className={`history-context-card ${item.id === 'inequality' ? 'history-context-card-wide' : ''}`}>
+              {KENYA_2005_CONTEXT.map((item, idx) => (
+                <div key={item.id} className={`history-context-card ${item.id === 'inequality' ? 'history-context-card-wide' : ''}`} data-reveal data-reveal-delay={`${idx * 80}`}>
                   <div className="history-context-card-top">
                     <div className="history-card-icon-wrap">
                       {getHistoryIcon(item.id)}
@@ -339,17 +339,17 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
       <section className="section about-partners-section" id="our-partners">
         <div className="container">
           <div className="section-header center">
-            <h2 className="section-title">
+            <h2 className="section-title" data-reveal>
               Our <span className="highlight-gold">Partners</span>
             </h2>
-            <p className="subtitle about-partners-principle">
+            <p className="subtitle about-partners-principle" data-reveal data-reveal-delay="100">
               Strong partnerships with families, communities and other organisations help children and young people thrive. Through collaboration, shared knowledge, resources and trusting relationships, the Centre strengthens support systems and creates safer, more inclusive opportunities.
             </p>
           </div>
 
           <div className="partners-logo-grid">
-            {OUR_PARTNERS.map((partner) => (
-              <div key={partner.id} className="partner-logo-card">
+            {OUR_PARTNERS.map((partner, idx) => (
+              <div key={partner.id} className="partner-logo-card" data-reveal data-reveal-delay={`${idx * 70}`}>
                 {partner.logo ? (
                   <img
                     src={partner.logo}
@@ -394,7 +394,7 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
           </div>
 
           {/* Official Theory of Change Statement */}
-          <div className="toc-statement-card">
+          <div className="toc-statement-card" data-reveal>
             <div className="toc-statement-header">
               <Workflow size={20} className="toc-icon-gold" />
               <span>OFFICIAL STRATEGIC FORMULATION</span>
@@ -407,7 +407,7 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
           {/* 3-Step Visual Road Map */}
           <div className="toc-roadmap-grid">
             {THEORY_OF_CHANGE.steps.map((step, idx) => (
-              <div key={idx} className="toc-road-card">
+              <div key={idx} className="toc-road-card" data-reveal data-reveal-delay={`${idx * 120}`}>
                 <div className="toc-road-step-badge">
                   <span>STAGE 0{idx + 1}</span>
                 </div>

@@ -132,12 +132,14 @@
   animation: floatSlow 10s ease-in-out infinite reverse;
 }
 
-/* Content Container */
+/* Content Container — standalone (no .container dependency) */
 .hero-content-container {
   position: relative;
   z-index: 2;
-  max-width: min(1280px, 92vw);
   width: 100%;
+  max-width: 100%;
+  padding-left: clamp(1.5rem, 5vw, 4rem);
+  padding-right: clamp(1.5rem, 5vw, 4rem);
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -155,7 +157,7 @@
   transform: translateY(0);
 }
 
-/* Refined Hero Headline: Solid white, centered, wide natural flow */
+/* Refined Hero Headline: wide, naturally balanced across the full banner */
 .hero-title,
 .hero-statement-headline {
   font-family: var(--font-heading);
@@ -166,7 +168,7 @@
   letter-spacing: -0.012em;
   text-align: center;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6), 0 4px 20px rgba(6, 18, 38, 0.85);
-  max-width: min(1200px, 90vw);
+  max-width: 88vw;
   width: 100%;
   text-wrap: balance;
   margin: 0;

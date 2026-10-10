@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ImpactPage from './pages/ImpactPage';
 import PartnerPage from './pages/PartnerPage';
+import { useGlobalReveal } from './hooks/useScrollReveal';
 import './App.css';
 
 export default function App() {
@@ -15,6 +16,9 @@ export default function App() {
   const [lightboxPhoto, setLightboxPhoto] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [pageKey, setPageKey] = useState(0);
+
+  // Global scroll-reveal: fires on every page transition
+  useGlobalReveal(pageKey);
 
   // Sync with browser URL hash and handle intelligent redirects for legacy hashes
   useEffect(() => {

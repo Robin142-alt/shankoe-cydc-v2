@@ -51,10 +51,10 @@ export default function ImpactPage({ onNavigate, onPhotoClick }) {
       {/* 1. Header */}
       <section className="impact-header-section section-dark">
         <div className="container container-narrow text-center">
-          <h1 className="impact-page-title">
+          <h1 className="impact-page-title" data-reveal>
             Our Measured <span className="highlight-gold">Impact</span>
           </h1>
-          <p className="impact-page-lead">
+          <p className="impact-page-lead" data-reveal data-reveal-delay="120">
             We transform the lives of vulnerable children and young people by helping them build brighter, safer futures. For over two decades, our community-based programs in Narok County have produced enduring, documented transformation.
           </p>
         </div>
@@ -85,8 +85,8 @@ export default function ImpactPage({ onNavigate, onPhotoClick }) {
 
           {/* Stats Grid */}
           <div className="official-stats-grid">
-            {IMPACT_STATS.map((item) => (
-              <div key={item.id} className="official-stat-card">
+            {IMPACT_STATS.map((item, idx) => (
+              <div key={item.id} className="official-stat-card" data-reveal data-reveal-delay={`${idx * 80}`}>
                 <div className="stat-card-icon-box">
                   {getStatIcon(item.icon)}
                 </div>
@@ -98,7 +98,7 @@ export default function ImpactPage({ onNavigate, onPhotoClick }) {
           </div>
 
           {/* Authenticity Certificate Note */}
-          <div className="stats-authenticity-card">
+          <div className="stats-authenticity-card" data-reveal>
             <ShieldCheck size={20} className="auth-shield-icon" />
             <p className="auth-note-text">
               These figures represent official institutional milestones recorded over two decades of ministry by {BRAND.fullName} in collaboration with the Methodist Church in Kenya and local partners.
@@ -122,8 +122,8 @@ export default function ImpactPage({ onNavigate, onPhotoClick }) {
           </div>
 
           <div className="achievements-cards-grid">
-            {ACHIEVEMENTS.map((achieve) => (
-              <div key={achieve.id} className="achievement-card">
+            {ACHIEVEMENTS.map((achieve, idx) => (
+              <div key={achieve.id} className="achievement-card" data-reveal data-reveal-delay={`${idx * 100}`}>
                 <div className="achievement-card-top">
                   <div className="achievement-icon-box">
                     {getAchievementIcon(achieve.icon)}
@@ -165,8 +165,8 @@ export default function ImpactPage({ onNavigate, onPhotoClick }) {
           </div>
 
           <div className="stories-editorial-grid">
-            {STORIES.map((story) => (
-              <article key={story.id} className="story-card">
+            {STORIES.map((story, idx) => (
+              <article key={story.id} className="story-card" data-reveal data-reveal-delay={`${idx * 100}`}>
                 <div 
                   className="story-image-wrap"
                   onClick={() => onPhotoClick && onPhotoClick({

@@ -26,18 +26,18 @@ export default function HomePage({ onNavigate, onPhotoClick }) {
         <div className="container">
           <div className="home-who-grid">
             <div className="home-who-text">
-              <h2 className="section-title">
+              <h2 className="section-title" data-reveal="slide-left">
                 Rooted in Faith. <br />
                 <span className="highlight-gold">Empowering Every Child.</span>
               </h2>
-              <p className="body-paragraph">
+              <p className="body-paragraph" data-reveal data-reveal-delay="100">
                 Every child deserves the chance to belong, grow and fulfil their potential. Founded by the Methodist Church in Kenya – Shankoe, the Centre is a child-centred, community-based institution dedicated to strengthening ministry for children and young people.
               </p>
-              <p className="body-paragraph">
+              <p className="body-paragraph" data-reveal data-reveal-delay="200">
                 Our work is rooted in faith, compassion, justice and hope. We nurture spiritual, social, emotional and intellectual wellbeing, protect children, champion inclusion and create supportive communities where every child and young person can discover their potential and thrive.
               </p>
 
-              <div className="home-who-actions">
+              <div className="home-who-actions" data-reveal data-reveal-delay="300">
                 <button 
                   type="button" 
                   className="btn btn-primary"
@@ -49,7 +49,7 @@ export default function HomePage({ onNavigate, onPhotoClick }) {
               </div>
             </div>
 
-            <div className="home-who-media">
+            <div className="home-who-media" data-reveal="slide-right">
               <div 
                 className="home-who-card"
                 onClick={() => onPhotoClick && onPhotoClick(whoPhoto)}
@@ -72,7 +72,7 @@ export default function HomePage({ onNavigate, onPhotoClick }) {
       {/* 4. PARTNER WITH US: Subtle, elegant invitation banner leading to dedicated page */}
       <section className="home-partner-cta-strip">
         <div className="container">
-          <div className="home-partner-cta-card">
+          <div className="home-partner-cta-card" data-reveal="scale">
             <div className="home-partner-cta-content">
               <h2 className="home-partner-cta-title">
                 Partner With <span className="highlight-gold">Shankoe CYDC</span>

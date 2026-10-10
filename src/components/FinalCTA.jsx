@@ -11,7 +11,7 @@ export default function FinalCTA({ onNavigate }) {
           <div className="final-cta-glow-dot" aria-hidden="true" />
 
           {/* Heading */}
-          <h2 className="final-cta-heading">
+          <h2 className="final-cta-heading" data-reveal>
             Stronger futures are <span className="highlight-gold">built together.</span>
           </h2>
 
@@ -20,6 +20,8 @@ export default function FinalCTA({ onNavigate }) {
             type="button" 
             className="btn btn-gold btn-lg final-cta-btn"
             onClick={() => onNavigate('partner')}
+            data-reveal
+            data-reveal-delay="120"
           >
             <Heart size={18} fill="currentColor" />
             <span>Partner With Us</span>

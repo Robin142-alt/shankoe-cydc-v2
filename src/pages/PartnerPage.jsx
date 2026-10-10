@@ -65,11 +65,11 @@ export default function PartnerPage({ onNavigate, onPhotoClick }) {
       {/* Header */}
       <section className="partner-header-section section-dark">
         <div className="container container-narrow text-center">
-          <h1 className="partner-page-title">
+          <h1 className="partner-page-title" data-reveal>
             Stronger Futures Are <br />
             <span className="highlight-gold">Built Together.</span>
           </h1>
-          <p className="partner-page-lead">
+          <p className="partner-page-lead" data-reveal data-reveal-delay="120">
             We invite churches, organizations, and individuals to join hands with Shankoe CYDC in expanding education, practical skills, and joyful wellbeing for children in Narok County.
           </p>
         </div>
@@ -80,7 +80,7 @@ export default function PartnerPage({ onNavigate, onPhotoClick }) {
         <div className="container">
           <div className="partner-split-layout">
             {/* Left Column: Photo & Contact Info */}
-            <div className="partner-info-col">
+            <div className="partner-info-col" data-reveal="slide-left">
               <h2 className="section-title">
                 How We Can <span className="highlight-gold">Partner</span>
               </h2>
@@ -106,7 +106,7 @@ export default function PartnerPage({ onNavigate, onPhotoClick }) {
             </div>
 
             {/* Right Column: Partnership Form */}
-            <div className="partner-form-col">
+            <div className="partner-form-col" data-reveal="slide-right" data-reveal-delay="100">
               <div className="partner-form-card">
                 <div className="form-card-header">
                   <div className="form-icon-pill">

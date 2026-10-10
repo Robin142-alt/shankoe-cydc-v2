@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 /**
  * Custom hook for scroll-triggered reveal animations using Intersection Observer.
@@ -69,4 +69,46 @@ export function useAutoReveal(containerRef) {
     revealElements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, [containerRef]);
+}
+
+/**
+ * Global document-level reveal observer.
+ * Call once from App root — scans the entire document for [data-reveal] elements
+ * and handles them with staggered entrance animations.
+ * Re-runs whenever `pageKey` changes (page navigation).
+ */
+export function useGlobalReveal(pageKey) {
+  useEffect(() => {
+    // Small delay to let React finish rendering the new page
+    const init = setTimeout(() => {
+      const elements = document.querySelectorAll('[data-reveal]');
+      if (!elements.length) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const el = entry.target;
+              const delay = el.dataset.revealDelay || '0';
+              el.style.transitionDelay = `${delay}ms`;
+              el.classList.add('revealed');
+              observer.unobserve(el);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: '0px 0px -50px 0px' }
+      );
+
+      elements.forEach((el) => {
+        // Reset so re-navigation re-animates
+        el.classList.remove('revealed');
+        el.style.transitionDelay = '';
+        observer.observe(el);
+      });
+
+      return () => observer.disconnect();
+    }, 80);
+
+    return () => clearTimeout(init);
+  }, [pageKey]);
 }

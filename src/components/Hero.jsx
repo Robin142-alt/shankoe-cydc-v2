@@ -27,7 +27,7 @@ export default function Hero({ onNavigate }) {
       <div className="hero-deco-orb hero-orb-1" aria-hidden="true" />
       <div className="hero-deco-orb hero-orb-2" aria-hidden="true" />
 
-      <div className={`container hero-content-container ${loaded ? 'hero-loaded' : ''}`}>
+      <div className={`hero-content-container ${loaded ? 'hero-loaded' : ''}`}>
         {/* Main Hero Headline: Clean, authoritative, pure solid white */}
         <h1 className="hero-title hero-statement-headline">
           Reimagining a future where children and young people thrive through education, healthcare, skills development, and stronger communities.

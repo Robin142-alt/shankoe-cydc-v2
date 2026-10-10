@@ -1,0 +1,581 @@
+/* ==========================================================================
+   SHANKOE CYDC — PREMIUM ANIMATION ENHANCEMENTS
+   Adds rich hover, transition and micro-interaction polish globally.
+   Supplements the base scroll-reveal system in index.css.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. ADDITIONAL KEYFRAMES
+   -------------------------------------------------------------------------- */
+
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes gentlePop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shimmerSlide {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.18); }
+  50%       { box-shadow: 0 0 0 10px rgba(217, 119, 6, 0); }
+}
+
+@keyframes underlineGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateX(0); }
+  50%       { transform: translateX(4px); }
+}
+
+@keyframes borderGlow {
+  0%, 100% { border-color: var(--border-light); }
+  50%       { border-color: rgba(217, 119, 6, 0.4); }
+}
+
+/* --------------------------------------------------------------------------
+   2. STAGGER DELAY UTILITIES (for [data-reveal] children)
+   -------------------------------------------------------------------------- */
+
+.stagger-1 { transition-delay: 60ms !important; }
+.stagger-2 { transition-delay: 120ms !important; }
+.stagger-3 { transition-delay: 180ms !important; }
+.stagger-4 { transition-delay: 240ms !important; }
+.stagger-5 { transition-delay: 300ms !important; }
+
+/* --------------------------------------------------------------------------
+   3. BUTTON HOVER MICRO-ANIMATIONS
+   -------------------------------------------------------------------------- */
+
+/* Arrow-right icon inside buttons slides right on hover */
+.btn svg {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.btn:hover svg {
+  transform: translateX(3px);
+}
+
+/* Gold button gets a subtle glow pulse on hover */
+.btn-gold:hover {
+  animation: glowPulse 1.4s ease-in-out infinite;
+}
+
+/* Outline-white button — smooth background sweep */
+.btn-outline-white {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-outline-white::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.35s ease;
+  border-radius: inherit;
+}
+
+.btn-outline-white:hover::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.btn-outline-white:hover {
+  color: var(--navy-900);
+}
+
+.btn-outline-white span,
+.btn-outline-white svg {
+  position: relative;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   4. CARD HOVER ENHANCEMENTS
+   -------------------------------------------------------------------------- */
+
+/* Program mini cards */
+.pathway-mini-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+}
+
+.pathway-mini-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(12, 35, 64, 0.12);
+}
+
+/* Pathway detail card image zoom */
+.pathway-img-wrap {
+  overflow: hidden;
+}
+
+.pathway-img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pathway-img-wrap:hover .pathway-img {
+  transform: scale(1.04);
+}
+
+/* What-we-do cards */
+.what-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.what-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(12, 35, 64, 0.14);
+}
+
+.what-card-img {
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.what-card:hover .what-card-img {
+  transform: scale(1.06);
+}
+
+/* Story cards */
+.story-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.story-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(12, 35, 64, 0.1);
+}
+
+.story-img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.story-image-wrap:hover .story-img {
+  transform: scale(1.05);
+}
+
+/* Achievement cards */
+.achievement-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 36px rgba(12, 35, 64, 0.11);
+  border-color: rgba(217, 119, 6, 0.25);
+}
+
+/* Stat cards on Impact page */
+.official-stat-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.official-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(12, 35, 64, 0.1);
+}
+
+/* Value cards (About) */
+.value-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(12, 35, 64, 0.09);
+}
+
+/* Theory of Change road cards */
+.toc-road-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toc-road-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 32px rgba(12, 35, 64, 0.1);
+}
+
+/* History context cards */
+.history-context-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.history-context-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(12, 35, 64, 0.09);
+}
+
+/* Partner logo cards */
+.partner-logo-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+}
+
+.partner-logo-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 28px rgba(12, 35, 64, 0.1);
+  border-color: rgba(217, 119, 6, 0.3);
+}
+
+/* Counter strip items */
+.counter-item {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.counter-item:hover {
+  transform: translateY(-4px);
+}
+
+/* --------------------------------------------------------------------------
+   5. IMAGE CARD HOVER (About / Partner photos)
+   -------------------------------------------------------------------------- */
+
+.about-image-card,
+.home-who-card,
+.partner-photo-card {
+  overflow: hidden;
+}
+
+.about-card-img,
+.home-who-img,
+.partner-card-img {
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-image-card:hover .about-card-img,
+.home-who-card:hover .home-who-img,
+.partner-photo-card:hover .partner-card-img {
+  transform: scale(1.04);
+}
+
+/* --------------------------------------------------------------------------
+   6. NAVBAR ANIMATIONS
+   -------------------------------------------------------------------------- */
+
+/* Smooth dropdown reveal */
+.nav-dropdown {
+  transform-origin: top center;
+  animation: slideInDown 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Nav link underline animate */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gold-500);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Mobile menu slide-in */
+.mobile-nav-panel {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.3s ease;
+}
+
+/* --------------------------------------------------------------------------
+   7. HERO SUBTLE PARALLAX + IMAGE KEN BURNS ZOOM
+   -------------------------------------------------------------------------- */
+
+.hero-bg-img {
+  animation: heroKenBurns 18s ease-in-out infinite alternate;
+}
+
+@keyframes heroKenBurns {
+  0%   { transform: scale(1)   translate(0, 0); }
+  100% { transform: scale(1.05) translate(-1%, 0.5%); }
+}
+
+/* --------------------------------------------------------------------------
+   8. SECTION HEADER ANIMATED UNDERLINE
+   -------------------------------------------------------------------------- */
+
+.section-title {
+  position: relative;
+  display: inline-block;
+}
+
+/* highlight-gold text shimmer on hover over a section-title */
+.section-title:hover .highlight-gold {
+  background: linear-gradient(90deg, var(--gold-600) 0%, var(--gold-500) 40%, var(--gold-700) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerSlide 1.8s linear infinite;
+}
+
+/* --------------------------------------------------------------------------
+   9. FORM FOCUS MICRO-INTERACTIONS
+   -------------------------------------------------------------------------- */
+
+.partner-form input,
+.partner-form select,
+.partner-form textarea {
+  transition: border-color 0.22s ease,
+              box-shadow 0.22s ease,
+              transform 0.2s ease;
+}
+
+.partner-form input:focus,
+.partner-form select:focus,
+.partner-form textarea:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(12, 35, 64, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   10. MILESTONE BOX POP
+   -------------------------------------------------------------------------- */
+
+.milestone-box {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease;
+}
+
+.milestone-box:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 22px rgba(12, 35, 64, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   11. SUBNAV LINK HOVER
+   -------------------------------------------------------------------------- */
+
+.about-subnav-link,
+.impact-subnav-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-subnav-link::after,
+.impact-subnav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gold-500);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-subnav-link:hover::after,
+.impact-subnav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* --------------------------------------------------------------------------
+   12. STORY READ BUTTON HOVER
+   -------------------------------------------------------------------------- */
+
+.story-read-btn {
+  transition: gap 0.22s ease, color 0.22s ease;
+}
+
+.story-read-btn:hover {
+  gap: 0.7rem;
+}
+
+/* --------------------------------------------------------------------------
+   13. PATHWAY TAB BUTTON ACTIVE / HOVER
+   -------------------------------------------------------------------------- */
+
+.pathway-tab-btn {
+  transition: background 0.25s ease,
+              color 0.25s ease,
+              transform 0.2s ease,
+              box-shadow 0.25s ease;
+}
+
+.pathway-tab-btn:hover:not(.active) {
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   14. EMBRACE/JOURNEY PATHWAY CARD HOVER
+   -------------------------------------------------------------------------- */
+
+.pathway-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s ease;
+}
+
+.pathway-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(12, 35, 64, 0.14);
+}
+
+.pathway-photo {
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pathway-card:hover .pathway-photo {
+  transform: scale(1.05);
+}
+
+/* --------------------------------------------------------------------------
+   15. PARTNER SECTION LOGO HOVER
+   -------------------------------------------------------------------------- */
+
+.partner-logo-img {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.3s ease;
+  filter: grayscale(0.1) opacity(0.9);
+}
+
+.partner-logo-card:hover .partner-logo-img {
+  transform: scale(1.06);
+  filter: grayscale(0) opacity(1);
+}
+
+/* --------------------------------------------------------------------------
+   16. IMPACT COUNTER STRIP — ICON BOX SPIN ON HOVER
+   -------------------------------------------------------------------------- */
+
+.counter-icon-wrap {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.counter-item:hover .counter-icon-wrap {
+  transform: rotate(-8deg) scale(1.12);
+}
+
+/* --------------------------------------------------------------------------
+   17. SCROLL-TO-TOP BUTTON ANIMATION
+   -------------------------------------------------------------------------- */
+
+.scroll-to-top-btn {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease,
+              opacity 0.3s ease;
+}
+
+.scroll-to-top-btn:hover {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 10px 28px rgba(12, 35, 64, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   18. LIGHTBOX OPEN ANIMATION
+   -------------------------------------------------------------------------- */
+
+.lightbox-overlay {
+  animation: fadeIn 0.22s ease forwards;
+}
+
+.lightbox-content {
+  animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* --------------------------------------------------------------------------
+   19. FOOTER LINK HOVER
+   -------------------------------------------------------------------------- */
+
+.footer-nav-link,
+.footer-link {
+  position: relative;
+  transition: color 0.22s ease, transform 0.22s ease;
+}
+
+.footer-nav-link:hover,
+.footer-link:hover {
+  transform: translateX(3px);
+}
+
+/* --------------------------------------------------------------------------
+   20. BADGE PILL HOVER
+   -------------------------------------------------------------------------- */
+
+.badge-pill {
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.badge-pill:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 12px rgba(12, 35, 64, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   21. REDUCED MOTION — All enhancements off
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-img,
+  .btn-gold:hover,
+  .btn-outline-white::before,
+  .section-title:hover .highlight-gold,
+  .counter-item:hover .counter-icon-wrap,
+  [class*="hover"],
+  .pathway-card,
+  .what-card,
+  .story-card,
+  .achievement-card,
+  .official-stat-card,
+  .value-card,
+  .toc-road-card,
+  .history-context-card,
+  .partner-logo-card,
+  .milestone-box,
+  .counter-item {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

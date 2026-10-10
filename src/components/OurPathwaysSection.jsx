@@ -31,7 +31,7 @@ export default function OurPathwaysSection({ onPhotoClick, onNavigate = null, is
     <section className="our-pathways-section" id="our-programs">
       <div className="container">
         {/* Section Header */}
-        <div className="pathways-header text-center">
+        <div className="pathways-header text-center" data-reveal>
           <h2 className="section-title">
             Our <span className="highlight-gold">Programs</span>
           </h2>
@@ -115,10 +115,12 @@ export default function OurPathwaysSection({ onPhotoClick, onNavigate = null, is
 
         {/* 5-Column Compact Grid for Quick Overview */}
         <div className="pathways-overview-grid">
-          {PATHWAYS.map((path) => (
+          {PATHWAYS.map((path, idx) => (
             <div 
               key={path.id}
               className={`pathway-mini-card ${selectedPathway === path.id ? 'active' : ''}`}
+              data-reveal
+              data-reveal-delay={`${idx * 80}`}
               onClick={() => {
                 setSelectedPathway(path.id);
                 const el = document.getElementById(`pathway-${path.id}`);
