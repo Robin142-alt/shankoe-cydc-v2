@@ -52,6 +52,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .footer-logo-img {
@@ -60,17 +61,18 @@
   object-fit: contain;
 }
 
+.footer-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
 .footer-brand-title {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: #ffffff;
   letter-spacing: -0.01em;
-}
-
-.footer-brand-sub {
-  font-size: 0.8rem;
-  color: var(--text-light-muted);
+  line-height: 1.3;
 }
 
 .footer-mission-text {

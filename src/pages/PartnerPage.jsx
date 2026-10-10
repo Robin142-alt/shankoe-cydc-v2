@@ -70,7 +70,7 @@ export default function PartnerPage({ onNavigate, onPhotoClick }) {
             <span className="highlight-gold">Built Together.</span>
           </h1>
           <p className="partner-page-lead" data-reveal data-reveal-delay="120">
-            We invite churches, organizations, and individuals to join hands with Shankoe CYDC in expanding education, practical skills, and joyful wellbeing for children in Narok County.
+            We invite churches, organizations, and individuals to join hands with us in expanding education, practical skills, and joyful wellbeing for children.
           </p>
         </div>
       </section>

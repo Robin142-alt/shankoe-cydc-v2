@@ -29,7 +29,7 @@ export default function Footer({ onNavigate }) {
               <div className="footer-logo-box">
                 <img 
                   src={BRAND.logoTransparent} 
-                  alt="Shankoe CYDC Logo" 
+                  alt="Shankoe Methodist Child and Youth Centre Logo" 
                   className="footer-logo-img"
                   onError={(e) => {
                     e.target.onerror = null;
@@ -37,9 +37,8 @@ export default function Footer({ onNavigate }) {
                   }}
                 />
               </div>
-              <div>
-                <div className="footer-brand-title">{BRAND.name}</div>
-                <div className="footer-brand-sub">{BRAND.fullName}</div>
+              <div className="footer-brand-text">
+                <div className="footer-brand-title">Shankoe Methodist Child and Youth Centre</div>
               </div>
             </div>
 
