@@ -376,8 +376,8 @@
 /* Where We Work Section */
 .where-we-work-section {
   background-color: #0a1728;
-  padding-top: clamp(4rem, 7vw, 6rem);
-  padding-bottom: clamp(4rem, 7vw, 6rem);
+  padding-top: clamp(3.5rem, 6vw, 5rem);
+  padding-bottom: clamp(3.5rem, 6vw, 5rem);
 }
 
 .light-text .section-title {

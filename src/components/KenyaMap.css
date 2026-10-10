@@ -1,120 +1,57 @@
 /* ==========================================================================
-   WHERE WE WORK - PREMIUM GIS VECTOR MAP OF KENYA & NAROK COUNTY
-   Navy, Gold, and White Identity • Zero API Dependencies • Responsive
+   WHERE WE WORK – CLEAN CENTERED KENYA MAP
+   Navy & Gold identity • Minimal, elegant, premium
    ========================================================================== */
 
-.where-we-work-card {
-  position: relative;
-  background: linear-gradient(155deg, #0a1b2e 0%, #06111f 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-xl, 1.25rem);
-  padding: clamp(1.25rem, 3vw, 2.25rem);
-  box-shadow: 0 24px 60px rgba(2, 6, 12, 0.6);
-  color: #f8fafc;
-  overflow: hidden;
-}
-
-/* Subtle Ambient Glow in background */
-.where-we-work-card::before {
-  content: '';
-  position: absolute;
-  top: -150px;
-  left: 20%;
-  width: 450px;
-  height: 450px;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.09) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* 2-Column Responsive Grid */
-.where-we-work-grid {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  align-items: stretch;
-}
-
-@media (min-width: 992px) {
-  .where-we-work-grid {
-    grid-template-columns: 1.22fr 0.78fr;
-    gap: 2.25rem;
-  }
-}
-
-/* ==========================================================================
-   LEFT COLUMN: VECTOR MAP SHOWCASE
-   ========================================================================== */
-
-.map-showcase-column {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-}
-
-/* View Mode Switcher Pills */
-.map-view-switcher {
+/* Centered container — map is the sole focus */
+.map-centered-container {
+  width: 100%;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  background: rgba(12, 35, 64, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 0.35rem 0.45rem;
-  border-radius: var(--radius-full, 9999px);
-  width: fit-content;
+  justify-content: center;
+  padding: 0.5rem 0 1rem;
 }
 
-.switcher-pill-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  background: transparent;
-  border: 1px solid transparent;
-  color: #94a3b8;
-  font-size: 0.82rem;
-  font-weight: 600;
-  padding: 0.38rem 0.85rem;
-  border-radius: var(--radius-full, 9999px);
-  cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.switcher-pill-btn:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.switcher-pill-btn.active {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-  color: #0c2340;
-  font-weight: 700;
-  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
-}
-
-/* SVG Map Canvas Wrapper */
+/* SVG Map Canvas */
 .svg-map-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 4.4;
-  background: radial-gradient(circle at 35% 65%, #0f2744 0%, #081627 75%, #040c17 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-lg, 1rem);
+  max-width: 520px;
+  aspect-ratio: 800 / 960;
+  background: radial-gradient(ellipse at 38% 60%, #0f2744 0%, #081627 65%, #040c17 100%);
+  border: 1px solid rgba(245, 158, 11, 0.18);
+  border-radius: var(--radius-xl, 1.25rem);
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: inset 0 2px 20px rgba(0, 0, 0, 0.5);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 24px 60px rgba(2, 6, 18, 0.7),
+    inset 0 2px 20px rgba(0, 0, 0, 0.5);
+  cursor: default;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 600px) {
   .svg-map-wrapper {
-    min-height: 480px;
-    max-height: 580px;
+    max-width: 600px;
   }
 }
 
+@media (min-width: 900px) {
+  .svg-map-wrapper {
+    max-width: 680px;
+  }
+}
+
+@media (max-width: 480px) {
+  .svg-map-wrapper {
+    max-width: 100%;
+    border-radius: var(--radius-lg, 1rem);
+  }
+}
+
+/* SVG fills its container */
 .kenya-vector-svg {
   width: 100%;
   height: 100%;
@@ -122,127 +59,118 @@
   user-select: none;
 }
 
-/* County Paths */
+/* =====================================================================
+   COUNTY PATHS
+   ===================================================================== */
+
 .county-path {
   fill: #112741;
-  cursor: pointer;
-  transition: fill 0.2s ease, opacity 0.2s ease, filter 0.2s ease;
-}
-
-.county-path:hover,
-.county-path.hovered {
-  fill: #1d3d66;
-  stroke: rgba(255, 255, 255, 0.35);
+  cursor: default;
+  transition: fill 0.18s ease;
 }
 
 .county-path.adjacent-county {
   fill: #162f4e;
 }
 
-.county-path.adjacent-county:hover {
-  fill: #22497a;
+.county-path:hover,
+.county-path.hovered {
+  fill: #1d3d66;
 }
 
-/* NAROK COUNTY - Glowing Amber/Gold Highlight */
+/* Narok County – gold highlighted */
 .county-narok-path {
-  cursor: pointer;
-  transition: filter 0.3s ease, opacity 0.3s ease;
+  cursor: default;
+  transition: filter 0.28s ease;
 }
 
 .county-narok-path:hover,
 .county-narok-path.hovered {
-  filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.8));
-  stroke: #ffffff;
-  stroke-width: 2.5px;
+  filter: drop-shadow(0 0 14px rgba(245, 158, 11, 0.9));
 }
 
-/* Water & Ocean */
-.water-body {
+/* =====================================================================
+   CARTOGRAPHIC LABELS (on SVG)
+   ===================================================================== */
+
+.equator-text {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  fill: rgba(255, 255, 255, 0.28);
   pointer-events: none;
 }
 
-/* Labels on SVG */
-.equator-text {
+.country-neighbor-label {
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  fill: rgba(255, 255, 255, 0.4);
-}
-
-.country-neighbor-label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  fill: rgba(148, 163, 184, 0.35);
+  letter-spacing: 0.15em;
+  fill: rgba(148, 163, 184, 0.3);
   pointer-events: none;
 }
 
 .ocean-label {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.14em;
-  fill: rgba(56, 189, 248, 0.45);
+  letter-spacing: 0.13em;
+  fill: rgba(56, 189, 248, 0.42);
   pointer-events: none;
 }
 
 .lake-label {
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  fill: rgba(56, 189, 248, 0.55);
+  letter-spacing: 0.07em;
+  fill: rgba(56, 189, 248, 0.5);
   pointer-events: none;
 }
 
 .mara-label {
-  font-size: 7.5px;
+  font-size: 7px;
   font-weight: 600;
-  letter-spacing: 0.06em;
-  fill: #fef08a;
+  letter-spacing: 0.05em;
+  fill: rgba(254, 240, 138, 0.65);
   text-anchor: middle;
   pointer-events: none;
 }
 
-/* Landmark Pins */
-.landmark-pin text {
+/* =====================================================================
+   LANDMARK PINS
+   ===================================================================== */
+
+.landmark-text {
   font-size: 9px;
   font-weight: 600;
   fill: #cbd5e1;
   pointer-events: none;
 }
 
-.landmark-pin.capital text {
+.capital-text {
   font-size: 9.5px;
   font-weight: 700;
   fill: #ffffff;
 }
 
-.landmark-pin.mountain text {
+.mountain-text {
   font-size: 8px;
   fill: #93c5fd;
 }
 
-.landmark-pin.town text {
-  font-size: 8px;
-  fill: #fef08a;
-}
+/* =====================================================================
+   SHANKOE CYDC BEACON
+   ===================================================================== */
 
-.landmark-pin.sub-town text {
-  font-size: 6.5px;
-  fill: #cbd5e1;
-}
-
-/* Shankoe CYDC Radar Beacon */
 .shankoe-beacon-group {
-  cursor: pointer;
+  cursor: default;
 }
 
 .radar-pulse-outer {
-  animation: beaconPulse 2.4s ease-out infinite;
+  animation: beaconPulse 2.6s ease-out infinite;
   transform-origin: center;
 }
 
 .radar-pulse-inner {
-  animation: beaconPulse 2.4s ease-out 0.8s infinite;
+  animation: beaconPulse 2.6s ease-out 0.9s infinite;
   transform-origin: center;
 }
 
@@ -251,17 +179,9 @@
 }
 
 @keyframes beaconPulse {
-  0% {
-    r: 6;
-    opacity: 0.9;
-  }
-  50% {
-    opacity: 0.45;
-  }
-  100% {
-    r: 32;
-    opacity: 0;
-  }
+  0%   { r: 6;  opacity: 0.88; }
+  50%  { opacity: 0.42; }
+  100% { r: 34; opacity: 0; }
 }
 
 .shankoe-tag-title {
@@ -274,324 +194,32 @@
 .shankoe-tag-sub {
   font-size: 6.5px;
   font-weight: 600;
-  fill: #ffffff;
+  fill: #e2e8f0;
 }
 
-/* Interactive Cursor Tooltip */
+/* =====================================================================
+   HOVER TOOLTIP
+   ===================================================================== */
+
 .map-cursor-tooltip {
   position: absolute;
   pointer-events: none;
-  background: rgba(12, 35, 64, 0.95);
-  border: 1px solid rgba(245, 158, 11, 0.4);
-  padding: 0.45rem 0.75rem;
+  background: rgba(12, 35, 64, 0.96);
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  padding: 0.35rem 0.7rem;
   border-radius: var(--radius-sm, 0.5rem);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
   z-index: 10;
   transform: translateY(-50%);
-  animation: fadeIn 0.15s ease-out;
-}
-
-.tooltip-title {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-.tooltip-desc {
-  font-size: 0.72rem;
-  color: #cbd5e1;
-}
-
-/* Floating Status Strip at bottom of map */
-.map-meta-strip {
-  position: absolute;
-  bottom: 0.75rem;
-  left: 0.75rem;
-  right: 0.75rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-  padding: 0.45rem 0.85rem;
-  background: rgba(10, 24, 43, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-md, 0.5rem);
-  backdrop-filter: blur(8px);
-  font-size: 0.75rem;
-  color: #94a3b8;
-  z-index: 5;
-}
-
-.meta-coords {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: #cbd5e1;
-}
-
-.meta-icon {
-  color: #f59e0b;
-}
-
-.meta-legend {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-}
-
-.legend-indicator {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 2px;
-}
-
-.legend-indicator.narok-box {
-  background: #f59e0b;
-  border: 1px solid #fbbf24;
-}
-
-.legend-indicator.shankoe-dot {
-  width: 8px;
-  height: 8px;
-  background: #ffffff;
-  border: 2px solid #b45309;
-  border-radius: 50%;
-  box-shadow: 0 0 6px #f59e0b;
-}
-
-/* ==========================================================================
-   RIGHT COLUMN: GEOGRAPHIC & OPERATIONAL PROFILE CARD
-   ========================================================================== */
-
-.info-narrative-column {
-  display: flex;
-  flex-direction: column;
-}
-
-.hq-profile-card {
-  background: rgba(12, 35, 64, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-lg, 1rem);
-  padding: clamp(1.25rem, 2.5vw, 1.75rem);
-  display: flex;
-  flex-direction: column;
-  gap: 1.15rem;
-  height: 100%;
-}
-
-.hq-badge-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.county-code-tag {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #fbbf24;
-  background: rgba(245, 158, 11, 0.12);
-  border: 1px solid rgba(245, 158, 11, 0.3);
-  padding: 0.25rem 0.65rem;
-  border-radius: var(--radius-full, 9999px);
-}
-
-.verified-status-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: #34d399;
-  background: rgba(16, 185, 129, 0.1);
-  padding: 0.25rem 0.6rem;
-  border-radius: var(--radius-full, 9999px);
-}
-
-.hq-card-title {
-  font-family: var(--font-heading, inherit);
-  font-size: clamp(1.4rem, 2.2vw, 1.75rem);
-  font-weight: 800;
-  color: #ffffff;
-  line-height: 1.25;
-  margin: 0;
-}
-
-.hq-card-locality {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.88rem;
-  color: #fbbf24;
-  font-weight: 600;
-  margin: -0.5rem 0 0 0;
-}
-
-.locality-icon {
-  flex-shrink: 0;
-}
-
-.hq-card-narrative {
-  font-size: 0.92rem;
-  line-height: 1.6;
-  color: #cbd5e1;
-  margin: 0;
-}
-
-/* 3-Metrics Grid */
-.footprint-metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.65rem;
-}
-
-.metric-tile {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-md, 0.5rem);
-  padding: 0.65rem 0.5rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.metric-tile:hover {
-  transform: translateY(-2px);
-  border-color: rgba(245, 158, 11, 0.3);
-  background: rgba(245, 158, 11, 0.06);
-}
-
-.metric-tile-val {
-  font-family: var(--font-heading, inherit);
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: #fbbf24;
-  line-height: 1.1;
-}
-
-.metric-tile-label {
-  font-size: 0.7rem;
-  color: #94a3b8;
-  line-height: 1.2;
-}
-
-/* Landscape Context Box */
-.landscape-context-box {
-  background: rgba(10, 24, 43, 0.6);
-  border-left: 3px solid #f59e0b;
-  border-radius: 0 var(--radius-md, 0.5rem) var(--radius-md, 0.5rem) 0;
-  padding: 0.85rem 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.context-box-heading {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin: 0;
-}
-
-.context-box-icon {
-  color: #f59e0b;
-}
-
-.context-points-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.context-points-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.45rem;
+  animation: fadeIn 0.12s ease-out;
   font-size: 0.78rem;
-  color: #cbd5e1;
-  line-height: 1.45;
-}
-
-.point-check {
-  color: #f59e0b;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.context-points-list strong {
-  color: #ffffff;
-}
-
-/* Action Trigger */
-.hq-card-action {
-  margin-top: auto;
-  padding-top: 0.5rem;
-}
-
-.focus-action-btn {
-  width: 100%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background: rgba(245, 158, 11, 0.12);
-  border: 1px solid rgba(245, 158, 11, 0.35);
-  color: #fef08a;
-  font-size: 0.85rem;
   font-weight: 700;
-  padding: 0.65rem 1.2rem;
-  border-radius: var(--radius-full, 9999px);
-  cursor: pointer;
-  transition: all 0.25s ease;
+  color: #ffffff;
+  white-space: nowrap;
 }
 
-.focus-action-btn:hover {
-  background: #f59e0b;
-  color: #0c2340;
-  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
-  transform: translateY(-1px);
-}
-
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-  .svg-map-wrapper {
-    aspect-ratio: 1 / 1;
-    min-height: 340px;
-  }
-
-  .footprint-metrics-grid {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
-
-  .metric-tile {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.6rem 0.85rem;
-    text-align: left;
-  }
-
-  .metric-tile-val {
-    font-size: 1.1rem;
-  }
-
-  .map-meta-strip {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.3rem;
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-50%) scale(0.96); }
+  to   { opacity: 1; transform: translateY(-50%) scale(1); }
 }
