@@ -135,20 +135,7 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
                 </p>
               </div>
 
-              <div className="about-badge-stats">
-                <div className="stat-pill">
-                  <MapPin size={16} className="stat-icon" />
-                  <span>Narok County, Kenya</span>
-                </div>
-                <div className="stat-pill">
-                  <Church size={16} className="stat-icon" />
-                  <span>Methodist Church in Kenya</span>
-                </div>
-                <div className="stat-pill">
-                  <Heart size={16} className="stat-icon" />
-                  <span>Child-Centred Ministry</span>
-                </div>
-              </div>
+
             </div>
 
             <div className="about-media-side">

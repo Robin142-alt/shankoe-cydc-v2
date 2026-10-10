@@ -142,6 +142,7 @@
   margin-right: auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1.5rem;
   opacity: 0;
   transform: translateY(20px);
@@ -154,7 +155,7 @@
   transform: translateY(0);
 }
 
-/* Refined Hero Headline: Solid white, balanced proportions, natural flow */
+/* Refined Hero Headline: Solid white, centered, balanced proportions */
 .hero-title,
 .hero-statement-headline {
   font-family: var(--font-heading);
@@ -163,8 +164,9 @@
   color: #ffffff;
   line-height: 1.42;
   letter-spacing: -0.012em;
+  text-align: center;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6), 0 4px 20px rgba(6, 18, 38, 0.85);
-  max-width: 1040px;
+  max-width: 960px;
   width: 100%;
   text-wrap: balance;
   margin: 0;
@@ -174,6 +176,7 @@
 .hero-cta-group {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
   margin-top: 0.75rem;
 }
