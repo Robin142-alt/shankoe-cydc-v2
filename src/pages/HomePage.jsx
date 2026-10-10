@@ -75,7 +75,7 @@ export default function HomePage({ onNavigate, onPhotoClick }) {
           <div className="home-partner-cta-card" data-reveal="scale">
             <div className="home-partner-cta-content">
               <h2 className="home-partner-cta-title">
-                Partner With <span className="highlight-gold">Shankoe CYDC</span>
+                Partner With <span className="highlight-gold">Us</span>
               </h2>
               <p className="home-partner-cta-lead">
                 Stronger futures are built together. We invite churches, foundations, community leaders, and individuals to collaborate with us to nurture children and young people across Narok County.

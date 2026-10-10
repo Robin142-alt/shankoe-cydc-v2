@@ -4,7 +4,7 @@ import {
   Menu, 
   X, 
   ArrowRight, 
-  Sparkles,
+  Heart,
   Users,
   Target,
   History,
@@ -13,8 +13,7 @@ import {
   Workflow,
   GraduationCap,
   BarChart3,
-  Award,
-  BookOpen
+  Sparkles
 } from 'lucide-react';
 import { BRAND } from '../data/content';
 import './Navbar.css';
@@ -23,12 +22,12 @@ export default function Navbar({ currentPage, onNavigate }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
-  const [impactDropdownOpen, setImpactDropdownOpen] = useState(false);
-  const [mobileAboutExpanded, setMobileAboutExpanded] = useState(true);
-  const [mobileImpactExpanded, setMobileImpactExpanded] = useState(false);
+  const [workDropdownOpen, setWorkDropdownOpen] = useState(false);
+  const [mobileAboutExpanded, setMobileAboutExpanded] = useState(false);
+  const [mobileWorkExpanded, setMobileWorkExpanded] = useState(false);
 
   const aboutTimerRef = useRef(null);
-  const impactTimerRef = useRef(null);
+  const workTimerRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,7 +49,7 @@ export default function Navbar({ currentPage, onNavigate }) {
 
   const handleLinkClick = (pageId, sectionId = null) => {
     setAboutDropdownOpen(false);
-    setImpactDropdownOpen(false);
+    setWorkDropdownOpen(false);
     setMobileMenuOpen(false);
     onNavigate(pageId);
 
@@ -66,22 +65,20 @@ export default function Navbar({ currentPage, onNavigate }) {
     }
   };
 
-  // About Us dropdown items as required
+  // About Us dropdown items — exactly the 5 required
   const aboutDropdownItems = [
     { id: 'who-we-are', label: 'Who We Are', desc: 'Child-centred church institution', icon: <Users size={16} /> },
     { id: 'mission-vision', label: 'Mission & Vision', desc: 'Core purpose & theological mandate', icon: <Target size={16} /> },
     { id: 'our-history', label: 'Our History', desc: '20+ years of faithful service', icon: <History size={16} /> },
-    { id: 'where-we-work', label: 'Where We Work', desc: 'Narok County, Kenya map', icon: <MapPin size={16} /> },
+    { id: 'where-we-work', label: 'Where We Work', desc: 'Narok County, Kenya', icon: <MapPin size={16} /> },
     { id: 'our-partners', label: 'Our Partners', desc: 'Transformational partnerships', icon: <Handshake size={16} /> },
-    { id: 'theory-of-change', label: 'Our Approach / Theory of Change', desc: 'Logical pathway for flourishing', icon: <Workflow size={16} /> },
-    { id: 'our-programs', label: 'Our Programs', desc: 'Holistic programs of care', icon: <GraduationCap size={16} /> },
   ];
 
-  // Impact dropdown items as required
-  const impactDropdownItems = [
-    { id: 'impact-statistics', label: 'Impact Statistics', desc: 'Authoritative data & reach', icon: <BarChart3 size={16} /> },
-    { id: 'achievements', label: 'Achievements', desc: 'Higher ed, business & safeguarding', icon: <Award size={16} /> },
-    { id: 'stories', label: 'Stories', desc: 'Real voices & inspiring journeys', icon: <BookOpen size={16} /> },
+  // Our Work dropdown items — Our Programs, Approach/ToC, Impact
+  const workDropdownItems = [
+    { id: 'our-programs', label: 'Our Programs', desc: 'Holistic programs of care', icon: <GraduationCap size={16} />, page: 'work' },
+    { id: 'theory-of-change', label: 'Our Approach / Theory of Change', desc: 'Logical pathway for flourishing', icon: <Workflow size={16} />, page: 'work' },
+    { id: 'impact', label: 'Impact', desc: 'Proven results across two decades', icon: <BarChart3 size={16} />, page: 'work' },
   ];
 
   const handleAboutMouseEnter = () => {
@@ -95,14 +92,14 @@ export default function Navbar({ currentPage, onNavigate }) {
     }, 200);
   };
 
-  const handleImpactMouseEnter = () => {
-    clearTimeout(impactTimerRef.current);
-    setImpactDropdownOpen(true);
+  const handleWorkMouseEnter = () => {
+    clearTimeout(workTimerRef.current);
+    setWorkDropdownOpen(true);
   };
 
-  const handleImpactMouseLeave = () => {
-    impactTimerRef.current = setTimeout(() => {
-      setImpactDropdownOpen(false);
+  const handleWorkMouseLeave = () => {
+    workTimerRef.current = setTimeout(() => {
+      setWorkDropdownOpen(false);
     }, 200);
   };
 
@@ -115,12 +112,12 @@ export default function Navbar({ currentPage, onNavigate }) {
             type="button" 
             className="brand-logo-btn" 
             onClick={() => handleLinkClick('home')}
-            aria-label="Shankoe CYDC Home"
+            aria-label="Shankoe Methodist Child and Youth Centre Home"
           >
             <div className="brand-logo-wrapper">
               <img 
                 src={BRAND.logoTransparent} 
-                alt="Shankoe CYDC Logo" 
+                alt="Shankoe Methodist Child and Youth Centre Logo" 
                 className="brand-logo-img"
                 onError={(e) => {
                   e.target.onerror = null;
@@ -129,12 +126,12 @@ export default function Navbar({ currentPage, onNavigate }) {
               />
             </div>
             <div className="brand-text">
-              <span className="brand-name">{BRAND.name}</span>
-              <span className="brand-sub">Methodist Child and Youth Centre</span>
+              <span className="brand-name">Shankoe Methodist</span>
+              <span className="brand-sub">Child and Youth Centre</span>
             </div>
           </button>
 
-          {/* Desktop Navigation Links: ONLY Home, About Us, and Impact */}
+          {/* Desktop Navigation: Home | About Us | Our Work | Contact | Donate */}
           <nav className="desktop-nav" aria-label="Main Navigation">
             <ul className="nav-links-list">
               {/* 1. Home */}
@@ -169,11 +166,10 @@ export default function Navbar({ currentPage, onNavigate }) {
                   </button>
                 </div>
 
-                {/* Dropdown Menu */}
                 {aboutDropdownOpen && (
                   <div className="dropdown-menu-card animate-dropdown-fade">
                     <div className="dropdown-menu-header">
-                      <span className="dropdown-category-title">ABOUT SHANKOE CYDC</span>
+                      <span className="dropdown-category-title">ABOUT SHANKOE</span>
                       <p className="dropdown-category-sub">Methodist Church in Kenya • Founded over 20 years ago</p>
                     </div>
 
@@ -199,41 +195,40 @@ export default function Navbar({ currentPage, onNavigate }) {
                 )}
               </li>
 
-              {/* 3. Impact with Dropdown */}
+              {/* 3. Our Work with Dropdown */}
               <li 
                 className="nav-item-dropdown"
-                onMouseEnter={handleImpactMouseEnter}
-                onMouseLeave={handleImpactMouseLeave}
+                onMouseEnter={handleWorkMouseEnter}
+                onMouseLeave={handleWorkMouseLeave}
               >
                 <div className="dropdown-trigger-wrapper">
                   <button
                     type="button"
-                    className={`nav-link-btn ${currentPage === 'impact' ? 'active' : ''}`}
-                    onClick={() => handleLinkClick('impact')}
-                    aria-expanded={impactDropdownOpen}
+                    className={`nav-link-btn ${currentPage === 'work' ? 'active' : ''}`}
+                    onClick={() => handleLinkClick('work')}
+                    aria-expanded={workDropdownOpen}
                     aria-haspopup="true"
                   >
-                    <span>Impact</span>
-                    <ChevronDown size={15} className={`chevron-icon ${impactDropdownOpen ? 'rotate' : ''}`} />
-                    {currentPage === 'impact' && <span className="active-dot" />}
+                    <span>Our Work</span>
+                    <ChevronDown size={15} className={`chevron-icon ${workDropdownOpen ? 'rotate' : ''}`} />
+                    {currentPage === 'work' && <span className="active-dot" />}
                   </button>
                 </div>
 
-                {/* Dropdown Menu */}
-                {impactDropdownOpen && (
-                  <div className="dropdown-menu-card impact-dropdown animate-dropdown-fade">
+                {workDropdownOpen && (
+                  <div className="dropdown-menu-card work-dropdown animate-dropdown-fade">
                     <div className="dropdown-menu-header">
-                      <span className="dropdown-category-title">OUR VERIFIED IMPACT</span>
-                      <p className="dropdown-category-sub">Authoritative statistics, milestones & authentic stories</p>
+                      <span className="dropdown-category-title">OUR WORK</span>
+                      <p className="dropdown-category-sub">Programs, approach & proven impact</p>
                     </div>
 
                     <div className="dropdown-items-grid single-col">
-                      {impactDropdownItems.map((item) => (
+                      {workDropdownItems.map((item) => (
                         <button
                           key={item.id}
                           type="button"
                           className="dropdown-menu-item"
-                          onClick={() => handleLinkClick('impact', item.id)}
+                          onClick={() => handleLinkClick(item.page, item.id)}
                         >
                           <div className="dropdown-item-icon-box">
                             {item.icon}
@@ -247,6 +242,30 @@ export default function Navbar({ currentPage, onNavigate }) {
                     </div>
                   </div>
                 )}
+              </li>
+
+              {/* 4. Contact */}
+              <li>
+                <button
+                  type="button"
+                  className={`nav-link-btn ${currentPage === 'contact' ? 'active' : ''}`}
+                  onClick={() => handleLinkClick('contact')}
+                >
+                  Contact
+                  {currentPage === 'contact' && <span className="active-dot" />}
+                </button>
+              </li>
+
+              {/* 5. Donate CTA */}
+              <li>
+                <button
+                  type="button"
+                  className="nav-donate-btn"
+                  onClick={() => handleLinkClick('partner')}
+                >
+                  <Heart size={14} className="donate-heart-icon" />
+                  <span>Donate</span>
+                </button>
               </li>
             </ul>
           </nav>
@@ -285,8 +304,8 @@ export default function Navbar({ currentPage, onNavigate }) {
               }}
             />
             <div>
-              <div className="drawer-title">{BRAND.name}</div>
-              <div className="drawer-desc">{BRAND.fullName}</div>
+              <div className="drawer-title">Shankoe Methodist</div>
+              <div className="drawer-desc">Child and Youth Centre</div>
             </div>
           </div>
           <button 
@@ -351,34 +370,34 @@ export default function Navbar({ currentPage, onNavigate }) {
               )}
             </li>
 
-            {/* 3. Impact with Accordion */}
+            {/* 3. Our Work with Accordion */}
             <li className="mobile-accordion-item">
               <div className="mobile-accordion-header">
                 <button
                   type="button"
-                  className={`mobile-link-btn ${currentPage === 'impact' ? 'active' : ''}`}
-                  onClick={() => handleLinkClick('impact')}
+                  className={`mobile-link-btn ${currentPage === 'work' ? 'active' : ''}`}
+                  onClick={() => handleLinkClick('work')}
                 >
-                  <span>Impact</span>
+                  <span>Our Work</span>
                 </button>
                 <button
                   type="button"
                   className="mobile-accordion-toggle"
-                  onClick={() => setMobileImpactExpanded(!mobileImpactExpanded)}
-                  aria-label="Toggle Impact submenu"
+                  onClick={() => setMobileWorkExpanded(!mobileWorkExpanded)}
+                  aria-label="Toggle Our Work submenu"
                 >
-                  <ChevronDown size={18} className={`chevron-icon ${mobileImpactExpanded ? 'rotate' : ''}`} />
+                  <ChevronDown size={18} className={`chevron-icon ${mobileWorkExpanded ? 'rotate' : ''}`} />
                 </button>
               </div>
 
-              {mobileImpactExpanded && (
+              {mobileWorkExpanded && (
                 <ul className="mobile-sublinks-list">
-                  {impactDropdownItems.map((item) => (
+                  {workDropdownItems.map((item) => (
                     <li key={item.id}>
                       <button
                         type="button"
                         className="mobile-sublink-btn"
-                        onClick={() => handleLinkClick('impact', item.id)}
+                        onClick={() => handleLinkClick(item.page, item.id)}
                       >
                         <span className="sublink-icon">{item.icon}</span>
                         <span>{item.label}</span>
@@ -387,6 +406,30 @@ export default function Navbar({ currentPage, onNavigate }) {
                   ))}
                 </ul>
               )}
+            </li>
+
+            {/* 4. Contact */}
+            <li>
+              <button
+                type="button"
+                className={`mobile-link-btn ${currentPage === 'contact' ? 'active' : ''}`}
+                onClick={() => handleLinkClick('contact')}
+              >
+                <span>Contact</span>
+                <ArrowRight size={16} className="link-arrow" />
+              </button>
+            </li>
+
+            {/* 5. Donate */}
+            <li>
+              <button
+                type="button"
+                className="mobile-donate-btn"
+                onClick={() => handleLinkClick('partner')}
+              >
+                <Heart size={16} />
+                <span>Donate</span>
+              </button>
             </li>
           </ul>
 

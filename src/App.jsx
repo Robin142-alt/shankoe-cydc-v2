@@ -6,7 +6,8 @@ import ScrollToTop from './components/ScrollToTop';
 import LoadingScreen from './components/LoadingScreen';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
-import ImpactPage from './pages/ImpactPage';
+import OurWorkPage from './pages/OurWorkPage';
+import ContactPage from './pages/ContactPage';
 import PartnerPage from './pages/PartnerPage';
 import { useGlobalReveal } from './hooks/useScrollReveal';
 import './App.css';
@@ -20,33 +21,41 @@ export default function App() {
   // Global scroll-reveal: fires on every page transition
   useGlobalReveal(pageKey);
 
-  // Sync with browser URL hash and handle intelligent redirects for legacy hashes
+  // Sync with browser URL hash and handle intelligent redirects
   useEffect(() => {
     const handleHashChange = () => {
       const rawHash = window.location.hash.replace('#', '').toLowerCase();
       
-      // Clean section anchors or legacy redirects
       if (rawHash === 'about' || rawHash === 'who-we-are' || rawHash === 'mission-vision' || 
-          rawHash === 'our-history' || rawHash === 'where-we-work' || rawHash === 'our-partners' || 
-          rawHash === 'theory-of-change' || rawHash === 'our-programs' || rawHash === 'programs') {
+          rawHash === 'our-history' || rawHash === 'where-we-work' || rawHash === 'our-partners') {
         setCurrentPage('about');
         if (rawHash !== 'about') {
-          setTimeout(() => {
-            const targetId = rawHash === 'programs' ? 'our-programs' : rawHash;
-            const el = document.getElementById(targetId);
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
-          }, 150);
-        }
-      } else if (rawHash === 'impact' || rawHash === 'impact-statistics' || rawHash === 'achievements' || rawHash === 'stories') {
-        setCurrentPage('impact');
-        if (rawHash !== 'impact') {
           setTimeout(() => {
             const el = document.getElementById(rawHash);
             if (el) el.scrollIntoView({ behavior: 'smooth' });
           }, 150);
         }
-      } else if (rawHash === 'partner' || rawHash === 'partner-with-us' || rawHash === 'contact') {
+      } else if (rawHash === 'work' || rawHash === 'our-programs' || rawHash === 'programs' || 
+                 rawHash === 'theory-of-change' || rawHash === 'our-approach' || rawHash === 'impact') {
+        setCurrentPage('work');
+        if (rawHash !== 'work') {
+          setTimeout(() => {
+            const targetId = rawHash === 'programs' ? 'our-programs' : rawHash === 'our-approach' ? 'theory-of-change' : rawHash;
+            const el = document.getElementById(targetId);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }, 150);
+        }
+      } else if (rawHash === 'contact') {
+        setCurrentPage('contact');
+      } else if (rawHash === 'partner' || rawHash === 'partner-with-us' || rawHash === 'donate') {
         setCurrentPage('partner');
+      } else if (rawHash === 'impact-statistics' || rawHash === 'achievements' || rawHash === 'stories') {
+        // Legacy: redirect old impact sub-sections to work page
+        setCurrentPage('work');
+        setTimeout(() => {
+          const el = document.getElementById('impact');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
       } else {
         setCurrentPage('home');
       }
@@ -82,8 +91,10 @@ export default function App() {
         return <HomePage onNavigate={navigateTo} onPhotoClick={handleOpenPhoto} />;
       case 'about':
         return <AboutPage onNavigate={navigateTo} onPhotoClick={handleOpenPhoto} />;
-      case 'impact':
-        return <ImpactPage onNavigate={navigateTo} onPhotoClick={handleOpenPhoto} />;
+      case 'work':
+        return <OurWorkPage onNavigate={navigateTo} onPhotoClick={handleOpenPhoto} />;
+      case 'contact':
+        return <ContactPage onNavigate={navigateTo} />;
       case 'partner':
         return <PartnerPage onNavigate={navigateTo} onPhotoClick={handleOpenPhoto} />;
       default:
@@ -97,7 +108,7 @@ export default function App() {
       {isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
 
       <div className={`app-root ${isLoading ? 'app-loading' : 'app-loaded'}`}>
-        {/* Sticky Navigation Bar: Only Home, About Us, and Impact */}
+        {/* Sticky Navigation Bar */}
         <Navbar currentPage={currentPage} onNavigate={navigateTo} />
 
         {/* Main Page View with smooth page transition */}
@@ -105,7 +116,7 @@ export default function App() {
           {renderCurrentPage()}
         </main>
 
-        {/* Global Footer with accessible contact info */}
+        {/* Global Footer */}
         <Footer onNavigate={navigateTo} />
 
         {/* Interactive Photo Lightbox Modal */}

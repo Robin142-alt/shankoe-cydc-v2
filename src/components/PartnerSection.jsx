@@ -61,7 +61,7 @@ export default function PartnerSection() {
         {/* Section Header */}
         <div className="partner-header text-center">
           <h2 className="section-title">
-            Partner With <span className="highlight-gold">Shankoe CYDC</span>
+            Partner With <span className="highlight-gold">Us</span>
           </h2>
           <p className="partner-lead">
             Stronger futures are built together. We invite churches, foundations, community leaders, and individuals to walk alongside Shankoe Methodist Child and Youth Centre to nurture vulnerable children and young people across Narok County.

@@ -5,8 +5,6 @@ import {
   History, 
   MapPin, 
   Handshake, 
-  Workflow, 
-  GraduationCap, 
   Sparkles, 
   Scale, 
   HeartHandshake, 
@@ -16,23 +14,19 @@ import {
   School, 
   Globe, 
   CheckCircle2, 
-  ArrowRight,
-  Compass
+  ArrowRight
 } from 'lucide-react';
 import { 
   BRAND, 
   VISION, 
   MISSION, 
-  THEOLOGY_STATEMENT, 
   WHO_WE_ARE_TEXT, 
   HISTORY_TEXT, 
-  CORE_VALUES, 
-  THEORY_OF_CHANGE,
+  CORE_VALUES,
   OUR_PARTNERS,
   KENYA_2005_CONTEXT 
 } from '../data/content';
 import KenyaMap from '../components/KenyaMap';
-import OurPathwaysSection from '../components/OurPathwaysSection';
 import './AboutPage.css';
 
 export default function AboutPage({ onNavigate, onPhotoClick }) {
@@ -101,12 +95,10 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
       <nav className="about-subnav-bar" aria-label="About Us Sections">
         <div className="container about-subnav-container">
           <a href="#who-we-are" className="about-subnav-link">Who We Are</a>
-          <a href="#mission-vision" className="about-subnav-link">Mission & Vision</a>
+          <a href="#mission-vision" className="about-subnav-link">Mission &amp; Vision</a>
           <a href="#our-history" className="about-subnav-link">Our History</a>
           <a href="#where-we-work" className="about-subnav-link">Where We Work</a>
           <a href="#our-partners" className="about-subnav-link">Our Partners</a>
-          <a href="#theory-of-change" className="about-subnav-link">Approach & Theory of Change</a>
-          <a href="#our-programs" className="about-subnav-link">Our Programs</a>
         </div>
       </nav>
 
@@ -378,62 +370,6 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
           </div>
         </div>
       </section>
-
-      {/* ======================================================== */}
-      {/* SECTION 6: OUR APPROACH / THEORY OF CHANGE              */}
-      {/* ======================================================== */}
-      <section className="section section-subtle about-toc-section" id="theory-of-change">
-        <div className="container">
-          <div className="section-header center">
-            <h2 className="section-title">
-              Our Theory of <span className="highlight-gold">Change</span>
-            </h2>
-            <p className="subtitle">
-              A clear, accountable pathway from initial investment to generational flourishing.
-            </p>
-          </div>
-
-          {/* Official Theory of Change Statement */}
-          <div className="toc-statement-card" data-reveal>
-            <div className="toc-statement-header">
-              <Workflow size={20} className="toc-icon-gold" />
-              <span>OFFICIAL STRATEGIC FORMULATION</span>
-            </div>
-            <blockquote className="toc-statement-quote">
-              “{THEORY_OF_CHANGE.officialStatement}”
-            </blockquote>
-          </div>
-
-          {/* 3-Step Visual Road Map */}
-          <div className="toc-roadmap-grid">
-            {THEORY_OF_CHANGE.steps.map((step, idx) => (
-              <div key={idx} className="toc-road-card" data-reveal data-reveal-delay={`${idx * 120}`}>
-                <div className="toc-road-step-badge">
-                  <span>STAGE 0{idx + 1}</span>
-                </div>
-                <h3 className="toc-road-title">{step.step}</h3>
-                <span className="toc-road-theme">{step.theme}</span>
-
-                <ul className="toc-road-list">
-                  {step.items.map((item, itemIdx) => (
-                    <li key={itemIdx} className="toc-road-item">
-                      <CheckCircle2 size={16} className="toc-road-check" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ======================================================== */}
-      {/* SECTION 7: OUR PROGRAMS (Presenting Our Pathways)       */}
-      {/* ======================================================== */}
-      <div id="our-programs">
-        <OurPathwaysSection onPhotoClick={onPhotoClick} />
-      </div>
     </div>
   );
 }

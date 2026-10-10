@@ -52,20 +52,22 @@ export default function Footer({ onNavigate }) {
             </div>
           </div>
 
-          {/* Clean Navigation: Home, About Us, Impact */}
+          {/* Navigation: matches new main nav structure */}
           <div className="footer-links-col">
             <h4 className="footer-col-heading">Navigation</h4>
             <ul className="footer-links-list">
               <li><button type="button" onClick={() => handleNav('home')}>Home</button></li>
               <li><button type="button" onClick={() => handleNav('about')}>About Us</button></li>
               <li><button type="button" onClick={() => handleNav('about', 'who-we-are')}>— Who We Are</button></li>
-              <li><button type="button" onClick={() => handleNav('about', 'mission-vision')}>— Mission & Vision</button></li>
+              <li><button type="button" onClick={() => handleNav('about', 'mission-vision')}>— Mission &amp; Vision</button></li>
               <li><button type="button" onClick={() => handleNav('about', 'our-history')}>— Our History</button></li>
               <li><button type="button" onClick={() => handleNav('about', 'where-we-work')}>— Where We Work</button></li>
               <li><button type="button" onClick={() => handleNav('about', 'our-partners')}>— Our Partners</button></li>
-              <li><button type="button" onClick={() => handleNav('about', 'theory-of-change')}>— Theory of Change</button></li>
-              <li><button type="button" onClick={() => handleNav('about', 'our-programs')}>— Our Programs</button></li>
-              <li><button type="button" onClick={() => handleNav('impact')}>Impact & Stories</button></li>
+              <li><button type="button" onClick={() => handleNav('work')}>Our Work</button></li>
+              <li><button type="button" onClick={() => handleNav('work', 'our-programs')}>— Our Programs</button></li>
+              <li><button type="button" onClick={() => handleNav('work', 'theory-of-change')}>— Our Approach</button></li>
+              <li><button type="button" onClick={() => handleNav('work', 'impact')}>— Impact</button></li>
+              <li><button type="button" onClick={() => handleNav('contact')}>Contact</button></li>
               <li><button type="button" onClick={() => handleNav('partner')}>Partner With Us</button></li>
             </ul>
           </div>
@@ -74,11 +76,11 @@ export default function Footer({ onNavigate }) {
           <div className="footer-links-col">
             <h4 className="footer-col-heading">Our Programs</h4>
             <ul className="footer-links-list">
-              <li><button type="button" onClick={() => handleNav('about', 'pathway-education')}>Education</button></li>
-              <li><button type="button" onClick={() => handleNav('about', 'pathway-healthcare')}>Healthcare</button></li>
-              <li><button type="button" onClick={() => handleNav('about', 'pathway-climate-change')}>Climate Change</button></li>
-              <li><button type="button" onClick={() => handleNav('about', 'pathway-skills-development')}>Skills Development</button></li>
-              <li><button type="button" onClick={() => handleNav('about', 'pathway-community-strengthening')}>Community Strengthening</button></li>
+              <li><button type="button" onClick={() => handleNav('work', 'pathway-education')}>Education</button></li>
+              <li><button type="button" onClick={() => handleNav('work', 'pathway-healthcare')}>Healthcare</button></li>
+              <li><button type="button" onClick={() => handleNav('work', 'pathway-climate-change')}>Climate Change</button></li>
+              <li><button type="button" onClick={() => handleNav('work', 'pathway-skills-development')}>Skills Development</button></li>
+              <li><button type="button" onClick={() => handleNav('work', 'pathway-community-strengthening')}>Community Strengthening</button></li>
             </ul>
           </div>
 
