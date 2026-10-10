@@ -244,7 +244,7 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
                   className="about-card-img" 
                 />
                 <div className="about-card-caption">
-                  <span>Over Two Decades of Daily Care and Nurturing in Narok</span>
+                  <span>Over Two Decades of Daily Care and Nurturing</span>
                 </div>
               </div>
             </div>
@@ -269,7 +269,7 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
               <div className="history-milestones-row">
                 <div className="milestone-box">
                   <span className="milestone-year">20+</span>
-                  <span className="milestone-label">Years of Service in Narok County</span>
+                  <span className="milestone-label">Years of Dedicated Service</span>
                 </div>
                 <div className="milestone-box">
                   <span className="milestone-year">693</span>
@@ -277,7 +277,7 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
                 </div>
                 <div className="milestone-box">
                   <span className="milestone-year">131</span>
-                  <span className="milestone-label">Safe Schools Across Narok</span>
+                  <span className="milestone-label">Safe Schools Reached</span>
                 </div>
               </div>
             </div>
@@ -313,20 +313,34 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
             <h2 className="section-title">
               Our <span className="highlight-gold">Partners</span>
             </h2>
-            <p className="subtitle">
-              Sustained transformation is built in collaboration with local churches, schools, families, and global supporters.
-            </p>
           </div>
 
-          <div className="partners-cards-grid">
+          <div className="partners-logo-grid">
             {OUR_PARTNERS.map((partner) => (
-              <div key={partner.id} className="partner-profile-card">
-                <div className="partner-icon-wrapper">
-                  {getPartnerIcon(partner.icon)}
+              <div key={partner.id} className="partner-logo-card">
+                {partner.logo ? (
+                  <img
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    className="partner-logo-img"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      if (partner.logoFallback) {
+                        e.target.src = partner.logoFallback;
+                      } else {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                      }
+                    }}
+                  />
+                ) : null}
+                <div 
+                  className="partner-logo-text-fallback" 
+                  style={{ display: partner.logo ? 'none' : 'flex' }}
+                >
+                  {partner.name}
                 </div>
-                <div className="partner-role-tag">{partner.role}</div>
-                <h3 className="partner-name">{partner.name}</h3>
-                <p className="partner-desc">{partner.description}</p>
+                <span className="partner-logo-name">{partner.name}</span>
               </div>
             ))}
           </div>

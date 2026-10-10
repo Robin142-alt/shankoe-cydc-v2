@@ -46,7 +46,7 @@ export default function PhotoLightbox({ photo, onClose }) {
             </span>
             <span className="lightbox-location">
               <MapPin size={13} />
-              Shankoe CYDC • Narok County
+              Shankoe CYDC
             </span>
           </div>
 

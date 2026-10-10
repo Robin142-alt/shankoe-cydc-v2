@@ -72,7 +72,7 @@ export default function Navbar({ currentPage, onNavigate }) {
     { id: 'mission-vision', label: 'Mission & Vision', desc: 'Core purpose & theological mandate', icon: <Target size={16} /> },
     { id: 'our-history', label: 'Our History', desc: '20+ years of faithful service', icon: <History size={16} /> },
     { id: 'where-we-work', label: 'Where We Work', desc: 'Narok County, Kenya map', icon: <MapPin size={16} /> },
-    { id: 'our-partners', label: 'Our Partners', desc: '131 schools, MCK & communities', icon: <Handshake size={16} /> },
+    { id: 'our-partners', label: 'Our Partners', desc: 'Transformational partnerships', icon: <Handshake size={16} /> },
     { id: 'theory-of-change', label: 'Our Approach / Theory of Change', desc: 'Logical pathway for flourishing', icon: <Workflow size={16} /> },
     { id: 'our-programs', label: 'Our Programs', desc: 'Holistic programs of care', icon: <GraduationCap size={16} /> },
   ];
@@ -130,7 +130,7 @@ export default function Navbar({ currentPage, onNavigate }) {
             </div>
             <div className="brand-text">
               <span className="brand-name">{BRAND.name}</span>
-              <span className="brand-sub">Methodist Child and Youth Centre • Narok</span>
+              <span className="brand-sub">Methodist Child and Youth Centre</span>
             </div>
           </button>
 

@@ -80,7 +80,7 @@ export const IMPACT_STATS = [
     stat: "693",
     number: 693,
     label: "Education Financial Support",
-    fullDescription: "693 children and young people received continued financial support for their education from early childhood education to universities.",
+    fullDescription: "Children and young people received continued financial support for their education from early childhood education to universities.",
     highlight: "From Early Childhood to University",
     icon: "GraduationCap"
   },
@@ -89,7 +89,7 @@ export const IMPACT_STATS = [
     stat: "335",
     number: 335,
     label: "Graduated & In Employment",
-    fullDescription: "335 young people have graduated from colleges and universities and are in employment.",
+    fullDescription: "Young people have graduated from colleges and universities and are now in employment across various professional sectors.",
     highlight: "College & University Alumni in the Workforce",
     icon: "Briefcase"
   },
@@ -98,7 +98,7 @@ export const IMPACT_STATS = [
     stat: "358",
     number: 358,
     label: "Trained Entrepreneurs",
-    fullDescription: "358 young people trained on entrepreneurship skills, mentored and are now running businesses supporting their families and communities.",
+    fullDescription: "Young people trained on entrepreneurship skills, mentored and now running businesses that support their families and communities.",
     highlight: "Active Businesses Supporting Families",
     icon: "TrendingUp"
   },
@@ -107,7 +107,7 @@ export const IMPACT_STATS = [
     stat: "3,851",
     number: 3851,
     label: "Community Members Trained",
-    fullDescription: "3,851 community members trained on climate smart agriculture, HIV/AIDS, nutrition, and positive parenting to support the social wellbeing of children and young people.",
+    fullDescription: "Community members trained on climate smart agriculture, HIV/AIDS, nutrition, and positive parenting to support the social wellbeing of children and young people.",
     highlight: "Climate-Smart Ag & Family Wellbeing",
     icon: "Sprout"
   },
@@ -116,7 +116,7 @@ export const IMPACT_STATS = [
     stat: "25,000+",
     number: 25000,
     label: "Mobilised for Child Rights",
-    fullDescription: "Over 25,000 community members mobilised on child rights advocacy and protection creating a conducive environment for children and young people to thrive.",
+    fullDescription: "Community members mobilised on child rights advocacy and protection, creating a conducive environment for children and young people to thrive.",
     highlight: "Community Child Safeguarding Network",
     icon: "Users"
   },
@@ -125,7 +125,7 @@ export const IMPACT_STATS = [
     stat: "131",
     number: 131,
     label: "Safe Schools",
-    fullDescription: "131 safe schools reached on child protection messaging and advocacy.",
+    fullDescription: "Safe schools reached on child protection messaging and advocacy.",
     highlight: "School Safeguarding Partnerships",
     icon: "School"
   },
@@ -134,7 +134,7 @@ export const IMPACT_STATS = [
     stat: "20+",
     number: 20,
     label: "Years of Service",
-    fullDescription: "For over two decades, Shankoe CYDC has transformed the lives of vulnerable children and young people by helping them build brighter, safer futures.",
+    fullDescription: "Transforming the lives of vulnerable children and young people by helping them build brighter, safer futures through education, healthcare, skills, and community support.",
     highlight: "Over Two Decades of Impact",
     icon: "Calendar"
   }
@@ -246,7 +246,7 @@ export const PATHWAYS = [
       text: "Almost half of the world's child population live in countries classified as extremely high-risk. While children are the least responsible for global emissions, they bear the heaviest physical and psychological burdens."
     },
     paragraphs: [
-      "Climate change is a child rights crisis that disproportionately threatens the survival, development, and well-being of children and young people. Building climate resilience among vulnerable children and young people requires an urgent shift from post-disaster response toward child-centred adaptation, socioeconomic empowerment, and systemic policy inclusion.",
+      "Building climate resilience among vulnerable children and young people requires an urgent shift from post-disaster response toward child-centred adaptation, socioeconomic empowerment, and systemic policy inclusion.",
       "At Shankoe CYDC, we engage children and young people in planting trees and creating kitchen gardens both in schools and communities. We also support Social Protection Safety Nets to shield vulnerable families from climate-driven poverty, keeping children nourished and in school."
     ],
     structuredInitiatives: [
@@ -289,7 +289,7 @@ export const PATHWAYS = [
     summary: "Addressing the skills gap by combining vocational training with entrepreneurship, mentorship, and real economic opportunities.",
     paragraphs: [
       "Bridging the divide between education and employment – addressing the skills gap where young people are unaware of skills required for future employment opportunities – is essential for lasting self-reliance.",
-      "To enhance employability, we combine practical skills training (such as vocational baking and culinary arts) with hands-on experience, connections to real jobs, mentorship, entrepreneurship training, soft skills, and job readiness. 358 young people have been trained and mentored, and are now running their own businesses supporting their families."
+      "To enhance employability, we combine practical skills training (such as vocational baking and culinary arts) with hands-on experience, connections to real jobs, mentorship, entrepreneurship training, soft skills, and job readiness."
     ],
     whatWeDo: "We combine skills training with practical experience and connections to real jobs, provide mentorship, encourage entrepreneurship, develop soft skills, and foster lifelong learning.",
     whyItMatters: "The transition from education to employment becomes achievable when young people are empowered with practical craftsmanship and vocational confidence.",
@@ -309,7 +309,7 @@ export const PATHWAYS = [
     tagline: "Supporting Structures for Child Protection",
     summary: "Strong communities provide supporting structures for child protection and safer learning environments.",
     paragraphs: [
-      "Strong communities provide supporting structures for child protection. We work with communities to build child-friendly reporting systems, improve data collection on school-based violence, and engage parents and local leaders in sustaining safer learning environments.",
+      "We work with communities to build child-friendly reporting systems, improve data collection on school-based violence, and engage parents and local leaders in sustaining safer learning environments.",
       "Over 25,000 community members have been mobilised on child rights advocacy and protection, and 131 schools reached on child protection messaging, creating a conducive environment for children and young people to thrive."
     ],
     whatWeDo: "We work with communities to build child-friendly reporting systems, improve data collection on school-based violence, and engage parents and local leaders in sustaining safer learning environments.",
@@ -371,39 +371,34 @@ export const WHERE_WE_WORK_DATA = {
 
 export const OUR_PARTNERS = [
   {
-    id: "mck",
-    name: "Methodist Church in Kenya (MCK)",
-    role: "Founding Church & Spiritual Anchor",
-    description: "The Methodist Church in Kenya - Shankoe provides spiritual leadership, pastoral oversight, and institutional sanctuary for Children and Youth Ministry.",
-    icon: "Church"
+    id: "compassion",
+    name: "Compassion International",
+    logo: "/assets/partners/compassion-international.png",
+    logoFallback: null
   },
   {
-    id: "schools",
-    name: "131 Partner Schools in Narok County",
-    role: "Educational & Safeguarding Partners",
-    description: "Collaborating on child protection messaging, early childhood education support, and whole-school accessibility across the county.",
-    icon: "School"
+    id: "good-people",
+    name: "Good People",
+    logo: "/assets/partners/good-people.png",
+    logoFallback: null
   },
   {
-    id: "families",
-    name: "Community Families & Caregivers",
-    role: "Grassroots Foundation",
-    description: "Over 3,851 caregivers actively participating in positive parenting, climate-smart agriculture, and household economic strengthening.",
-    icon: "Users"
+    id: "kenyas-dream",
+    name: "Kenya's Dream",
+    logo: "/assets/partners/kenyas-dream.png",
+    logoFallback: null
   },
   {
-    id: "health",
-    name: "Local Health Facilities & Workers",
-    role: "Healthcare & Nutritional Support",
-    description: "Ensuring routine health screenings, nutrition interventions, immunizations, and psychosocial care for enrolled children.",
-    icon: "HeartPulse"
+    id: "government-kenya",
+    name: "Government of Kenya",
+    logo: "/assets/partners/government-of-kenya.png",
+    logoFallback: null
   },
   {
-    id: "global",
-    name: "Global Child Development Supporters",
-    role: "Transformational Partnership",
-    description: "Churches, donors, and organizations worldwide walking alongside Shankoe to unlock boundless potential in vulnerable children.",
-    icon: "Globe"
+    id: "transmara-sugar",
+    name: "Transmara Sugar Company",
+    logo: "/assets/partners/transmara-sugar.png",
+    logoFallback: null
   }
 ];
 

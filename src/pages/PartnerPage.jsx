@@ -1,19 +1,12 @@
 import React, { useState } from 'react';
 import { 
-  Heart, 
   HandHeart, 
-  Sparkles, 
-  UtensilsCrossed, 
-  Apple, 
-  BookOpen, 
-  Building, 
   Send,
-  CheckCircle2,
-  MapPin,
   ShieldCheck,
-  Mail
+  Mail,
+  CheckCircle2
 } from 'lucide-react';
-import { BRAND, PARTNERSHIP_AREAS } from '../data/content';
+import { BRAND } from '../data/content';
 import './PartnerPage.css';
 
 export default function PartnerPage({ onNavigate, onPhotoClick }) {
@@ -27,12 +20,6 @@ export default function PartnerPage({ onNavigate, onPhotoClick }) {
     message: ''
   });
 
-  const getAreaIcon = (title) => {
-    if (title.includes('Vocational')) return <UtensilsCrossed size={22} />;
-    if (title.includes('Nutritional')) return <Apple size={22} />;
-    if (title.includes('Educational')) return <BookOpen size={22} />;
-    return <Building size={22} />;
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -92,32 +79,14 @@ export default function PartnerPage({ onNavigate, onPhotoClick }) {
       <section className="section partner-body-section">
         <div className="container">
           <div className="partner-split-layout">
-            {/* Left Column: Partnership Pillars */}
+            {/* Left Column: Photo & Contact Info */}
             <div className="partner-info-col">
               <h2 className="section-title">
                 How We Can <span className="highlight-gold">Partner</span>
               </h2>
               <p className="partner-intro-text">
-                When you collaborate with Shankoe, your support directly fuels concrete capabilities: baking equipment, daily nutrition, study materials, and protective mentorship.
+                When you collaborate with Shankoe, your support directly fuels concrete capabilities for children: education, nutrition, vocational skills, and protective mentorship.
               </p>
-
-              <div className="partner-areas-stack">
-                {PARTNERSHIP_AREAS.map((area, i) => (
-                  <div key={i} className="partner-area-card">
-                    <div className="area-icon-box">
-                      {getAreaIcon(area.title)}
-                    </div>
-                    <div className="area-content">
-                      <h4 className="area-title">{area.title}</h4>
-                      <p className="area-desc">{area.description}</p>
-                      <span className="area-impact-tag">
-                        <CheckCircle2 size={13} />
-                        {area.impact}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
 
               {/* Photo Card */}
               <div 

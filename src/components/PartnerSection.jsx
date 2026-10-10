@@ -2,17 +2,12 @@ import React, { useState } from 'react';
 import { 
   Heart, 
   Send, 
-  CheckCircle2, 
-  UtensilsCrossed, 
-  Apple, 
-  BookOpen, 
-  Trees, 
   Mail, 
   MapPin, 
   Clock, 
   ShieldCheck 
 } from 'lucide-react';
-import { BRAND, PARTNERSHIP_AREAS } from '../data/content';
+import { BRAND } from '../data/content';
 import './PartnerSection.css';
 
 export default function PartnerSection() {
@@ -26,12 +21,7 @@ export default function PartnerSection() {
     message: ''
   });
 
-  const getAreaIcon = (title) => {
-    if (title.includes('Vocational')) return <UtensilsCrossed size={22} />;
-    if (title.includes('Nutritional')) return <Apple size={22} />;
-    if (title.includes('Educational')) return <BookOpen size={22} />;
-    return <Trees size={22} />;
-  };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -78,33 +68,10 @@ export default function PartnerSection() {
           </p>
         </div>
 
-        {/* 2-Column Layout: Focus Areas + Inquiry Form */}
+        {/* 2-Column Layout: Direct Contact + Inquiry Form */}
         <div className="partner-grid">
-          {/* Left Column: 4 Partnership Focus Areas */}
+          {/* Left Column: Direct Contact */}
           <div className="partner-areas-col">
-            <h3 className="partner-col-title">Our Partnership Focus Areas</h3>
-            <p className="partner-col-desc">
-              Direct your support toward verified pathways where community need and measurable impact intersect.
-            </p>
-
-            <div className="partner-cards-list">
-              {PARTNERSHIP_AREAS.map((area, idx) => (
-                <div key={idx} className="partner-area-card">
-                  <div className="partner-area-icon-box">
-                    {getAreaIcon(area.title)}
-                  </div>
-                  <div className="partner-area-content">
-                    <h4 className="partner-area-title">{area.title}</h4>
-                    <p className="partner-area-desc">{area.description}</p>
-                    <div className="partner-area-impact-tag">
-                      <CheckCircle2 size={13} className="impact-check-icon" />
-                      <span>{area.impact}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
             {/* Direct Contact Card */}
             <div className="partner-direct-contact-card">
               <div className="direct-card-title">

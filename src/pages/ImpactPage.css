@@ -12,7 +12,7 @@
 
 .impact-page-title {
   color: #ffffff;
-  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  font-size: clamp(1.9rem, 3.6vw, 2.85rem);
   font-weight: 800;
   line-height: 1.15;
   margin-top: 1rem;
@@ -151,7 +151,7 @@
 
 .stat-card-number {
   font-family: var(--font-heading, inherit);
-  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  font-size: clamp(2rem, 3.4vw, 2.65rem);
   font-weight: 800;
   color: var(--navy-900, #0c2340);
   line-height: 1;
