@@ -157,6 +157,7 @@ export default function ProgramsPage({ onNavigate, onPhotoClick }) {
                     {/* Core Highlights Checklist */}
                     {prog.highlights && (
                       <div className="program-highlights-wrap">
+                        <h4 className="initiative-heading">Core Interventions &amp; Commitments:</h4>
                         <ul className="program-highlights-list">
                           {prog.highlights.map((item, hIdx) => (
                             <li key={hIdx} className="program-highlight-item">

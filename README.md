@@ -19,7 +19,7 @@ $$\text{EMBRACE} \longrightarrow \text{ENGAGE} \longrightarrow \text{EMPOWER} \l
 - **Dedicated Pages**:
   - **About Our Mission** (`#about`): Community history, Methodist identity, official Vision & Mission, and 6 core organizational values.
   - **Holistic Programs** (`#programs`): Deep dive into Education, Practical Vocational Skills (featuring authentic baking & culinary training), Wellbeing & Nutrition, Child Protection, and Climate Resilience.
-  - **Theory of Change & Impact** (`#impact`): Structured transformation framework and accountability spotlights.
+  - **Our Approach & Impact** (`#impact`): Structured transformation framework and accountability spotlights.
   - **Stories of Growth** (`#stories`): Editorial stories documenting daily life and milestones.
   - **News & Happenings** (`#news`): Updates on culinary exhibitions, health days, and community gatherings.
   - **Contact & Location** (`#contact`): Centre address, church grounds location, hours, and direct messaging form.

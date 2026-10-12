@@ -84,10 +84,10 @@ export default function Navbar({ currentPage, onNavigate }) {
     { id: 'our-partners', label: 'Our Partners', desc: 'Transformational partnerships', icon: <Handshake size={16} /> },
   ];
 
-  // Our Work dropdown items — Our Programs, Approach/ToC, Our Impact
+  // Our Work dropdown items — Our Programs, Our Approach, Our Impact
   const workDropdownItems = [
     { id: 'our-programs', label: 'Our Programs', desc: 'Holistic programs of care', icon: <GraduationCap size={16} />, page: 'work' },
-    { id: 'theory-of-change', label: 'Our Approach / Theory of Change', desc: 'Logical pathway for flourishing', icon: <Workflow size={16} />, page: 'work' },
+    { id: 'theory-of-change', label: 'Our Approach', desc: 'Logical pathway for flourishing', icon: <Workflow size={16} />, page: 'work' },
     { id: 'impact', label: 'Our Impact', desc: 'Proven results across two decades', icon: <BarChart3 size={16} />, page: 'work' },
   ];
 

@@ -217,7 +217,7 @@ export default function PartnerPage({ onNavigate, onPhotoClick }) {
                       disabled={isSubmitting}
                     >
                       <Send size={16} />
-                      <span>{isSubmitting ? 'Sending to methodistshankoecdc@gmail.com...' : 'Submit Partnership Inquiry'}</span>
+                      <span>{isSubmitting ? `Sending to ${BRAND.contact.email}...` : 'Submit Partnership Inquiry'}</span>
                     </button>
 
                     <p className="form-privacy-note">

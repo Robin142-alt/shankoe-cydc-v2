@@ -217,7 +217,7 @@ export default function ContactPage() {
                       disabled={isSubmitting}
                     >
                       <Send size={16} />
-                      <span>{isSubmitting ? 'Sending to methodistshankoecdc@gmail.com...' : 'Send Message'}</span>
+                      <span>{isSubmitting ? `Sending to ${BRAND.contact.email}...` : 'Send Message'}</span>
                     </button>
 
                     <p className="contact-assurance">

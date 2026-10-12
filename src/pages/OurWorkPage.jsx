@@ -74,24 +74,25 @@ export default function OurWorkPage({ onNavigate, onPhotoClick }) {
       </div>
 
       {/* ======================================================== */}
-      {/* SECTION 2: OUR APPROACH / THEORY OF CHANGE               */}
+      {/* SECTION 2: OUR APPROACH                                  */}
       {/* ======================================================== */}
-      <section className="section section-subtle work-toc-section" id="theory-of-change">
+      <section className="section section-subtle work-toc-section" id="our-approach">
+        <span id="theory-of-change" style={{ position: 'relative', top: '-80px', display: 'block', visibility: 'hidden' }} />
         <div className="container">
           <div className="section-header center">
             <h2 className="section-title">
-              Our Approach / Theory of <span className="highlight-gold">Change</span>
+              Our <span className="highlight-gold">Approach</span>
             </h2>
             <p className="subtitle">
               A clear, accountable pathway from initial investment to generational flourishing.
             </p>
           </div>
 
-          {/* Official Theory of Change Statement */}
+          {/* Official Our Approach Statement */}
           <div className="toc-statement-card" data-reveal>
             <div className="toc-statement-header">
               <Workflow size={20} className="toc-icon-gold" />
-              <span>OFFICIAL STRATEGIC FORMULATION</span>
+              <span>OFFICIAL STRATEGIC STATEMENT</span>
             </div>
             <blockquote className="toc-statement-quote">
               "{THEORY_OF_CHANGE.officialStatement}"

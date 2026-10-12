@@ -10,7 +10,7 @@ export const BRAND = {
   logo: "/assets/logo/shankoe-cydc-logo.jpg",
   logoTransparent: "/assets/logo/shankoe-cydc-logo-transparent.png",
   contact: {
-    email: "methodistshankoecdc@gmail.com",
+    email: "methodistshankoecydc@gmail.com",
     locationText: "Shankoe Methodist Church Compound, Narok County, Kenya",
     hours: "Monday – Friday: 8:00 AM – 5:00 PM EAT",
   }
@@ -241,6 +241,7 @@ export const PATHWAYS = [
     photo: "/assets/photos/shankoe-classroom-learning-smiles.jpg",
     alt: "Children smiling and learning in their classroom at Shankoe Methodist Child and Youth Centre",
     highlights: [
+      "Direct Support – Scholarships and other interventions.",
       "Inclusive quality education accessible to every learner, including children with disabilities",
       "Community-driven solutions identifying & tackling internal and external causes of exclusion",
       "Whole-school approach strengthening accessibility & safe learning environments",
@@ -280,7 +281,7 @@ export const PATHWAYS = [
     },
     paragraphs: [
       "Building climate resilience among vulnerable children and young people requires an urgent shift from post-disaster response toward child-centred adaptation, socioeconomic empowerment, and systemic policy inclusion.",
-      "At Shankoe CYDC, we engage children and young people in planting trees and creating kitchen gardens both in schools and communities. We also support Social Protection Safety Nets to shield vulnerable families from climate-driven poverty, keeping children nourished and in school."
+      "At Shankoe CYDC, we engage children and young people in planting trees and creating kitchen gardens both in schools and communities. We train rural communities in Climate-Smart Agriculture to improve food security, and support Social Protection Safety Nets to shield vulnerable families from climate-driven poverty, keeping children nourished and in school."
     ],
     structuredInitiatives: [
       {
@@ -300,7 +301,7 @@ export const PATHWAYS = [
       {
         number: "2",
         title: "Family and Socioeconomic Empowerment",
-        text: "Combining climate education with household economic strengthening and Social Protection Safety Nets to shield vulnerable families, keeping children nourished and in school."
+        text: "Training rural communities in Climate-Smart Agriculture to improve food security, and combining climate education with household economic strengthening and Social Protection Safety Nets to shield vulnerable families, keeping children nourished and in school."
       }
     ],
     whatWeDo: "We champion child-centred adaptation by equipping children and young people with green skills, advancing their representation in climate decisions, and strengthening household economic stability.",
@@ -309,6 +310,7 @@ export const PATHWAYS = [
     photo: "/assets/photos/shankoe-tree-planting-celebration.jpg",
     alt: "Children and adults celebrating tree planting with seedlings and thumbs up at Shankoe CYDC",
     highlights: [
+      "Training rural communities in Climate-Smart Agriculture to improve food security.",
       "Shift from post-disaster response to child-centred climate adaptation",
       "Green skills: tree planting & kitchen gardens in schools and communities",
       "Grassroots representation in local and national climate decision-making",
@@ -363,28 +365,30 @@ export const PATHWAYS = [
 export const PROGRAMS = PATHWAYS;
 
 export const THEORY_OF_CHANGE = {
-  officialStatement: "If Shankoe CYDC invests in strengthening community child protection and climate resilience systems, expanding education access, empowering children and young people, and promoting mental wellbeing, then children and young people in Narok County will grow in safer, inclusive environments with better life outcomes, because communities will be more accountable, supportive, and capable of sustaining change.",
+  officialStatement: "If Shankoe Methodist CYDC invests in expanding education outcomes, enhancing skills development, promoting health, and strengthening communities and climate change resilience, then children and young people in rural communities in Kenya will not only have agency but also grow in safer, inclusive environments with better life outcomes, because children will be agents of change and communities will be more accountable, supportive, and capable of sustaining change.",
   steps: [
     {
       step: "1. WE INVEST IN",
-      items: ["Inclusive Quality Education", "Healthcare & Psychosocial Care", "Climate Change Resilience", "Skills Development & Entrepreneurship", "Community Child Protection"],
+      items: ["Expanding Education Outcomes", "Enhancing Skills Development", "Promoting Health & Psychosocial Care", "Strengthening Communities", "Climate Change Resilience"],
       theme: "Foundations of Support",
       color: "#0c2340"
     },
     {
       step: "2. CHILDREN & YOUNG PEOPLE EXPERIENCE",
-      items: ["Safety & Inherent Dignity", "Joyful Learning & Belonging", "Nourishment & Physical Vitality", "Practical Craftsmanship & Mentorship", "Voice & Decision-Making Inclusion"],
+      items: ["Agency & Decision-Making Voice", "Safer, Inclusive Environments", "Joyful Learning & Belonging", "Nourishment & Physical Vitality", "Practical Craftsmanship & Mentorship"],
       theme: "Human Transformation",
       color: "#1e5cb3"
     },
     {
       step: "3. THE SUSTAINABLE RESULT",
-      items: ["693+ Learners progressing through higher education", "335 College graduates gainfully employed", "358 Young entrepreneurs running businesses", "131 Schools & 25,000+ citizens safeguarding children", "Resilient communities equipped against climate shocks"],
+      items: ["Children as Agents of Change", "Accountable & Supportive Communities", "Capable of Sustaining Generational Change", "693+ Learners progressing through higher education", "358 Young entrepreneurs running businesses"],
       theme: "Generational Thriving",
       color: "#d97706"
     }
   ]
 };
+
+export const OUR_APPROACH = THEORY_OF_CHANGE;
 
 export const WHERE_WE_WORK_DATA = {
   country: "Kenya",
@@ -459,7 +463,7 @@ export const STORIES = [
     title: "Rooted in the Soil: Nurturing Green Skills & Climate Care",
     category: "Climate Resilience",
     photo: "/assets/photos/shankoe-hands-on-tree-planting.jpg",
-    summary: "Young hands gently tend seedlings in the fertile soil at Shankoe CYDC, cultivating a lifelong respect for nature and proactive climate resilience.",
+    summary: "Children are agents of change. Young hands gently tend seedlings in the fertile soil at Shankoe CYDC, cultivating a lifelong respect for nature and proactive climate resilience.",
     detail: "As part of our child-centred adaptation initiatives, learners actively plant and protect trees across the compound and community. This hands-on ecological care gives youth practical environmental skills and direct agency against drought and climate risks.",
     readTime: "2 min read"
   },

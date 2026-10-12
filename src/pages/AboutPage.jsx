@@ -67,7 +67,7 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
   const churchPhoto = {
     src: '/assets/photos/shankoe-joyful-outdoor-gathering.jpg',
     title: 'Children of Shankoe — Joyful, Safe, and Supported',
-    caption: 'Children in Shankoe red uniforms gathered outdoors, laughing and smiling together.',
+    caption: 'Shankoe Methodist Child and Youth Centre. Safe space for children and young people.',
     category: 'Community & Belonging'
   };
 
@@ -133,7 +133,7 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
                   className="about-card-img" 
                 />
                 <div className="about-card-caption">
-                  <span>Joyful outdoor fellowship of children at Shankoe CYDC</span>
+                  <span>Shankoe Methodist Child and Youth Centre. Safe space for children and young people.</span>
                 </div>
               </div>
             </div>
