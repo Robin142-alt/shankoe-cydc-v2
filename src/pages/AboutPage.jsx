@@ -314,7 +314,7 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
         <div className="container">
           <div className="section-header center light-text">
             <h2 className="section-title">
-              Anchored in <span className="highlight-gold">Narok County, Kenya</span>
+              Anchored in <span className="highlight-gold">Rural Communities in Kenya</span>
             </h2>
             <p className="subtitle text-light-muted">
               Operating from the Shankoe Methodist Church Compound in Trans Mara West, serving pastoralist settlements and safeguarding children across 131 partner schools.
