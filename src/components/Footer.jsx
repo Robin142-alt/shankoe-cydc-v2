@@ -65,7 +65,7 @@ export default function Footer({ onNavigate }) {
               <li><button type="button" onClick={() => handleNav('work')}>Our Work</button></li>
               <li><button type="button" onClick={() => handleNav('work', 'our-programs')}>— Our Programs</button></li>
               <li><button type="button" onClick={() => handleNav('work', 'theory-of-change')}>— Our Approach</button></li>
-              <li><button type="button" onClick={() => handleNav('impact')}>Impact Report</button></li>
+              <li><button type="button" onClick={() => handleNav('impact')}>Our Impact</button></li>
               <li><button type="button" onClick={() => handleNav('impact', 'impact-statistics')}>— Impact Statistics</button></li>
               <li><button type="button" onClick={() => handleNav('impact', 'achievements')}>— Key Achievements</button></li>
               <li><button type="button" onClick={() => handleNav('impact', 'stories')}>— Real Stories</button></li>

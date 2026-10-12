@@ -74,11 +74,11 @@ export default function Navbar({ currentPage, onNavigate }) {
     { id: 'our-partners', label: 'Our Partners', desc: 'Transformational partnerships', icon: <Handshake size={16} /> },
   ];
 
-  // Our Work dropdown items — Our Programs, Approach/ToC, Impact
+  // Our Work dropdown items — Our Programs, Approach/ToC, Our Impact
   const workDropdownItems = [
     { id: 'our-programs', label: 'Our Programs', desc: 'Holistic programs of care', icon: <GraduationCap size={16} />, page: 'work' },
     { id: 'theory-of-change', label: 'Our Approach / Theory of Change', desc: 'Logical pathway for flourishing', icon: <Workflow size={16} />, page: 'work' },
-    { id: 'impact', label: 'Impact Report', desc: 'Proven results across two decades', icon: <BarChart3 size={16} />, page: 'impact' },
+    { id: 'impact', label: 'Our Impact', desc: 'Proven results across two decades', icon: <BarChart3 size={16} />, page: 'impact' },
   ];
 
   const handleAboutMouseEnter = () => {
@@ -204,14 +204,14 @@ export default function Navbar({ currentPage, onNavigate }) {
                 <div className="dropdown-trigger-wrapper">
                   <button
                     type="button"
-                    className={`nav-link-btn ${currentPage === 'work' ? 'active' : ''}`}
+                    className={`nav-link-btn ${(currentPage === 'work' || currentPage === 'impact') ? 'active' : ''}`}
                     onClick={() => handleLinkClick('work')}
                     aria-expanded={workDropdownOpen}
                     aria-haspopup="true"
                   >
                     <span>Our Work</span>
                     <ChevronDown size={15} className={`chevron-icon ${workDropdownOpen ? 'rotate' : ''}`} />
-                    {currentPage === 'work' && <span className="active-dot" />}
+                    {(currentPage === 'work' || currentPage === 'impact') && <span className="active-dot" />}
                   </button>
                 </div>
 
@@ -244,19 +244,7 @@ export default function Navbar({ currentPage, onNavigate }) {
                 )}
               </li>
 
-              {/* 4. Impact */}
-              <li>
-                <button
-                  type="button"
-                  className={`nav-link-btn ${currentPage === 'impact' ? 'active' : ''}`}
-                  onClick={() => handleLinkClick('impact')}
-                >
-                  Impact
-                  {currentPage === 'impact' && <span className="active-dot" />}
-                </button>
-              </li>
-
-              {/* 5. Contact */}
+              {/* 4. Contact */}
               <li>
                 <button
                   type="button"
@@ -387,7 +375,7 @@ export default function Navbar({ currentPage, onNavigate }) {
               <div className="mobile-accordion-header">
                 <button
                   type="button"
-                  className={`mobile-link-btn ${currentPage === 'work' ? 'active' : ''}`}
+                  className={`mobile-link-btn ${(currentPage === 'work' || currentPage === 'impact') ? 'active' : ''}`}
                   onClick={() => handleLinkClick('work')}
                 >
                   <span>Our Work</span>
@@ -420,19 +408,7 @@ export default function Navbar({ currentPage, onNavigate }) {
               )}
             </li>
 
-            {/* 4. Impact */}
-            <li>
-              <button
-                type="button"
-                className={`mobile-link-btn ${currentPage === 'impact' ? 'active' : ''}`}
-                onClick={() => handleLinkClick('impact')}
-              >
-                <span>Impact</span>
-                <ArrowRight size={16} className="link-arrow" />
-              </button>
-            </li>
-
-            {/* 5. Contact */}
+            {/* 4. Contact */}
             <li>
               <button
                 type="button"
@@ -444,7 +420,7 @@ export default function Navbar({ currentPage, onNavigate }) {
               </button>
             </li>
 
-            {/* 6. Donate */}
+            {/* 5. Donate */}
             <li>
               <button
                 type="button"

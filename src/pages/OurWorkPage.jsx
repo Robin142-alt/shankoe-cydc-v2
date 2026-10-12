@@ -39,7 +39,7 @@ export default function OurWorkPage({ onNavigate, onPhotoClick }) {
             className="work-subnav-link work-subnav-highlight"
             onClick={() => onNavigate('impact')}
           >
-            Full Impact Report →
+            Our Impact →
           </button>
         </div>
       </nav>
@@ -120,7 +120,7 @@ export default function OurWorkPage({ onNavigate, onPhotoClick }) {
                 className="btn btn-outline"
                 onClick={() => onNavigate('impact')}
               >
-                <span>See Full Impact Report</span>
+                <span>See Our Impact</span>
                 <ArrowRight size={16} />
               </button>
             </div>
