@@ -7,7 +7,6 @@ import LoadingScreen from './components/LoadingScreen';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import OurWorkPage from './pages/OurWorkPage';
-import ImpactPage from './pages/ImpactPage';
 import ContactPage from './pages/ContactPage';
 import PartnerPage from './pages/PartnerPage';
 import { useGlobalReveal } from './hooks/useScrollReveal';
@@ -37,20 +36,17 @@ export default function App() {
           }, 150);
         }
       } else if (rawHash === 'work' || rawHash === 'our-programs' || rawHash === 'programs' || 
-                 rawHash === 'theory-of-change' || rawHash === 'our-approach') {
+                 rawHash === 'theory-of-change' || rawHash === 'our-approach' ||
+                 rawHash === 'impact' || rawHash === 'our-impact' || rawHash === 'impact-statistics' || 
+                 rawHash === 'achievements' || rawHash === 'stories') {
         setCurrentPage('work');
         if (rawHash !== 'work') {
           setTimeout(() => {
-            const targetId = rawHash === 'programs' ? 'our-programs' : rawHash === 'our-approach' ? 'theory-of-change' : rawHash;
+            const targetId = rawHash === 'programs' ? 'our-programs' 
+                           : rawHash === 'our-approach' ? 'theory-of-change' 
+                           : (rawHash === 'our-impact' || rawHash === 'impact-statistics') ? 'impact'
+                           : rawHash;
             const el = document.getElementById(targetId);
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
-          }, 150);
-        }
-      } else if (rawHash === 'impact' || rawHash === 'impact-statistics' || rawHash === 'achievements' || rawHash === 'stories') {
-        setCurrentPage('impact');
-        if (rawHash !== 'impact') {
-          setTimeout(() => {
-            const el = document.getElementById(rawHash);
             if (el) el.scrollIntoView({ behavior: 'smooth' });
           }, 150);
         }
@@ -94,9 +90,8 @@ export default function App() {
       case 'about':
         return <AboutPage onNavigate={navigateTo} onPhotoClick={handleOpenPhoto} />;
       case 'work':
-        return <OurWorkPage onNavigate={navigateTo} onPhotoClick={handleOpenPhoto} />;
       case 'impact':
-        return <ImpactPage onNavigate={navigateTo} onPhotoClick={handleOpenPhoto} />;
+        return <OurWorkPage onNavigate={navigateTo} onPhotoClick={handleOpenPhoto} />;
       case 'contact':
         return <ContactPage onNavigate={navigateTo} />;
       case 'partner':
