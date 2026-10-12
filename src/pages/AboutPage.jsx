@@ -83,12 +83,9 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
       {/* 1. Page Header */}
       <section className="about-header-section section-dark">
         <div className="container container-narrow text-center">
-          <h1 className="about-page-title" data-reveal>
-            About {BRAND.fullName}
+          <h1 className="about-hero-statement" data-reveal>
+            We are rooted in the belief that <span className="highlight-gold">Children and Youth Ministry</span> is the vital lifeline of the church and community, Shankoe CYDC nurtures vulnerable children and young people both spiritually and socially.
           </h1>
-          <p className="about-page-lead" data-reveal data-reveal-delay="120">
-            Rooted in the belief that Children and Youth Ministry is the vital lifeline of the church and community, Shankoe CYDC nurtures vulnerable children and young people both spiritually and socially.
-          </p>
         </div>
       </section>
 
