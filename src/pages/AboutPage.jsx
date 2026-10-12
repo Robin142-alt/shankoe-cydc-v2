@@ -13,6 +13,7 @@ import {
   Church, 
   School, 
   Globe, 
+  GraduationCap,
   CheckCircle2, 
   ArrowRight
 } from 'lucide-react';
