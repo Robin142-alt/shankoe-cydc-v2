@@ -11,17 +11,22 @@
   text-align: center;
 }
 
-.about-hero-statement {
+.about-page-title {
   color: #ffffff;
-  font-family: var(--font-heading, inherit);
-  font-size: clamp(1.35rem, 2.5vw, 2.15rem);
-  font-weight: 700;
-  line-height: 1.55;
-  max-width: 880px;
+  font-size: clamp(1.9rem, 3.6vw, 2.85rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.about-page-lead {
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  color: #cbd5e1;
+  line-height: 1.65;
+  max-width: 760px;
   margin-left: auto;
   margin-right: auto;
-  letter-spacing: -0.01em;
-  padding: 0 0.5rem;
 }
 
 /* Sub-Navigation Quick Jump Bar */
