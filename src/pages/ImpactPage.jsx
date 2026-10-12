@@ -55,7 +55,7 @@ export default function ImpactPage({ onNavigate, onPhotoClick }) {
             Our Measured <span className="highlight-gold">Impact</span>
           </h1>
           <p className="impact-page-lead" data-reveal data-reveal-delay="120">
-            We transform the lives of vulnerable children and young people by helping them build brighter, safer futures. For over two decades, our community-based programs in Narok County have produced enduring, documented transformation.
+            We transform the lives of vulnerable children and young people by helping them build brighter, safer futures. For over two decades, our community-based programs across rural communities in Kenya have produced enduring, documented transformation.
           </p>
         </div>
       </section>
@@ -79,7 +79,7 @@ export default function ImpactPage({ onNavigate, onPhotoClick }) {
               Two Decades of <span className="highlight-gold">Verified Reach</span>
             </h2>
             <p className="subtitle">
-              Every statistic represents real children, families, and schools in Narok County whose lives are forever changed.
+              Every statistic represents real children, families, and schools whose lives are forever changed.
             </p>
           </div>
 

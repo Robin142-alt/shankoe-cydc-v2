@@ -74,7 +74,7 @@ export default function HomePage({ onNavigate, onPhotoClick }) {
                 Partner With <span className="highlight-gold">Us</span>
               </h2>
               <p className="home-partner-cta-lead">
-                Stronger futures are built together. We invite churches, foundations, community leaders, and individuals to collaborate with us to nurture children and young people across Narok County.
+                Stronger futures are built together. We invite churches, foundations, community leaders, and individuals to collaborate with us to nurture children and young people across rural communities in Kenya.
               </p>
             </div>
             <div className="home-partner-cta-action">

@@ -264,12 +264,12 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
                   <span className="milestone-label">Years of Dedicated Service</span>
                 </div>
                 <div className="milestone-box" data-reveal data-reveal-delay="200">
-                  <span className="milestone-year">693</span>
-                  <span className="milestone-label">Children & Young People Supported to Universities</span>
+                  <span className="milestone-year">131</span>
+                  <span className="milestone-label">Partner Schools Reached</span>
                 </div>
                 <div className="milestone-box" data-reveal data-reveal-delay="300">
-                  <span className="milestone-year">131</span>
-                  <span className="milestone-label">Safe Schools Reached</span>
+                  <span className="milestone-year">5</span>
+                  <span className="milestone-label">Integrated Program Areas</span>
                 </div>
               </div>
             </div>

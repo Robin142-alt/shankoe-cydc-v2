@@ -647,3 +647,41 @@
 .work-cta-action {
   flex-shrink: 0;
 }
+
+/* ----------------------------------------
+   Impact Snapshot CTA Row
+   ---------------------------------------- */
+.work-impact-cta-row {
+  padding: 2.5rem 0 3rem;
+  background: var(--color-bg-subtle, #f8fafc);
+}
+
+.work-impact-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  padding: 1.75rem 2rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+.work-impact-cta-text {
+  flex: 1;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  color: var(--color-text-secondary, #475569);
+  line-height: 1.65;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .work-impact-cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.25rem 1.25rem;
+  }
+}
+

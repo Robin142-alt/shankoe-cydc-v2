@@ -205,7 +205,7 @@ export default function PartnerPage({ onNavigate, onPhotoClick }) {
                       <textarea 
                         id="partner-msg" 
                         rows={4} 
-                        placeholder="Tell us about your organization's heart for children in Narok County..."
+                        placeholder="Tell us about your organization's heart for children across rural communities in Kenya..."
                         value={formData.message}
                         onChange={(e) => setFormData({...formData, message: e.target.value})}
                       />
