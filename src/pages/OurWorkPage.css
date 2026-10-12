@@ -29,64 +29,14 @@
   margin-right: auto;
 }
 
-/* Sub-Navigation Quick Jump Bar */
-.work-subnav-bar {
-  background: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
-  position: sticky;
-  top: var(--header-height-scrolled, 66px);
-  z-index: 100;
-  box-shadow: 0 4px 12px rgba(12, 35, 64, 0.04);
-}
-
-.work-subnav-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  overflow-x: auto;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  scrollbar-width: none;
-}
-
-.work-subnav-container::-webkit-scrollbar {
-  display: none;
-}
-
-.work-subnav-link {
-  display: inline-flex;
-  white-space: nowrap;
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: #475569;
-  text-decoration: none;
-  padding: 0.4rem 1rem;
-  border-radius: var(--radius-full, 9999px);
-  transition: all 0.2s ease;
-}
-
-.work-subnav-link:hover {
-  color: var(--navy-900, #0c2340);
-  background-color: #f1f5f9;
-}
-
-button.work-subnav-link {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: inherit;
-}
-
-.work-subnav-link.work-subnav-highlight {
-  color: #b45309;
-  background-color: rgba(245, 158, 11, 0.12);
-  font-weight: 700;
-}
-
-.work-subnav-link.work-subnav-highlight:hover {
-  background-color: rgba(245, 158, 11, 0.22);
-  color: #0c2340;
+/* Scroll margin offsets for smooth jump navigation from the main navbar */
+#our-programs,
+#theory-of-change,
+#impact,
+#impact-statistics,
+#achievements,
+#stories {
+  scroll-margin-top: calc(var(--header-height-scrolled, 66px) + 1.25rem);
 }
 
 /* ======================================================== */

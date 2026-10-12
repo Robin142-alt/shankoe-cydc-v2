@@ -65,14 +65,6 @@ export default function OurWorkPage({ onNavigate, onPhotoClick }) {
         </div>
       </section>
 
-      {/* Sub-Navigation Quick Jump Bar */}
-      <nav className="work-subnav-bar" aria-label="Our Work Sections">
-        <div className="container work-subnav-container">
-          <a href="#our-programs" className="work-subnav-link">Our Programs</a>
-          <a href="#theory-of-change" className="work-subnav-link">Our Approach</a>
-          <a href="#impact" className="work-subnav-link">Our Impact</a>
-        </div>
-      </nav>
 
       {/* ======================================================== */}
       {/* SECTION 1: OUR PROGRAMS                                  */}

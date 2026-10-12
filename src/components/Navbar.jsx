@@ -51,6 +51,16 @@ export default function Navbar({ currentPage, onNavigate }) {
     setAboutDropdownOpen(false);
     setWorkDropdownOpen(false);
     setMobileMenuOpen(false);
+
+    if (currentPage === pageId && sectionId) {
+      window.location.hash = sectionId;
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+      return;
+    }
+
     onNavigate(pageId);
 
     if (sectionId) {
@@ -59,7 +69,7 @@ export default function Navbar({ currentPage, onNavigate }) {
         if (el) {
           el.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 100);
+      }, 150);
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
