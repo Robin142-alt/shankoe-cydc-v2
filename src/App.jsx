@@ -7,6 +7,7 @@ import LoadingScreen from './components/LoadingScreen';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import OurWorkPage from './pages/OurWorkPage';
+import ImpactPage from './pages/ImpactPage';
 import ContactPage from './pages/ContactPage';
 import PartnerPage from './pages/PartnerPage';
 import { useGlobalReveal } from './hooks/useScrollReveal';
@@ -36,7 +37,7 @@ export default function App() {
           }, 150);
         }
       } else if (rawHash === 'work' || rawHash === 'our-programs' || rawHash === 'programs' || 
-                 rawHash === 'theory-of-change' || rawHash === 'our-approach' || rawHash === 'impact') {
+                 rawHash === 'theory-of-change' || rawHash === 'our-approach') {
         setCurrentPage('work');
         if (rawHash !== 'work') {
           setTimeout(() => {
@@ -45,17 +46,18 @@ export default function App() {
             if (el) el.scrollIntoView({ behavior: 'smooth' });
           }, 150);
         }
+      } else if (rawHash === 'impact' || rawHash === 'impact-statistics' || rawHash === 'achievements' || rawHash === 'stories') {
+        setCurrentPage('impact');
+        if (rawHash !== 'impact') {
+          setTimeout(() => {
+            const el = document.getElementById(rawHash);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }, 150);
+        }
       } else if (rawHash === 'contact') {
         setCurrentPage('contact');
       } else if (rawHash === 'partner' || rawHash === 'partner-with-us' || rawHash === 'donate') {
         setCurrentPage('partner');
-      } else if (rawHash === 'impact-statistics' || rawHash === 'achievements' || rawHash === 'stories') {
-        // Legacy: redirect old impact sub-sections to work page
-        setCurrentPage('work');
-        setTimeout(() => {
-          const el = document.getElementById('impact');
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 150);
       } else {
         setCurrentPage('home');
       }
@@ -93,6 +95,8 @@ export default function App() {
         return <AboutPage onNavigate={navigateTo} onPhotoClick={handleOpenPhoto} />;
       case 'work':
         return <OurWorkPage onNavigate={navigateTo} onPhotoClick={handleOpenPhoto} />;
+      case 'impact':
+        return <ImpactPage onNavigate={navigateTo} onPhotoClick={handleOpenPhoto} />;
       case 'contact':
         return <ContactPage onNavigate={navigateTo} />;
       case 'partner':

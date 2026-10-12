@@ -70,7 +70,7 @@ export default function Navbar({ currentPage, onNavigate }) {
     { id: 'who-we-are', label: 'Who We Are', desc: 'Child-centred church institution', icon: <Users size={16} /> },
     { id: 'mission-vision', label: 'Mission & Vision', desc: 'Core purpose & theological mandate', icon: <Target size={16} /> },
     { id: 'our-history', label: 'Our History', desc: '20+ years of faithful service', icon: <History size={16} /> },
-    { id: 'where-we-work', label: 'Where We Work', desc: 'Narok County, Kenya', icon: <MapPin size={16} /> },
+    { id: 'where-we-work', label: 'Where We Work', desc: 'Rural communities in Kenya', icon: <MapPin size={16} /> },
     { id: 'our-partners', label: 'Our Partners', desc: 'Transformational partnerships', icon: <Handshake size={16} /> },
   ];
 
@@ -78,7 +78,7 @@ export default function Navbar({ currentPage, onNavigate }) {
   const workDropdownItems = [
     { id: 'our-programs', label: 'Our Programs', desc: 'Holistic programs of care', icon: <GraduationCap size={16} />, page: 'work' },
     { id: 'theory-of-change', label: 'Our Approach / Theory of Change', desc: 'Logical pathway for flourishing', icon: <Workflow size={16} />, page: 'work' },
-    { id: 'impact', label: 'Impact', desc: 'Proven results across two decades', icon: <BarChart3 size={16} />, page: 'work' },
+    { id: 'impact', label: 'Impact Report', desc: 'Proven results across two decades', icon: <BarChart3 size={16} />, page: 'impact' },
   ];
 
   const handleAboutMouseEnter = () => {
@@ -244,7 +244,19 @@ export default function Navbar({ currentPage, onNavigate }) {
                 )}
               </li>
 
-              {/* 4. Contact */}
+              {/* 4. Impact */}
+              <li>
+                <button
+                  type="button"
+                  className={`nav-link-btn ${currentPage === 'impact' ? 'active' : ''}`}
+                  onClick={() => handleLinkClick('impact')}
+                >
+                  Impact
+                  {currentPage === 'impact' && <span className="active-dot" />}
+                </button>
+              </li>
+
+              {/* 5. Contact */}
               <li>
                 <button
                   type="button"
@@ -408,7 +420,19 @@ export default function Navbar({ currentPage, onNavigate }) {
               )}
             </li>
 
-            {/* 4. Contact */}
+            {/* 4. Impact */}
+            <li>
+              <button
+                type="button"
+                className={`mobile-link-btn ${currentPage === 'impact' ? 'active' : ''}`}
+                onClick={() => handleLinkClick('impact')}
+              >
+                <span>Impact</span>
+                <ArrowRight size={16} className="link-arrow" />
+              </button>
+            </li>
+
+            {/* 5. Contact */}
             <li>
               <button
                 type="button"
@@ -420,7 +444,7 @@ export default function Navbar({ currentPage, onNavigate }) {
               </button>
             </li>
 
-            {/* 5. Donate */}
+            {/* 6. Donate */}
             <li>
               <button
                 type="button"
@@ -436,7 +460,7 @@ export default function Navbar({ currentPage, onNavigate }) {
           <div className="mobile-drawer-footer">
             <div className="drawer-contact-quick">
               <span className="quick-label">Location:</span>
-              <span className="quick-val">Narok County, Kenya</span>
+              <span className="quick-val">Rural communities in Kenya</span>
               <span className="quick-email">{BRAND.contact.email}</span>
             </div>
           </div>

@@ -71,6 +71,24 @@
   background-color: #f1f5f9;
 }
 
+button.work-subnav-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.work-subnav-link.work-subnav-highlight {
+  color: #b45309;
+  background-color: rgba(245, 158, 11, 0.12);
+  font-weight: 700;
+}
+
+.work-subnav-link.work-subnav-highlight:hover {
+  background-color: rgba(245, 158, 11, 0.22);
+  color: #0c2340;
+}
+
 /* ======================================================== */
 /* THEORY OF CHANGE SECTION                                 */
 /* ======================================================== */

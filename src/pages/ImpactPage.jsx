@@ -214,6 +214,32 @@ export default function ImpactPage({ onNavigate, onPhotoClick }) {
           </div>
         </div>
       </section>
+
+      {/* Partner CTA Strip */}
+      <section className="impact-cta-strip">
+        <div className="container">
+          <div className="impact-cta-card" data-reveal="scale">
+            <div className="impact-cta-content">
+              <h2 className="impact-cta-title">
+                Be Part of the Next <span className="highlight-gold">Success Story</span>
+              </h2>
+              <p className="impact-cta-lead">
+                Your partnership turns potential into lifelong achievement for children and young people across rural communities in Kenya.
+              </p>
+            </div>
+            <div className="impact-cta-action">
+              <button 
+                type="button" 
+                className="btn btn-gold"
+                onClick={() => onNavigate && onNavigate('partner')}
+              >
+                <span>Partner With Us</span>
+                <ArrowRight size={16} />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

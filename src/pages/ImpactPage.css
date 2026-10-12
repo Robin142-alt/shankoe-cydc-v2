@@ -442,3 +442,51 @@
   color: #0c2340;
   transform: translateX(3px);
 }
+
+/* ----------------------------------------
+   Partner CTA Strip
+   ---------------------------------------- */
+.impact-cta-strip {
+  padding: 4.5rem 0;
+  background-color: var(--color-bg-alt, #f8fafc);
+}
+
+.impact-cta-card {
+  background: linear-gradient(135deg, #0c2340 0%, #1e3a8a 100%);
+  border-radius: var(--radius-xl, 1.25rem);
+  padding: clamp(2.5rem, 5vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 20px 40px -10px rgba(12, 35, 64, 0.25);
+}
+
+@media (min-width: 900px) {
+  .impact-cta-card {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.impact-cta-title {
+  font-family: var(--font-heading, inherit);
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.impact-cta-lead {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.impact-cta-action {
+  flex-shrink: 0;
+}

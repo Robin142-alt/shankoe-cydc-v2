@@ -33,7 +33,14 @@ export default function OurWorkPage({ onNavigate, onPhotoClick }) {
         <div className="container work-subnav-container">
           <a href="#our-programs" className="work-subnav-link">Our Programs</a>
           <a href="#theory-of-change" className="work-subnav-link">Our Approach</a>
-          <a href="#impact" className="work-subnav-link">Impact</a>
+          <a href="#impact" className="work-subnav-link">Impact Snapshot</a>
+          <button 
+            type="button" 
+            className="work-subnav-link work-subnav-highlight"
+            onClick={() => onNavigate('impact')}
+          >
+            Full Impact Report →
+          </button>
         </div>
       </nav>
 
