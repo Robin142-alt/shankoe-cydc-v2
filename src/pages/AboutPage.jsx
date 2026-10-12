@@ -92,16 +92,6 @@ export default function AboutPage({ onNavigate, onPhotoClick }) {
         </div>
       </section>
 
-      {/* Quick In-Page Anchor Navigation Bar */}
-      <nav className="about-subnav-bar" aria-label="About Us Sections">
-        <div className="container about-subnav-container">
-          <a href="#who-we-are" className="about-subnav-link">Who We Are</a>
-          <a href="#mission-vision" className="about-subnav-link">Mission &amp; Vision</a>
-          <a href="#our-history" className="about-subnav-link">Our History</a>
-          <a href="#where-we-work" className="about-subnav-link">Where We Work</a>
-          <a href="#our-partners" className="about-subnav-link">Our Partners</a>
-        </div>
-      </nav>
 
       {/* ======================================================== */}
       {/* SECTION 1: WHO WE ARE                                   */}

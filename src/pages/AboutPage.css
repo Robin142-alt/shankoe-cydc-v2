@@ -29,45 +29,13 @@
   margin-right: auto;
 }
 
-/* Sub-Navigation Quick Jump Bar */
-.about-subnav-bar {
-  background: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
-  position: sticky;
-  top: var(--header-height-scrolled, 66px);
-  z-index: 100;
-  box-shadow: 0 4px 12px rgba(12, 35, 64, 0.04);
-}
-
-.about-subnav-container {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  overflow-x: auto;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  scrollbar-width: none;
-}
-
-.about-subnav-container::-webkit-scrollbar {
-  display: none;
-}
-
-.about-subnav-link {
-  display: inline-flex;
-  white-space: nowrap;
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: #475569;
-  text-decoration: none;
-  padding: 0.4rem 0.85rem;
-  border-radius: var(--radius-full, 9999px);
-  transition: all 0.2s ease;
-}
-
-.about-subnav-link:hover {
-  color: var(--navy-900, #0c2340);
-  background-color: #f1f5f9;
+/* Scroll margin offsets for smooth jump navigation from the main navbar */
+#who-we-are,
+#mission-vision,
+#our-history,
+#where-we-work,
+#our-partners {
+  scroll-margin-top: calc(var(--header-height-scrolled, 66px) + 1.25rem);
 }
 
 /* Split Grids */
