@@ -57,7 +57,7 @@ export default function HomePage({ onNavigate, onPhotoClick }) {
                   className="home-who-img" 
                 />
                 <div className="home-who-caption">
-                  <span>Shankoe Methodist Church • Safe Spaces for Children & Young People</span>
+                  <span>Shankoe CYDC • Safe Spaces for Children & Young People</span>
                 </div>
               </div>
             </div>
